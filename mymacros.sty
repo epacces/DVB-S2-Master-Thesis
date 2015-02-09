@@ -1,0 +1,17 @@
+
+
+\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+\ProvidesPackage{mymacros}
+
+\DeclareMathSymbol{\virgola}{\mathpunct}{letters}{"3B}
+\DeclareMathSymbol{\decimalcomma}{\mathord}{letters}{"3B}
+\AtBeginDocument{\iflanguage{english}{\relax}{\mathcode‘\,="8000}}
+{\catcode ‘,=\active \gdef,{\futurelet\let@token\m@thcomma}}
+\def\m@thcomma{%
+\ifx\let@token\@sptoken
+\virgola
+\else
+\decimalcomma
+\fi}
+
+\DeclareMa

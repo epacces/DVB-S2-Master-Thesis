@@ -1,0 +1,35 @@
+\chapter{Conclusions} \label{ch:Conclusions}
+
+In this thesis we have dealt with a digital communications TX section which can provide a reliable information transmission via satellite while complying with the challenging requirements on performance imposed by DVB-S2 standard.
+
+My most working contributions to the overall project of the DVB-S2 TX section developed by TAS-I have been focused specifically on
+\begin{itemize}
+\item study of the theory underlying the BCH code: Galois fields and cyclic codes theory in order to have the theoretical basis to understand the DVB-S2 code structure and analyze algorithms related to;
+\item theoretical analysis of DVB-S2 BCH code structure from which we have reach the conclusion that the DVB-S2 outer code (BCH) must be \emph{primitive} and \emph{shortened};
+\item study of the BCH encoding procedures and algorithms and its related (serial) architectures;
+\item modelling and design of a parallel BCH encoder with an high degree of parallelism in order to best match the TX Section (developed by TAS) speed requirements;
+\item development of a Berlekamp-Massey software decoder in order give a proof of the error correction capacity of the code (encoder); to this purpose we have defined specifical routines aimed to compute arithmetic tables useful in decoding and error detection computations;
+\item development of a software package (C/C++) in order to verify the functioning of architectures envisaged and give support to VLSI designers in validation of the correspondent VHDL model;
+\end{itemize}
+
+Concerning to the DVB-S2 architecture and overall TX section and thanks to the contribution of the TAS-I Algorithm \& Architectures team, this thesis has dealt with:
+\begin{itemize}
+\item identification of the strategic importance of satellite communications in some application scenarios such as Multimedia, Earth observation, radio-localization and navigation, \emph{etc.};
+\item review of novel techniques aimed at obtaining top performance by handling modulation and coding schemes jointly;
+\item assessment of the features of ACM techniques, which allow to better utilization of resources onboard while ensuring an high QoS (Quality of Service);
+\item design of the DVB-S2 Modem architecture and blocks focusing on concatenated coding (BCH-LDPC) and modulation schemes;
+\item qualitative description of LDPC encoding/decoding algorithms, and on the latter we have highlighted the importance of the BCH code to counteract against error floors affecting LDPC \emph{iterative decodings};
+\item BCH encoding procedures and algorithms and its related (serial) architectures;
+\item modelling and design of a parallel encoder with an high degree of parallelism in order to best match the TX Section (developed by TAS-I) speed requirements;
+\item selection between two possible (and functionally equivalent) BCH parallel architectures in order to work in ACM;
+\item development of a Berlekamp-Massey software decoder in order give a proof of the error correction capacity of the code (encoder); to this purpose we have defined specifical routines aimed to compute arithmetic tables useful in decoding and error detection computations;
+\item development of a software package (C/C++) in order to verify the functioning of architectures envisaged and give support to VLSI designers in validation of the correspondent VHDL model;
+\item participation to a preliminary laboratory test and validation of the TAS-I developed DVB-S2 TX section  .
+\end{itemize}
+%Before the equipment production, the work in progress will be devoted to
+%\begin{itemize}
+%\item evaluate and thus analyze BER curves by simulations
+%\item measurement and BER analysis by a commercial BER meter
+%\item compare BERs obtained by the BER meter with those theoretically expected
+%\end{itemize}
+

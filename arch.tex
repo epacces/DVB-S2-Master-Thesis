@@ -1,0 +1,196 @@
+\tikzstyle{BUS}
+ = [line width=2pt,
+      >= real tip,
+      draw]
+\tikzstyle{phan}
+  = [minimum size=\delaysize]
+\begin{signalflow}[node distance=1cm]
+\node[coordinate] (c1)  {};
+%
+%\node[coordinate] (c183) [below from=c182] {};
+%\node[coordinate] (c184) [below from=c183] {};
+%\node[coordinate] (c186) [below from=c184] {};
+%\node[coordinate] (c191) [below from=c186] {};
+%% Input Combinatorials
+\node[delay] (a1)  [right from=c1] {\(\vet b_1 \vet u\)};
+\node[delay] (a2) [below from=a1] {\(\vet b_2 \vet u\)};
+\node[phan] (a3) [below from=a2] {\(\vdots\)};
+\node[delay] (a8) [below from=a3] {\(\vet b_8 \vet u\)};
+\node[delay] (a9) [below from=a8] {\(\vet b_9 \vet u\)};
+\node[phan]  (phh) [below from=a9] {\(\vdots\)};
+\node[delay] (a183) [below from=phh] {\(\vet b_{184} \vet u\)};
+\node[delay] (a184) [below from=a183] {\(\vet b_{185} \vet u\)};
+\node[phan] (a186) [below from=a184] {\(\vdots\)};
+\node[delay] (a191) [below from=a186] {\(\vet b_{192} \vet u\)};
+%% Some coordinates
+\node[coordinate] (c2) [left from=a2] {};
+\node[coordinate] (c3) [left from=a8] {};
+\node[coordinate] (c4) [left from=a9] {};
+\node[coordinate] (c9) [below from=c4, below=2.37cm] {};
+\node[coordinate] (c182) [below from=c9,below=.63cm] {};
+\node[coordinate] (c183) [left from=a191, right=.14cm] {};
+
+\node[coordinate] (input) [left from=c9] {};
+%% First XORs stage
+\node[adder]  (x1) [right from=a1, left=0cm] {};
+\node[adder]  (x2) [right from=a2,left=0cm] {};
+\node[adder]  (x8) [right from=a8,left=0cm] {};
+\node[adder]  (x9) [right from=a9,left=0cm] {};
+\node[adder]  (x183) [right from=a183,left=0cm] {};
+\node[adder]  (x184) [right from=a184,left=0cm] {};
+\node[adder]  (x191) [right from=a191,left=0cm] {};
+%% Feedbacks
+\node[input]  (i1) at (x1) [above= .65cm,label=right:{\(y_0\)}] {};
+\node[input]  (i2) at (x2) [above= .65cm,label=right:{\(y_1\)}] {};
+\node[input]  (i8) at (x8) [above= .65cm,label=right:{\(y_7\)}] {};
+\node[input]  (i9) at (x9) [above= .65cm,label=right:{\(y_8\)}] {};
+\node[input]  (i183) at (x183) [above= .65cm,label=right:{\(y_{183}\)}] {};
+\node[input]  (i184) at (x184) [above= .65cm,label=right:{\(y_{184}\)}] {};
+\node[input]  (i191) at (x191) [above= .65cm,label=right:{\(y_{191}\)}] {};
+%% Register of state
+\node[delay]  (s1) [right from=x1] {\(x_0\)};
+\node[delay]  (s2) [right from=x2] {\(x_1\)};
+\node[delay]  (s8) [right from=x8] {\(x_7\)};
+\node[delay]  (s9) [right from=x9] {\(x_8\)};
+\node[phan]   (ph) [below from=s9] {\(\vdots\)};
+\node[delay]  (s183) [below from=ph] {\(x_{183}\)};
+\node[delay]  (s184) [below from=s183] {\(x_{184}\)};
+\node[phan] (sp) [below from=s184] {\(\vdots\)};
+\node[delay]  (s191) [below from=sp] {\(x_{191}\)};
+
+%% Outputs
+\node[output] (so1) [right from=s1] {};
+\node[output] (so2) [right from=s2] {};
+\node[output] (so8) [right from=s8] {};
+\node[output] (so9) [right from=s9] {};
+\node[output] (so183) [right from=s183, left=0cm] {};
+
+%% Bus on the right side
+%\node[coordinate] (cc184) [right from=s191] {};
+%\node[coordinate] (cc9) [above from=cc184] {};
+%\node[coordinate] (cc8) [above from=cc9] {};
+%\node[coordinate] (cc2) [above from=cc8] {};
+%\node[coordinate] (cc7) [above from=cc8] {};
+%\node[coordinate] (cc6) [above from=cc7] {};
+%\node[coordinate] (cc3) [above from=cc6] {};
+%\node[coordinate] (cc2) [above from=cc3] {};
+%\node[coordinate] (cc1) [above from=cc2] {};
+\node[coordinate] (cc191) [right from=s191, right=1cm] {};
+\node[coordinate] (cc186) [right from=s184, right=1cm] {};
+\node[coordinate] (cc183) [right from=s183, right=1cm] {};
+\node[coordinate] (cc9)   [right from=s9, right=1.15cm] {};
+\node[coordinate] (cc8)  [right from=s8, right=1.15cm] {};
+\node[coordinate] (cc2) [right from=s2, right=1.15cm] {};
+\node[coordinate] (cc1) [right from=s1, right=1.15cm] {};
+
+%% Cominatorial networks on the right side
+\node[delay] (b1) [right from=cc1] {};
+\node[delay] (b2) [right from=cc2] {};
+\node[phan] (b3)  [below from=b2] {\(\vdots\)};
+\node[delay] (b4) [right from=cc8] {};
+\node[delay] (b5) [right from=cc9] {};
+\node[delay] (b6) [right from=cc183] {};
+\node[delay] (b7) [right from=cc186] {};
+\node[delay] (b8) [right from=cc191] {};
+
+%% At the output of the above combinatorial
+\node[output] (n1) [right from=b1, label=right:{\(y_0\)}, right=1cm] {};
+\node[output] (n2) [right from=b2, label=right:{\(y_1\)}, right=1cm] {};
+\node[output] (n3) [right from=b4, label=right:{\(y_7\)}, right=1cm] {};
+\node[adder]  (n4) [right from=b5] {};
+\node[output] (n4b) [right from=n4, label=right:{\(y_8\)}]  {};
+\node[adder]  (n5) [right from=b6] {};
+\node[output] (n5b) [right from=n5, label=right:{\(y_{183}\)}]  {};
+\node[adder]  (n6) [right from=b7] {};
+\node[output] (n6b) [right from=n6, label=right:{\(y_{184}\)}]  {};
+\node[adder]  (n7) [right from=b8] {};
+\node[output] (n7b) [right from=n7, label=right:{\(y_{191}\)}]  {};
+
+\node[input]  (ii4) at (n4) [above= .65cm,label=right:{\(x_0\)}] {};
+\node[input]  (ii5) at (n5) [above= .65cm,label=right:{\(x_{175}\)}] {};
+\node[input]  (ii6) at (n6) [above= .65cm,label=right:{\(x_{176}\)}] {};
+\node[input]  (ii7) at (n7) [above= .65cm,label=right:{\(x_{183}\)}] {};
+%\node[input]  (i183) at (x183) [above= .65cm,label=right:{\(y_{183}\)}] {};
+%\node[input]  (i184) at (x184) [above= .65cm,label=right:{\(y_{184}\)}] {};
+%\node[input]  (i191) at (x191) [above= .65cm,label=right:{\(y_{191}\)}] {};
+
+%%% BUS WIRES
+\path[BUS] (c1)--(c2)--(c3)--(c4)--(c9)--(c182)--(c183)
+            (c1)--(a1)
+            (c2)--(a2)
+            (c3)--(a8)
+            (c4)--(a9)
+            (c9)--(a183)
+            (c183)--(a191)
+            (c182)--(a184);
+\path[BUS]  (cc191)--(cc183)--(cc9)--(cc8)--(cc2)--(cc1);
+
+
+%%% COMB1 to adder connections
+\path[r>]   (a1)--(x1);
+\path[r>]   (a2)--(x2);
+\path[r>]   (a8)--(x8);
+\path[r>]   (a9)--(x9);
+\path[r>]   (a183)--(x183);
+\path[r>]   (a184)--(x184);
+\path[r>]   (a191)--(x191);
+
+%%%% State register outputs
+\path[r>]   (s1)--(so1);
+\path[r>]   (s2)--(so2);
+\path[r>]   (s8)--(so8);
+\path[r>]   (s9)--(so9);
+\path[r>]   (s183)--(so183);
+
+%%% First adders stage to state ragister connections
+\path[r>]   (x1)--(s1);
+\path[r>]   (x2)--(s2);
+\path[r>]   (x8)--(s8);
+\path[r>]   (x9)--(s9);
+\path[r>]   (x183)--(s183);
+\path[r>]   (x184)--(s184);
+\path[r>]   (x191)--(s191);
+
+%% Feedback connections to the first adders stage
+\path[r>]   (i1)--(x1);
+\path[r>]   (i2)--(x2);
+\path[r>]   (i8)--(x8);
+\path[r>]   (i9)--(x9);
+\path[r>]   (i183)--(x183);
+\path[r>]   (i184)--(x184);
+\path[r>]   (i191)--(x191);
+
+%% Feedforward connection to the last adders stage
+\path[r>]   (ii4)--(n4);
+\path[r>]   (ii5)--(n5);
+\path[r>]   (ii6)--(n6);
+\path[r>]   (ii7)--(n7);
+
+%% Last 8 FFs of X to BUS
+\path[r]  (s184)--(cc186)
+          (s191)--(cc191);
+
+%%% COMB2 to out/adders connections
+\path[r>]  (b1)--(n1);
+\path[r>]  (b2)--(n2);
+\path[r>]  (b4)--(n3);
+\path[r>]  (b5)--(n4);
+\path[r>]  (b6)--(n5);
+\path[r>]  (b7)--(n6);
+\path[r>]  (b8)--(n7);
+
+%%% Last adders to output
+\path[r>]  (n4)--(n4b);
+\path[r>]  (n5)--(n5b);
+\path[r>]  (n6)--(n6b);
+\path[r>]  (n7)--(n7b);
+
+%%% Right Hand BUSES
+\path[BUS] (cc1)--(b1)
+           (cc2)--(b2)
+           (cc8)--(b4)
+           (cc9)--(b5)
+           (cc183)--(b6)
+           (cc186)--(b7)
+           (cc191)--(b8);
+\end{signalflow} 

@@ -1,0 +1,291 @@
+
+
+\chapter{Ricevitore a filtro adattato}
+Nella seguente analisi è stato preso in considerazione lo schema di trasmissione in figura \ref{fig1}
+\begin{figure}[h]\centering
+\setlength{\unitlength}{1ex}
+\begin{picture}(60,50)(0,5)
+\sffamily
+\footnotesize
+%%%%%%%% PN SOURCE %%%%%%%%%%%%%
+\begin{picture}(0,0)(2.5,-45)
+\put(0,0){\framebox(7,4){Source}}
+\put(1.5,-2){\makebox(0,0){\((b_i)\)}}
+\put(3.5,0){\vector(0,-1){10}}
+\end{picture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% BER METER %%%%%%%%%%%%%
+%\put(3.5, 42){\vector(1,0){23}}
+%\put(23.5,40){\framebox(7,4){BER }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% MODULATORE %%%%%%%%%%%%%%
+\begin{picture}(0,0)(4.5,-29)
+\put(0,0){\framebox(10,6)}
+\put(5,4){\makebox(0,0){Modulatore}}
+\put(5,2){\makebox(0,0){M-PAM}}
+\put(5,0){\vector(0,-1){13}}
+\put(3,-2){\makebox(0,0){\((a_l)\)}}
+\end{picture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% FILTRO SRRC %%%%%%%%%%%%
+\begin{picture}(0,0)(3.5,4)
+\put(0,14){\framebox(7,6)}
+\put(3.5,18){\makebox(0,0){Filtro}}
+\put(3.5,16){\makebox(0,0){SRRC}}
+\put(10,19){\makebox(0,0){\(x(t)\)}}
+\put(7,17){\vector(1,0){14}}
+\end{picture}
+%%% Canale con echi %%%%%%%
+\begin{picture}(0,0)(0,4)
+\put(17,14){\framebox(7,6){Canale}}
+\put(20.5,21.5){\makebox(0,0){\(c(t)=\sum_i{\alpha_i\delta(t-\tau_i)}\)}}
+\put(24,17){\vector(1,0){10}}
+\put(26,19){\makebox(0,0){\( c(t)\)}}
+\end{picture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Sommatore %%%%%%%%%%
+\begin{picture}(0,0)(0,4)
+\put(34,17){\circle{2}}
+\put(33,17){\line(1,0){2}}
+\put(34,16){\line(0,1){2}}
+\put(38, 18){\makebox(0,0){\(r(t)\)}}
+\end{picture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% AWGN %%%%%%%%%%%%
+\begin{picture}(0,0)(0.5,4)
+\put(30.5,24){\framebox(7,4){AWGN}}
+\put(34,24){\vector(0,-1){6}}
+\put(36,22){\makebox(0,0){\(w(t)\)}}
+\end{picture}
+\put(34,13){\vector(1,0){15}}
+%%%%%%%%% Filtro di ricezione %%%%%%%%
+\begin{picture}(0,0)(-2,4)
+\put(47,14){\framebox(7,6)}
+\put(50.5,18){\makebox(0,0){Filtro}}
+\put(50.5,16){\makebox(0,0){SRRC}}
+\put(50.5,20){\vector(0,1){7}}
+%%%%%% Label segnale %%%%%%%%%%%%%%%
+\put(48,22){\makebox(0,0){\(y(t)\)}}
+\end{picture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% Campionatore %%%%%%%%%%%%%%%
+\begin{picture}(12,11)(-1,4)
+\put(44.5,27){\framebox(12,4){Campionatore}}
+\put(50.5,31){\vector(0,1){4}}
+%%%%%% Label segnale %%%%%%%%%%%%%%%
+\put(48,33){\makebox(0,0){\((y_l)\)}}
+\end{picture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Demodulatore MPAM %%%%%%%%%
+\begin{picture}(0,0)(-33,-31)
+\put(0,0){\framebox(12,6)}
+\put(6,4){\makebox(0,0){Demodulatore}}
+\put(6,2){\makebox(0,0){M-PAM}}
+\put(6,6){\vector(0,1){10}}
+\put(4,8){\makebox(0,0){\((\hat{b}_i)\)}}
+\end{picture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{picture}
+\caption{Sistema simulato}\label{fig1}
+\end{figure}
+
+Analizzando i risultati raccolti, si noterà che il ricevitore a filtro (a impulso di Nyquist) adattato ottiene delle ottime prestazioni in assenza di echi sul canale. La presenza di questi, infatti, introduce interferenza intersimbolica poiché le repliche dei simboli trasmessi vanno a interferire con quelli successivi, provocando, nel migliore dei casi, uno spiazzamento dell'istante ottimo di campionamento, nel peggiore, un decadimento pressoché totale delle prestazioni.
+
+\section{Canale ideale}
+
+Quando il filtro di ricezione a radice di coseno rialzato è adattato al filtro di trasmissione, essendo soddisfatto il criterio di Nyquist, non si ha interferenza intersimbolica. In queste condizioni ideali, il ricevitore è ottimo: il fatto che la decisione venga presa simbolo per simbolo non ne pregiudica la correttezza poiché ogni simbolo idealmente è indipendente dall'altro.
+
+\subsection{Istante ottimo di campionamento}
+In assenza di rumore si osserva, indipendentemente dal tipo di modulazione, come mostrano le figure \ref{eye2PAM}, \ref{eye4PAM}, \ref{eye8PAM},
+che l'istante ottimo di campionamento è, a meno di un ritardo \(D\) fissato, \(t\ped 0 = 0\)
+\begin{figure} [h]\centering
+\includegraphics[scale=0.4,angle= -90]{eye2PAM.eps}
+\caption{Diagramma a occhio per la modulazione 2-PAM}\label{eye2PAM}
+\end{figure}
+\begin{figure}[h] \centering
+\includegraphics[scale=0.4,angle= -90]{eye4PAM.eps}
+\caption{Diagramma a occhio per la modulazione 4-PAM}\label{eye4PAM}
+\end{figure}
+\begin{figure} [h]\centering
+\includegraphics[scale=0.4,angle= -90]{eye8PAM.eps}
+\caption{Diagramma a occhio per la modulazione 8-PAM}\label{eye8PAM}
+\end{figure}
+
+
+\subsection{Densità spettrale di potenza al variare del \emph{roll-off}} \label{sync}
+Il filtro con fattore di decadimento \(r = 0\) corrisponde al caso di banda minima. Ora, se aumentiamo tale fattore, aumenta anche la banda (figura \ref{PSDro}), il che comporta una diminuzione dell'efficienza spettrale. Tuttavia otteniamo i seguenti vantaggi:
+\begin{enumerate}
+\item la realizzazione del filtro è meno impegnativa;
+\item i requisiti nella precisione del campionamento sono meno stringenti, come si evince dal confronto delle figure \ref{eye2PAM} e \ref{eye2PAMr99}
+\end{enumerate}
+\begin{figure}[h] \centering
+\includegraphics[scale=0.4,angle= -90]{eye2PAMr99.eps}
+\caption{Diagramma a occhio per la modulazione 2-PAM con \emph{rolloff} \(r = 0,99\)}\label{eye2PAMr99}
+\end{figure}
+\begin{figure}[h] \centering
+\includegraphics[scale=0.6]{PSDr.eps}
+\caption{Densità spettrale di potenza in uscita del trasmettitore al variare del \emph{rolloff} del filtro}\label{PSDro}
+\end{figure}
+
+\subsection{Probabilità d'errore}
+Per le modulazioni \(M\)-PAM la probabilità d'errore media\footnote{Ideale.} in funzione del rapporto \(E\ped b /N\ped 0\) vale
+\[
+P(e) = 2\frac{M-1}{M} Q\left(\sqrt{\frac{6\log_2 M}{M^2-1}\frac{E\ped b}{N\ped 0}}\right)
+\]
+Poiché, come noto, la funzione \(Q(x)\) è decrescente, la precedente espressione indica che al crescere dell'ordine \(M\) della modulazione le prestazioni in termini di BER peggiorano (figura \ref{Ber1}). Tuttavia si ha un aumento dell'efficienza spettrale, poiché per il teorema di Nyquist la banda minima occupata da un segnale \(M\)-PAM è pari a
+\[
+W = \frac{1}{2T}=\frac{R\ped b}{2\log_2 M}
+\]
+da cui risulta che l'efficienza spettrale (massima) aumenta linearmente con il numero di bit della modulazione.
+\begin{figure}[h] \centering
+\includegraphics[scale=0.6]{Ber1.eps}
+\caption{Probabilità d'errore per le modulazioni 2-PAM, 4-PAM, 8-PAM}\label{Ber1}
+\end{figure}
+
+\subsection{Mapping della costellazione 4-PAM}
+\`E intuitivo capire che la probabilità d'errore media sul bit, c.d.~BER, dipende dalla funzione \(\mu\) (\emph{mapping}) che associa i simboli alle rappresentazioni binarie. Utilizzando rappresentazioni con bassa distanza \(d\ped H\) di Hamming per le coppie d'errore più probabili, si riesce a minimizzare la \(P\ped b(e)\), quando essa è sufficientemente piccola.
+
+La \emph{codifica di Gray}, di cui è data una rappresentazione grafica in figura \ref{GrayMap}, si dimostra che rende minima la probabilità di errore media sul bit. Questo è intuitivo poiché:
+\begin{itemize}
+\item per rapporti \(E\ped b/N\ped 0\) elevati le coppie d'errore più probabili sono quelle a distanza euclidea minima.
+\item Ogni simbolo dista da quelli più vicini di un solo bit (\(d\ped H = 1\)).
+\end{itemize}
+
+\begin{figure}[h]\centering
+\setlength{\unitlength}{1ex}
+\begin{picture}(44,10)(0,0)
+\footnotesize
+\put(0,3){\vector(1,0){44}}
+\put(2,5){\makebox(0,0){\(00\)}}
+\put(2,3){\circle*{0.7}}
+\put(14,5){\makebox(0,0){\(01\)}}
+\put(14,3){\circle*{0.7}}
+\put(26,5){\makebox(0,0){\(11\)}}
+\put(26,3){\circle*{0.7}}
+\put(38,5){\makebox(0,0){\(10\)}}
+\put(38,3){\circle*{0.7}}
+\end{picture}
+\caption{\emph{Labelling} di Gray per la modulazione 4-PAM}\label{GrayMap}
+\end{figure}
+
+La figura \ref{gray} conferma quanto appena detto.
+
+\begin{figure}[h] \centering
+\includegraphics[scale=0.6]{gray.eps}
+\caption{Effetti della codifica di Gray sulla modulazione 4-PAM}\label{gray}
+\end{figure}
+
+\section{Canale con due echi}
+
+Si analizza ora l'impatto che il canale selettivo ha sulle prestazioni del ricevitore quando lo schema di modulazione è il PAM. Come già anticipato le performance tendono a peggiorare.
+
+Le ampiezze degli echi sono \(\alpha_0=\alpha_1=1\) e rimangono costanti per tutto il corso di questa seconda simulazione, mentre il \emph{delay spread} viene fatto variare. Inoltre manteniamo il fattore di decadimento del filtro di trasmissione al valore \(r = 0,22\) precedente, sì da poter meglio raffrontare le prestazioni con il caso ideale, analizzato precedentemente.
+
+\subsection{Diagrammi a occhio per diversi istanti di campionamento} \label{eye}
+
+Rispetto al caso ideale la forma dei diagrammi a occhio di tutte le costellazioni subisce delle sensibili modifiche: mentre, in alcuni casi, dalla lettura del diagramma, è possibile ancora individuare degli istanti ottimi di campionamento, in altri -- specialmente al crescere del \emph{delay spread} -- non si hanno speranze: non è possibile trovare nemmeno un istante favorevole alla decisione.
+
+Ciò fa riflettere sull'importanza che rivestono le tecniche di stima e di equalizzazione di canale, senza il cui ausilio, in condizioni nemmeno molto critiche, sarebbe molto difficile prendere delle decisioni corrette sui simboli ricevuti.
+
+Vediamo ora nei dettagli i risultati ottenuti in assenza di rumore additivo:
+\begin{description}
+\item[2-PAM] All'aumentare di \(\Delta\tau=\{2,4,6\} \)\footnote{I valori riportati sono riferiti al numero di campioni di ritardo tra una replica e la successiva.} si osserva un aumento del ritardo sull'istante ottimo di campionamento, come mostrano le figure \ref{eye2tau2},\ref{eye2tau4},\ref{eye2tau6}. Inoltre l'occhio tende, al crescere della selettività in frequenza del canale, a chiudersi.
+\item[4-PAM] In questo caso, è ancora possibile rilevare nel diagramma un occhio per \(\Delta\tau = 2\) e \(\Delta\tau = 4\) (figure \ref{eye4tau2}, \ref{eye4tau4}), ma la maggiore cardinalità dell'insieme dei simboli si ripercuote negativamente sui diagrammi a occhio. Per \(\Delta\tau = 6\) non è già più possiblile individuare un istante ottimo di campionamento (figura \ref{eye4tau6}).
+\item[8-PAM] E' possibile trovare l'istante ottimo di campionamento solo per \(\Delta\tau = 2\) (figura \ref{eye8tau2}). In tutti gli altri casi non è possibile per il ricevitore prendere delle corrette decisioni (figure \ref{eye8tau4}, \ref{eye8tau6}).
+\end{description}
+
+
+\begin{figure} \centering
+\includegraphics[scale=0.4,angle=-90]{eye2tau2.eps}
+\caption{Diagramma a occhio per la 2-PAM con \(\Delta\tau= 2\) e \(r=0,22\)}\label{eye2tau2}
+\end{figure}
+\begin{figure} \centering
+\includegraphics[scale=0.4,angle=-90]{eye2tau4.eps}
+\caption{Diagramma a occhio per la 2-PAM con \(\Delta\tau= 4\) e \(r=0,22\)}\label{eye2tau4}
+\end{figure}
+\begin{figure} \centering
+\includegraphics[scale=0.4,angle=-90]{eye2tau6.eps}
+\caption{Diagramma a occhio per la 2-PAM con \(\Delta\tau= 6\) e \(r=0,22\)}\label{eye2tau6}
+\end{figure}
+
+
+\begin{figure} \centering
+\includegraphics[scale=0.4,angle=-90]{eye4tau2.eps}
+\caption{Diagramma a occhio per la 4-PAM con \(\Delta\tau= 2\) e \(r=0,22\)}\label{eye4tau2}
+\end{figure}
+\begin{figure} \centering
+\includegraphics[scale=0.4,angle=-90]{eye4tau4.eps}
+\caption{Diagramma a occhio per la 4-PAM con \(\Delta\tau= 4\) e \(r=0,22\)}\label{eye4tau4}
+\end{figure}
+\begin{figure} \centering
+\includegraphics[scale=0.4,angle=-90]{eye4tau6.eps}
+\caption{Diagramma a occhio per la 4-PAM con \(\Delta\tau= 6\) e \(r=0,22\)}\label{eye4tau6}
+\end{figure}
+
+\begin{figure} \centering
+\includegraphics[scale=0.4,angle=-90]{eye8tau2.eps}
+\caption{Diagramma a occhio per la 8-PAM con \(\Delta\tau= 2\) e \(r=0,22\)}\label{eye8tau2}
+\end{figure}
+\begin{figure} \centering
+\includegraphics[scale=0.4,angle=-90]{eye8tau4.eps}
+\caption{Diagramma a occhio per la 8-PAM con \(\Delta\tau= 4\) e \(r=0,22\)}\label{eye8tau4}
+\end{figure}
+\begin{figure} \centering
+\includegraphics[scale=0.4,angle=-90]{eye8tau6.eps}
+\caption{Diagramma a occhio per la 8-PAM con \(\Delta\tau= 6\) e \(r=0,22\)}\label{eye8tau6}
+\end{figure}
+
+\subsection{Effetti del canale sulla densità spettrale di potenza}
+Le figura \ref{PDSds} mostra che al variare del \emph{delay spread} \(\Delta\tau\) del canale, la densità spettrale di potenza subisce un piccolo restringimento in banda.
+
+Infatti il modulo della risposta in frequenza del canale (con due echi) è:
+\[
+{|C(f)|}^2 = ({\alpha_0}^2+{\alpha_1}^2) + 2\alpha_0\alpha_1\cos(2\pi f\Delta\tau)
+\]
+E' immediato osservare che al crescere di \(\Delta\tau\) la selettività del canale in frequenza aumenta, poiché il periodo del coseno diminuisce.
+
+\begin{figure} \centering
+\includegraphics[scale=0.6]{PSDds.eps}
+\caption{Densità spettrale di potenza all'uscita del canale, in assenza di rumore additivo, per alcuni valori di \(\Delta\tau\)}\label{PDSds}
+\end{figure}
+
+\subsection{Probabilità d'errore al variare della selettività del canale} \label{error}
+Le considerazioni fatte sui diagrammi a occhio nella sezione \ref{eye}, rappresentano un utile strumento per predire la qualità della ricezione al variare dell'indice di modulazione e del \emph{delay spread} del canale. Infatti, come ben noto, l'altezza dell'occhio rappresenta il margine di rumore, mentre la larghezza dello stesso indica la sensibilità agli errori di sincronismo\footnote{Si ricordi ciò che è stato detto nella sezione \ref{sync} in merito al \emph{rolloff} del filtro di trasmissione. Nel corso di questa simulazione si è scelto \(r=0,22\)} del ricevitore.
+
+Come è possibile osservare dalle figure richiamate nella sezione \ref{eye}, a parità di indice di modulazione, il margine d'errore decresce all'aumentare della selettività del canale. A mo' di esempio, si osservi, trascurando le variazioni dell'istante ottimo di campionamento, il rimpicciolimento dell'altezza dell'occhio per la modulazione 2-PAM al crescere di \(\Delta\tau\) (figure \ref{eye2tau4}, \ref{eye2tau6}).
+
+Ovviamente, a parità di \(\Delta\tau\), l'apertura verticale dell'occhio decresce al crescere dell'indice di modulazione\footnote{Questo è vero anche quando il canale non è ideale!}. Si osservino, ad esempio, le figure \ref{eye2tau2} e \ref{eye4tau2}.
+
+Fatte queste premesse valutiamo le prestazioni del ricevitore al variare dell'indice di modulazione e della selettività del canale.
+\begin{description}
+\item[2-PAM] Per \(\Delta\tau = 4\), si ottengono le migliori prestazioni per \(t\ped{opt} = 2\) (figura \ref{2pams4}), per \(\Delta\tau = 6\) si ha  \(t\ped{opt} = 3\) (figura \ref{2pams6}). Superati questi istanti ottimi le probabilità d'errore peggiorano, in accordo con i diagrammi a occhio riportati in figura \ref{eye2tau4}, \ref{eye2tau6}.
+\item[4-PAM] Per \(\Delta\tau = 4\), si ha  \(t\ped{opt} = 2\) (figura \ref{4pams4}), come è stato già previsto nella sezione \ref{eye}. Le prestazioni comunque, anche nell'istante ottimo, sono pessime poiché il margine di rumore (figura \ref{eye4tau4}) è piccolo.
+\item[8-PAM] Le prestazioni, in accordo con le previsioni e le premesse fatte, sono pessime e rimangono pressoché inalterate al variare dell'istante di campionamento prescelto. Si osservino le figure \ref{8pams4}, \ref{8pams6}.
+\end{description}
+
+\begin{figure} \centering
+\includegraphics[scale=0.6]{2pams4.eps}
+\caption{Probabilità d'errore al variare dell'istante \(t_0\) di decisione (\(\Delta\tau = 4\))}\label{2pams4}
+\end{figure}
+\begin{figure} \centering
+\includegraphics[scale=0.6]{2pams6.eps}
+\caption{Probabilità d'errore al variare dell'istante \(t_0\) di decisione (\(\Delta\tau = 6\))}\label{2pams6}
+\end{figure}
+
+\begin{figure} \centering
+\includegraphics[scale=0.6]{4pams4.eps}
+\caption{Probabilità d'errore al variare dell'istante \(t_0\) di decisione (\(\Delta\tau = 4\))}\label{4pams4}
+\end{figure}
+\begin{figure} \centering
+\includegraphics[scale=0.6]{4pams6.eps}
+\caption{Probabilità d'errore al variare dell'istante \(t_0\) di decisione (\(\Delta\tau = 6\))}\label{4pams6}
+\end{figure}
+
+\begin{figure} \centering
+\includegraphics[scale=0.6]{8pams4.eps}
+\caption{Probabilità d'errore al variare dell'istante \(t_0\) di decisione (\(\Delta\tau = 4\))}\label{8pams4}
+\end{figure}
+\begin{figure} \centering
+\includegraphics[scale=0.6]{8pams6.eps}
+\caption{Probabilità d'errore al variare dell'istante \(t_0\) di decisione (\(\Delta\tau = 6\))}\label{8pams6}
+\end{figure} 

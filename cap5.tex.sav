@@ -1,0 +1,213 @@
+\chapter{Software Package for VHDL Validation}
+
+
+
+
+
+%Goal of this Chapter is to show results provided by simulations aimed at verifying the good functioning of algorithms and architecture proposed. At a first stage, it will be proved that encoder makes its work encoding any bitstream in a proper way through a ; at a second stage,
+
+
+\section{Software Implementation of Serial Encoder}
+
+In this section we shall describe some possible software implementations of the two kind of architectures illustrated in \secref{sec:SArch}. Recall that only one of this is merely serial since the other, which computes parity bits in \(n\ped{bch}\) clock ticks, needs of a parallel fetching of the encoding result and a reset of the registers at the end of each computation cycle\footnote{Clearly, in software, this distinction is not so strict}.
+
+First software implementation shown below emulates the serial architecture depicted in \figref{fig:SerEnc} (\secref{sec:SArch}). For the first \(k\) clock ticks informative bits outcomes while the feedback is enabled. From \(k\) to \(n\) instead, the feedback wire is disabled and then all the parity bits ready to be fetched are carried (serially) at the output while zeros are going to be stored into each stage of the shift register, thus resetting the register. This is certainly an advantage with respect to architecture depicted in \figref{fig:PolyDiv} which requires a parallel fetching of the parity bits together with, in turn, a reset of the shift register.
+
+To emulate this two different behaviors of encoder, a integer \texttt{encStep} counter has been employed. It follows a useful description of the used variable
+\begin{itemize}
+\item \texttt{ticks} is a function parameter and refers to the numbers of iteration/clock-ticks which have to be simulated; \texttt{m[], out[]}, other ones function parameters, are vector relevant to input and output. The function \texttt{Run} reads from \texttt{m[]} and write in turn the result of \texttt{ticks} computation cycles.
+\item Vector of integer \texttt{state[]} represent the values contained in each register of the encoder.
+\item \texttt{g[]} represent in vectorial form polynomial generator of the BCH code.
+\item \texttt{r} is the length of the shift register.
+\end{itemize}
+
+%\listing{serial.c}
+%\lstinputlisting[caption={[senc]BCH Serial Encoder}]{serenc.c}
+\lstinputlisting{serial.c}
+This piece of software works serially, but the user may define the number of iterations that emulator machine has to perform. Anyway this software emulator, as its more physical version, takes \(n\) clock ticks to encode a single codeword.
+
+\section{Software Implementations of Parallel Encoder}
+
+Matrices \(\vet A^8\) and \(\vet B_8\) defined in \secref{sec:Regularity} have been pre-computed via software by a Matlab routine. Useful coefficients of these matrices can be stored in local variables (software) or in LUT (hardware). Note that, as to the \(\vet A^8\) matrix, the sub-matrices \(\vet C_1\) and \(\vet C_2\) should be stored in a dedicated memory to make architecture flexible.
+
+The first software implementation refers to the slower parallel architecture which spends \(n\) clock ticks to provide codewords associated to messages. Pre-computed parts of the matrix \(\vet A^8\) relevant to each operating modes is loaded and saved in memory on the \( (n \virgola k) \) (only those provided by the standard) basis. Matrix \(\vet B_p\), already defined in \eqref{eq:Btrivial} (see also the example in \secref{sec:Regularity}), is trivial and can be not saved in memory since that form corresponds to connect the eight inputs to the first XOR stage of the architecture. In other words, the 192 combinatorial networks on the input side (depicted in \figref{fig:HWarch}) in this kind of architecture are not necessary.
+The following function is devoted to emulate combinatorial networks on the output side:
+%\begin{itemize}
+%\item Input combinatorial network acting on the eight inputs and entering each XOR gate together with the feedback wire. Function \texttt{combc(index, input)} provides the result of row by column product between matrix \(\vet B_8\) and inputs.
+%\item Feedback combinatorial network acting on the last eight values of the state register. Function \texttt{combn(index, n, regold)} implements the product row by column between \(\vet C_1 \virgola \vet C_2\) and \(x_{184}\virgola \ldots \virgola x_{191}\).
+%\end{itemize}
+\begin{itemize}
+\item Feedback combinatorial network acting on the last eight values of the state register. Function \texttt{combn(index, n, regold)} implements the product row by column between \(\vet C_1 \virgola \vet C_2\) and \(x_{184}\virgola \ldots \virgola x_{191}\).
+\end{itemize}
+
+\lstinputlisting{comb1.c}
+
+%As we shall see in the description of technology solution adopted to implement via hardware the BCH encoder, we hav
+The first part of function \texttt{BCHnclkpar(int n,int k)} is relevant to the error protection level and consequently due to state vector allocation (recall that register length can be 128, 160, 192 with respect to \(t = 8 \virgola 10 \virgola 12\) possible values). In case of mismatch with the couples \(n \virgola k\) provided by the standard for the normal FECFRAME simulation is aborted.
+The \texttt{for} cycle in the center part of the program refreshes cyclically registers of the encoder, using the above function implementing each combinatorial networks. %To prevent that combinatorial networks deal with register values relevant to the future,
+Eventually, output is formatted in the systematic form compatible with the standard requirements.
+
+\lstinputlisting{parnclk.c}
+
+
+The second implementation is connected to the faster architecture which spends \(k\) clock ticks to compute parity bits, saving, compared to the first, \(r\) clock cycles for each computation cycle. The function \texttt{combn(index, n, regold)} emulating the combinatorial networks on the output side is the same of the slower architecture according to what we said in Chapter 3 (i.e. matrix \(\vet A_8 \) cannot change).
+Therefore here we have two functions devoted to emulation of combinatorial networks:
+\begin{itemize}
+\item Input combinatorial network acting on the eight inputs and entering each XOR gate together with the feedback wire. Function \texttt{combc(index, input)} provides the result of row by column product between matrix \(\vet B_8\) and inputs.
+\item Feedback combinatorial network acting on the last eight values of the state register. Function \texttt{combn(index, n, regold)} implements the product row by column between \(\vet C_1 \virgola \vet C_2\) and \(x_{184}\virgola \ldots \virgola x_{191}\).
+\end{itemize}
+
+\lstinputlisting{comb2.c}
+
+\lstinputlisting{parkclk.c}
+
+\section{Galois Fields Tables}
+
+As said in \secref{sec:BCHdes}, the knowledge of the big field \(GF(2^{16})\) where the roots of polynomial generators are is necessary to make error detection and decoding (e.g. by Berlekamp-Massey Algorithm). Galois field associated to this BCH code can be built by using \(g_1(x)\) in \tbref{tb:BCHpoly} which is also the primitive polynomial of \(GF(2^16)\) for the reasons already expressed in \secref{sec:BCHstruct}.
+
+All the \(2^{16}-1\) elements of this field can be obtained by a LFSR (implementing the division algorithm as that depicted in \figref{fig:PolyDiv}) where each tap presence/absence corresponds to coefficients of \(g_1(x)\). This structure is also an optimal pseudo-noise source since generates maximum length pseudo sequences. The state evolution repeats at each multiple of \(2^{16}-1\) if the shift register is initialized by a unitary seed (\(0\virgola \ldots \virgola 0 \virgola 1 \)). Each primitive element can be found by trial end errors: when an initialization seed leads to have 1 at \(2^{16}-1\) clock tick then a primitive element has been found, otherwise not (see Definition A.3.2). In our simulation \(\alpha = 1\) shall be used as primitive element.
+
+\lstinputlisting{gfield.c}
+
+At each clock cycles (evolution of the shift-register state) two tables are written down: \begin{enumerate}
+\item Each \(\alpha^i\) for \(i = 1\virgola \ldots \virgola 2^{16}-2\) is stored in the \texttt{powOfAlpha[i]} vector/table.
+\item Inverse of the \texttt{powOfAlpha[i]} vector/table is saved in the vetor/table
+\texttt{indexAlpha[i]} which, given the \(\alpha^i\) value (in decimal notation), provides the correspondent exponent of primitive element \(\alpha\). In practice, this vector/table is an \(\alpha\) basis logarithm (i.e. \(\log_{\alpha}\) operator).
+\end{enumerate}
+Usefulness of these two vector/tables will be made clear in the following.
+
+\section{Decoding BCH}
+
+Algebraic decoding of a binary BCH code has the following steps:
+\begin{enumerate}
+\item Computation of syndrome (this is implemented by \texttt{errordetection} function).
+\item Determination of an \emph{error locator polynomial}, whose roots provide an indication of where the errors are. There are two ways of finding the locator polynomial: Peterson's algorithm and the Berlekamp-Massey algorithm (used in our simulations). In addition, there are techniques based on Galois-field Fourier transforms.
+\item Finding the roots of the error locator polynomial. Usually, this is done using the \emph{Chien search}, which is an exhaustive search over all elements in the field.
+\end{enumerate}
+
+\subsection{Error Detection}
+Before trying to decode a BCH codeword, a preliminary error detection must be accomplished. Parity check \eqref{eq:pchk} evaluation in the \(2t\) roots of polynomial generator provides the code syndrome
+\begin{equation} \label{eq:syndr}
+\vet S = S_1 = c(\alpha) \virgola S_2 = c(\alpha^2) \virgola \ldots \virgola S_{2t} = c(\alpha^{2t})
+\end{equation}
+If the codeword received has not been corrupted by noise, then the syndrome is null since \(g(\alpha) = g(\alpha^2) = \ldots = g(\alpha^{2t}\); otherwise it is not equals to zero and then the decoding should be accomplished to exploit redundancy introduced and try to correct errors occurred. Values in \eqref{eq:syndr} lie in \(GF(2^{16})\) and all the decoding operations have to be carried out in the Galois field where the roots are.
+
+\lstinputlisting{errdet.c}
+
+To evaluate the \(2t\) equations relevant to the syndrome, the tables/vectors pre-computed (because roots are always in \(GF(2^{16})\), given that BCH code is \emph{shortened}) are necessary to compute the \(2t\) syndromes. In fact, the function \texttt{errordetection()} takes as parameters \texttt{powOfAlpha[], indexAlpha[]} vectors. They are useful to
+\begin{itemize}
+\item compute products among elements of \(GF(2^{16}) \) expressed in exponential form (recall that each element in Galois fields can be written as any power of any primitive element), exploiting exponential properties which still hold in finite fields;
+\item find the correspondent power of the primitive element which represents, for example, the sum between two elements of GF (e.g. \( \alpha^2 + \alpha^{11}\)).
+\end{itemize}
+
+If any error is detected (i.e. \texttt{syn} is \texttt{true}) then the codeword corrupted can be corrected using the Berlekamp-Massey algorithm.
+
+\subsection{Berlekamp-Massey Algorithm}
+
+Before giving a brief description of the algorithm, let us introduce some notation and mathematical concept. Returning to \eqref{eq:syndr}, suppose that \(\vet r\), the received vector, contains \(\nu\) errors in locations \( i_1 \virgola i_2 \virgola \ldots \virgola i_{\nu}\) so that each element of \(\vet S\) can be rewritten as
+\begin{equation}
+S_j = \sum_{l =1}^{\nu} {{(\alpha^j)}^{i_l}} = \sum_{l =1}^{\nu} {{(\alpha^{i_l})}^j}
+\end{equation}
+Letting \(X_l = \alpha^{i_l}\), we obtain the following \(2t\) equations
+\begin{equation}
+S_j = \sum_{l =1}^{\nu} {{X_l}^j} \qquad j = 1\virgola 2\virgola \ldots \virgola 2t
+\end{equation}
+in the \(\nu\) unknown error locators. In principle this set of nonlinear equations could be solved by an exhaustive search, but this would be computationally expensive or intractable.
+To overcome this problem, a new polynomial is introduced, the \emph{error locator polynomial} which casts the problem in a different, and more tractable, setting.
+
+The error locator polynomial is defined as
+\begin{equation} \label{eq:elp}
+\Lambda(x) = \prod_{l = 1}^{\nu} {(1-X_lx)} = \Lambda_{\nu}x^{\nu} + \ldots +\Lambda_1x + \Lambda_0
+\end{equation}
+where \(\Lambda_0 = 1\). In practice, the roots of \eqref{eq:elp} are at the reciprocals of the error locators.
+
+It is possible to demonstrate (for this proof and further information see \cite{b:moon}) that there exist a linear feedback shift register relationship between the syndromes and the coefficients of the error locator polynomial. In practice, we can write
+\begin{equation}
+S_j = - \sum_{i = 1}^{\nu} {\Lambda_i S_{j-i}} \qquad j = \nu+1 \virgola \nu + 2 \virgola \ldots \virgola 2t
+\end{equation}
+This formula describes the output of a linear feedback shift register (LFSR) with coefficients \(\Lambda_1 \virgola  \Lambda_2 \virgola \ldots \virgola \Lambda_{\nu} \). From this point of view, the decoding problem consists of finding \(\Lambda_j\) coefficients in such a way that the LFSR generates the known sequence of syndromes \(S_1\virgola S_2\virgola \ldots \virgola S_{2t}\). 
+
+In the Berlekamp-Massey algorithm, we build the LFRS that produces the entire sequence \( \{S_1\virgola S_2\virgola \ldots \virgola S_{2t} \}\) by successively modifying an existing LFSR, if necessary to produce increasingly longer sequences. Clearly, we start with an LFRS that could produce \(S_1\). We determine if that LFRS could also produce the sequence \( \{S_1\virgola S_2\}\); if it can, then no modifications are necessary. If the sequence cannot be produced using the current LFSR configuration, we determine a new LFRS that can produce the longer sequence. Proceeding inductively in this way, we start from an LFSR capable of producing the sequence \( \{S_1\virgola S_2\virgola \ldots \virgola S_{k-1} \}\) and modify it, if necessary, so that it can also produce the sequence \( \{S_1\virgola S_2\virgola \ldots \virgola S_{k} \}\). At each stage, the modification to the LFRS are accomplished so that the LFSR is the shortest possible. By this means, after completion of the algorithm an LFSR has been found that is able to produce \( \{S_1\virgola S_2\virgola \ldots \virgola S_{2t} \}\) and its coefficients correspond to the error locator polynomial \(\Lambda(x)\) of smallest degree. 
+
+Since we build up the LFSR using information from prior computations, we need a notation to represent the \(\Lambda(x)\) used at different stages of algorithm. Let \(L_k\) denote the length of LFSR produced at stage \(k\) of the algorithm. Let 
+\begin{equation}
+\Lambda^{[k]}(x) = 1 + \Lambda_1^{[k]}x + \cdots + \Lambda_{L_k}^{[k]}x^{L_k}
+\end{equation}
+be the \emph{connection polynomial} at stage \(k\), indicating the connections for the LFSR capable of producing the output sequence \{S_1\virgola S_2\virgola \ldots \virgola S_{k} \}\). That is, 
+\begin{equation}
+S_j = - \sum_{i = 1}^{L_k} {\Lambda_i^{[k]} S_{j-i}} \qquad j = L_k+1 \virgola L_k + 2 \virgola \ldots \virgola k
+\end{equation}
+
+At some intermediate step, suppose we have a connection polynomial \(\Lambda^{[k-1]}(x)\) of length \(L_{k-1}\) that produces \( \{S_1\virgola S_2\virgola \ldots \virgola S_{k-1} \}\) for some \(k-1 < 2t\). We check if this connection polynomial also produces \(S_k\) by computing the output 
+\begin{equation}
+\hat{S_k} = - \sum_{i = 1}^{L_k-1} {\Lambda_i^{[k-1]} S_{k-i}}
+\end{equation}
+If \(\hat{S_k}\) is equal to \(S_k\), then there is no need to update the LFSR, so \(\Lambda^{[k]}(x)= \Lambda^{[k-1]}(x)\) and \(L_k=L_{k-1}\). Otherwise, there is some nonzero \emph{discrepancy} associated with \(\Lambda^{[k-1]}(x)\), 
+\begin{equation} \label{eq:discrepancy}
+d_k = S_k - \hat{S_k} = S_k + \sum_{i = 1}^{L_k-1} {\Lambda_i^{[k-1]} S_{k-i}} = 
+\sum_{i = 0}^{L_k-1} {\Lambda_i^{[k-1]} S_{k-i}}
+\end{equation}
+In this case we can update the connection polynomial using the formula 
+\begin{equation}
+\Lambda^{[k]}(x) = \Lambda^{[k-1]}(x) + A x^l \Lambda^{[m-1]}(x)
+\end{equation}
+where \(A\) is some element in the field, \(l\) is an integer, and \(\Lambda^{[m-1]}(x)\) is one of the prior connection polynomials produced by our process associated with nonzero discrepancy \(d_m\). 
+Using this new connection polynomial, we compute the new discrepancy, denoted by \(d_k'\), as 
+\begin{align}
+{d_k}' &= \sum_{i = 0}^{L_k} {\Lambda_i^{[k]} S_{k-i}}\\
+     &= \sum_{i = 0}^{L_k-1} {\Lambda_i^{[k-1]} S_{k-i}} + A \sum_{i = 0}^{L_m-1} {\Lambda_i^{[m-1]} S_{k-i-l}} \label{eq:discrep2}
+\end{align}
+Now, let \(l=k-m\). Then, by comparison with the definition of the discrepancy in \eqref{eq:discrepancy}, the second summation gives 
+\begin{equation}
+A \sum_{i = 0}^{L_m-1} {\Lambda_i^{[m-1]} S_{m-i}} = A d_m
+\end{equation}
+Thus, if we choose \(A=-d_m^{-1}d_k\), then the summation in \eqref{eq:discrep2} gives 
+\begin{equation}
+{d_k}' = d_k -d_m^{-1} d_k d_m = 0
+\end{equation}
+So the new connection polynomial produces the sequence \( \{S_1\virgola S_2\virgola \ldots \virgola S_{k} \}\) with no discrepancy. We do not investigate here on how to find the shortest LFSR reproducing syndromes with no discrepancy. We assume that below algorithm could do that. For a complete treatment on LFSR length in Massey algorithm see \cite{b:moon}.
+
+Algorithm shown below use the following variables 
+\begin{itemize}
+\item Vectors/tables \texttt{pow}, \texttt{index} to simplify multiplications among the elements of the Galois field
+\item Vector \texttt{c[]}, which indicates the current connection polynomial, that is \[ c(x) = \Lambda^{[k]}(x)\]
+Vector \texttt{p[]}, which indicates a previous connection polynomial, in formula 
+\[ p(x)=\Lambda^{[m-1]}(x)\]
+\item Variable \texttt{d}, which indicates the discrepancy computed at the current time; variable \texttt{dm}, which however indicates the discrepancy computed with \(p(x)\) connection polynomial, i.e., at any previous time
+\item An auxiliary vector \texttt{T[]} to be used during the update cycle (with length change) of vector \texttt{c[]}
+\item Variable \texttt{l} represents the amount of shift in update, namely \(l = k-m\); \texttt{L} contains the current length of the LFSR
+\end{itemize}
+
+Let us start to briefly describe the set of operations carried out by the \texttt{BerlMass()} C function. After the initialization step, the following operations are accomplished: 
+\begin{enumerate}
+\item Compute discrepancy by \(S_k+ \sum{i = i}^{L} {c_i S_{k-i}}\) calculation. This computation is made by the useful pre-computed tables \texttt{pow[], index[]}, and using the ANSI C bit-wise operators. 
+\item If the result of that calculation is zero, then there is no change in polynomial and \texttt{l} turns \texttt{l+1}. If discrepancy is nonzero, then there exist two options yet:
+    \begin{itemize}
+    \item If the double of the current LFSR length is greater equal than \texttt{k}, the step counter, then \(c(x)\) is updated, but retains its length.
+    \item Else \(c(x)\) length and values change together. The non-updated \(c(x)\) is saved into \(p(x)\) and so the discrepancy associated to is stored into \texttt{dm}. The amount of shift in update turns 1.
+    \end{itemize}
+\end{enumerate}
+After \(2t\) cycles, \(c(x)\) contains the coefficients of error locator polynomial \(\Lambda(x)\). 
+\lstinputlisting{berlmass.c}
+
+
+\subsection{Chien Search}
+
+Having now the error locator, its root must be found in our field of interest (\(GF(2^{16}\)). Since the search must be accomplished in a finite field, we can examine every element of the field to determine if it is a root. Thus polynomial \(\Lambda(x)\) can be evaluated at each nonzero element of the field in succession: \(x=1 \virgola x= \alpha \virgola x = \alpha^2 \virgola \ldots \virgola x= \alpha^{2^{16}-2} \).
+
+This can be easily performed by two nested \texttt{for} cycles: the outer scans all the elements in GF, the inner evaluate the polynomial performing the above substitution and accumulating (step-by-step) in a \texttt{tmp} temporary variable its result. Clearly, if the overall result of this calculation gives 1 (in index form), then a root has been found. Supposing, for example, to have found \(\alpha^{12}\) as root. Its inversion can be easily accomplished using some elementary properties of finite fields: expression \(\alpha^{-12}\) can be thought as \(\alpha^{-12}\alpha^{2^{16}-1} = \alpha^{2^{16}-13}\).
+
+If the roots founded are distinct and all lie in the reference field, then we use these to determine the error locations. If they are not distinct or lie in the wrong field, then the received word is not within distance \(t\) of any codeword. The correspondent error pattern is said to be an uncorrectable error pattern. An uncorrectable error pattern results in a decoder failure.
+
+\section{Software Robustness and Validation}
+
+The first proof of software functioning consists in a set of simulations to validate the package developed in C programming language and thus support VHDL designers in synthesization of the BCH encoder architecture. To this latter specific purpose, it was convenient setting up a package which can be used to simulate not only the correct functioning of the envisaged parallel encoder but, above all, his capacity of correcting \(t\) errors on a operating mode basis.
+
+This has been accomplished interconnecting each block of an ideal communication chain composed, in order, by:
+\begin{description}
+\item[A Pseudo-Noise Source:] a LFSR with optimum taps, i.e., capable of generate sequences of maximum period;
+\item[An Error Pattern Generator:] without any loss of generality, the macro-block channel plus modem has been substituted by a pseudo-random error pattern generator. It generates an IID (Independent Identically Distributed) stochastic process whose samples, representing the errors occurred during the frame transmission, are distributed as an uniform p.d.f. In practice, we shall simulate an hard detection/corretion of errors.
+\item[An Error Detection Block and Syndrome Calculator:] this block have the simple task of computing syndromes associated to a received codeword. Clearly, if any error is occurred then the codeword must be processed by decoder to try correcting errors. Otherwise, no codewords are needed being corrected.
+\item[A Berlekamp Massey Decoder:] when the number of errors is less or equal to \(t\), Berlekamp Massey algorithm and, in turn, the Chien search of roots can correct the errors occurred during transmissions; in the other cases the decoder state its failure in decoding.
+\end{description}
+

@@ -1,0 +1,13 @@
+\chapter{Conclusioni}
+
+In this thesis we have dealt with a digital communications system via satellite which can provide a reliable information transmission while complying the strict requirements on performance imposed by DVB-S2 standard. 
+
+More specifically we have deal with:
+\begin{itemize}
+\item strategic importance of satellite communications in some application scenarios such as Multimedia, Earth observation, radio-localization and navigation, \emph{etc.};
+\item novel techniques aimed at obtaining top performance by handling modulation and coding schemes jointly;
+\item features of ACM techniques, which allow to better utilization of resources onboard while ensuring an high QoS (Quality of Service);
+\item DVB-S2 Modem architecture and blocks focusing on concatenated coding (BCH-LDPC) and modulation schemes;
+\item theoretical analysis of DVB-S2 BCH code structure from which we have reach the conclusion that the DVB-S2 outer code (BCH) must be \emph{primitive} and \emph{shortened};
+\item \emph{iterative decoding} algorithms and their performance degradation at high SNR; LDPC 
+\end{itemize}

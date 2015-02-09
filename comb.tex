@@ -1,0 +1,99 @@
+
+\tikzstyle{8XOR}=[draw, minimum height=9cm, text centered,					
+                  inner sep= 0pt, text width= 4em, minimum width= 3cm]
+
+\begin{figure}
+\begin{signalflow}[]
+\node[input] (i1) {\(x_{184}\)};
+\node[input] (i2) [below from=i1] {\(x_{185}\)};
+\node[input] (i3) [below from=i2] {\(x_{186}\)};
+\node[input] (i4) [below from=i3] {\(x_{187}\)};
+\node[input] (i5) [below from=i4] {\(x_{188}\)};
+\node[input] (i6) [below from=i5] {\(x_{189}\)};
+\node[input] (i7) [below from=i6] {\(x_{190}\)};
+\node[input] (i8) [below from=i7] {\(x_{191}\)};
+\node[multiplier] (m1) [right from= i1,label=above:\(a_{j\virgola 184}\)] {};
+\node[multiplier] (m2) [right from= i2,label=above:\(a_{j\virgola 185}\)] {};
+\node[multiplier] (m3) [right from= i3,label=above:\(a_{j\virgola 186}\)] {};
+\node[multiplier] (m4) [right from= i4,label=above:\(a_{j\virgola 187}\)] {};
+\node[multiplier] (m5) [right from= i5,label=above:\(a_{j\virgola 188}\)] {};
+\node[multiplier] (m6) [right from= i6,label=above:\(a_{j\virgola 189}\)] {};
+\node[multiplier] (m7) [right from= i7,label=above:\(a_{j\virgola 190}\)] {};
+\node[multiplier] (m8) [right from= i8,label=above:\(a_{j\virgola 191}\)] {};
+\node[8XOR] (8XOR) [right from=m4] {\Huge XOR};
+\node[coordinate] (c1) [right from=8XOR] {};
+\node[adder] (a1) [right from=c1] {};
+\node[input] (x) [above from=a1, label=above:{\(x_{j-8}(i)\) for \(j \geq 8\)}] {};
+\node[output] (out) [right from=a1, label=right:{\(y_j(i)\)}] {};
+% signal path
+\path[r>] (i1)--(m1);
+\path[r>] (i2)--(m2);
+\path[r>] (i3)--(m3);
+\path[r>] (i4)--(m4);
+\path[r>] (i5)--(m5);
+\path[r>] (i6)--(m6);
+\path[r>] (i7)--(m7);
+\path[r>] (i8)--(m8);
+\path[r>] (m1) -- +(1,0);
+\path[r>] (m2) -- +(1,0);
+\path[r>] (m3) -- +(1,0);
+\path[r>] (m4) -- +(1,0);
+\path[r>] (m5) -- +(1,0);
+\path[r>] (m6) -- +(1,0);
+\path[r>] (m7) -- +(1,0);
+\path[r>] (m8) -- +(1,0);
+\path[r] (8XOR) -- (c1);
+\path[r>] (x)--(a1);
+\path[r>] (c1)--(a1);
+\path[r>] (a1)--(out);
+\end{signalflow}
+\caption{Block scheme of the combinatorial networks acting on the last \(p\) bits of \(\vet x\). \(a_{j \virgola l}\) is the coefficient at \(j\)-th row and \(l\)-th column of \(\vet A^8\) matrix }\label{fig:COMBout}
+\end{figure}
+
+\begin{figure}
+\begin{signalflow}[]
+\node[input] (i1) {\(u(ip-1)\)};
+\node[input] (i2) [below from=i1] {\(u(ip-2)\)};
+\node[input] (i3) [below from=i2] {\(u(ip-3)\)};
+\node[input] (i4) [below from=i3] {\(u(ip-4)\)};
+\node[input] (i5) [below from=i4] {\(u(ip-5)\)};
+\node[input] (i6) [below from=i5] {\(u(ip-6)\)};
+\node[input] (i7) [below from=i6] {\(u(ip-7)\)};
+\node[input] (i8) [below from=i7] {\(u[p(i-1)]\)};
+\node[multiplier] (m1) [right from= i1,label=above:\(b_{j\virgola 0}\)] {};
+\node[multiplier] (m2) [right from= i2,label=above:\(b_{j\virgola 1}\)] {};
+\node[multiplier] (m3) [right from= i3,label=above:\(b_{j\virgola 2}\)] {};
+\node[multiplier] (m4) [right from= i4,label=above:\(b_{j\virgola 3}\)] {};
+\node[multiplier] (m5) [right from= i5,label=above:\(b_{j\virgola 4}\)] {};
+\node[multiplier] (m6) [right from= i6,label=above:\(b_{j\virgola 5}\)] {};
+\node[multiplier] (m7) [right from= i7,label=above:\(b_{j\virgola 6}\)] {};
+\node[multiplier] (m8) [right from= i8,label=above:\(b_{j\virgola 7}\)] {};
+\node[8XOR] (8XOR) [right from=m4] {\Huge XOR};
+\node[coordinate] (c1) [right from=8XOR] {};
+\node[adder] (a1) [right from=c1] {};
+\node[input] (x) [above from=a1, label=above:{\(y_{j}(i)\)}] {};
+\node[output] (out) [right from=a1, label=right:{\(x_j(i+1)\)}] {};
+% signal path
+\path[r>] (i1)--(m1);
+\path[r>] (i2)--(m2);
+\path[r>] (i3)--(m3);
+\path[r>] (i4)--(m4);
+\path[r>] (i5)--(m5);
+\path[r>] (i6)--(m6);
+\path[r>] (i7)--(m7);
+\path[r>] (i8)--(m8);
+\path[r>] (m1) -- +(1,0);
+\path[r>] (m2) -- +(1,0);
+\path[r>] (m3) -- +(1,0);
+\path[r>] (m4) -- +(1,0);
+\path[r>] (m5) -- +(1,0);
+\path[r>] (m6) -- +(1,0);
+\path[r>] (m7) -- +(1,0);
+\path[r>] (m8) -- +(1,0);
+\path[r] (8XOR) -- (c1);
+\path[r>] (x)--(a1);
+\path[r>] (c1)--(a1);
+\path[r>] (a1)--(out);
+\end{signalflow}
+\caption{Block scheme representing the combinatorial networks acting on the \(p\) bit of input. \(b_{j \virgola l}\) is the coefficient at \(j\)-th row and \(l\)-th column of the \(\vet B_8\) matrix} \label{fig:COMBin}
+\end{figure} 

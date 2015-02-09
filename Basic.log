@@ -1,0 +1,25 @@
+This is pdfTeX, Version 3.141592-1.40.4 (MiKTeX 2.6) (preloaded format=latex 2007.12.8)  17 DEC 2007 23:52
+entering extended mode
+**Basic.tex
+(Basic.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, dumylang, nohyphenation, ge
+rman, ngerman, french, loaded.
+! Undefined control sequence.
+l.3 \appendix
+             
+? 
+! Undefined control sequence.
+l.4 \chapter
+            {Galois (or Finite) Fields}
+? 
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4 \chapter{G
+              alois (or Finite) Fields}
+? 

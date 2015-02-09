@@ -1,0 +1,93 @@
+
+
+\documentclass[a4paper, 12pt, twoside]{toptesi}
+\usepackage{epsfig}
+\usepackage{amsmath, amsthm, amsfonts}
+%\usepackage{psfrag}
+\usepackage[italian]{babel}
+\usepackage[english]{babel}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{signalflowdiagram}
+\usepackage{gnuplot-lua-tikz}
+%\usepackage[urw-garamond]{mathdesign}
+\usepackage{microtype}
+\usepackage{listings}
+%\usepackage[ansinew]{inputenc}
+\usepackage{subfig}
+%\usepackage{showkeys}
+\usepackage[T1]{fontenc}
+
+
+\theoremstyle{plain}
+\newtheorem{Theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{Def}{Definition}[section]
+
+\DeclareMathSymbol{\virgola}{\mathpunct}{letters}{"3B}
+\DeclareMathSymbol{\decimalcomma}{\mathord}{letters}{"3B}
+\DeclareMathOperator{\im}{\mathrm{j\mathstrut}}
+%\DeclareMathOperator{\mod}{\mathrm{j\mathstrut}}
+\newcommand{\vet}[1]{\mathbf{#1}}
+%\newcommand{\eqref}[1]{(\ref{#1})}
+\newcommand{\figref}[1]{Figure \ref{#1}}
+\newcommand{\tbref}[1]{Table \ref{#1}}
+\newcommand{\secref}[1]{Section \ref{#1}}
+\newcommand{\bch}[2]{$\mathrm{BCH(#1\virgola #2)}$}
+\bibliographystyle{plain}
+
+\lstset{ %default parameters
+            basicstyle=\tiny,
+			language=C,
+			tabsize=2,
+            showspaces=false,
+            showstringspaces=false,
+            %frame=tb,
+            captionpos=t,
+            abovecaptionskip=2\baselineskip,
+            framexbottommargin=\baselineskip
+			}
+
+%\usepackage{fancyhdr}
+
+%\renewcommand{\chaptermark}[1]{%
+%\markboth{\MakeupperCase{\chaptername
+%\ \thechapter\#1{}}}}
+
+%\titolo{Studi di tricotetratomia applicata}
+%\sottotitolo{Cosa succede quando si spacca un capello in quattro}
+%\candidata{Maria Chiomafolta}
+%\relatore{prof.\ Piero Scapigliati}
+%\sedutadilaurea{Maggio 2006}
+
+\includeonly{%
+preliminari,%
+riassunto,%
+cap1,%
+cap2,%
+cap3,%
+cap4,%
+cap5,%
+cap6,%
+conclusioni, %
+basic,%
+bibliografy,%
+}
+
+\begin{document}
+\frontespizio
+\include{preliminari}
+\include{riassunto}
+\english
+\include{cap1}
+\include{cap2}
+\include{cap3}
+\include{cap4}
+\include{cap5}
+\include{cap6}
+\include{conclusioni}
+\appendix
+\include{basic}
+\include{bibliografy}
+\end{document} 

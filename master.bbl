@@ -1,0 +1,136 @@
+\begin{thebibliography}{10}
+
+\bibitem{b:DVBS2system}
+{A.~Morello , V.~Mignone }.
+\newblock {Il sistema DVB-S2 di seconda generazione per la trasmissione via
+  satellite a Unicast}.
+\newblock {\em {Elettronica e Telecomunicazioni}}, ({3}), {December} {2003}.
+
+\bibitem{b:Turbo}
+{Claude Berrou, Alain Glavieux, Punya Thitimajshima}.
+\newblock {Near Shannon Limit Error -- Correcting Coding and Decoding: Turbo
+  Codes}.
+\newblock {\em {IEEE}}, {1993}.
+
+\bibitem{b:Shannon}
+{Claude E.Shannon}.
+\newblock {A Mathematical Theory of Communications}.
+\newblock {\em {The Bell System Technical Journal}}, {27}:{379--423, 623--656},
+  {July, October} {1948}.
+
+\bibitem{b:mhomsearthobs}
+{D.~Giancristofaro , M.~Fonte , A.~Bernardi , I.~Martinazzo , M.~Livi ,
+  R.~Novello , A.~Ginesi , S.~Benedetto , G.~Montorsi , M.~Luise , L.~Giugno }.
+\newblock {The MHOMS 1~Gbps Modem for Future Earth Observation}.
+
+\bibitem{b:MacKay}
+{David J.C. MacKay}.
+\newblock {\em {Information Theory, Inference, and Learning Algorithms}}.
+\newblock {Cambridge University Press}, {2003}.
+
+\bibitem{b:DVBstandard}
+{European Telecommunications Standard Institute}, {650 Route des Lucioles
+  F-06921 Sophia Antipolis Cedex - FRANCE}.
+\newblock {\em {EN 302 307 v1.1.1 --- Digital Video Broadcasting (DVB); Second
+  generation framing structure, channel coding and modulation systems for
+  Broadcasting, Interactive Services, News Gathering and other broadband
+  satellite applications}}, {March} {2005}.
+
+\bibitem{b:DVBstandardTR}
+{European Telecommunications Standard Institute}, {650 Route des Lucioles
+  F-06921 Sophia Antipolis Cedex - FRANCE}.
+\newblock {\em {TR 102 376 v1.1.1 --- Digital Video Broadcasting (DVB); User
+  guidelines for the second generation system for Broadcasting, Interactive
+  Services, News Gathering and other broadband satellite applications
+  (DVB-S2)}}, {March} {2005}.
+
+\bibitem{b:ACMBiglieri}
+{Ezio Biglieri}.
+\newblock {Digital Transmission in the 21st Century: Conflating Modulation and
+  Coding}.
+\newblock {\em {IEEE Communications Magazine}}, pages {128--137}, {May} {2002}.
+
+\bibitem{b:mcwilliams}
+{F. J.~MacWilliams, N. J.~Sloane}.
+\newblock {\em {The Theory of Error-Correcting Codes}}, volume~{16}.
+\newblock {North-Holland}, {I} edition, {1977}.
+
+\bibitem{b:BICM}
+{G.Caire, G.Taricco, E.Biglieri}.
+\newblock {Bit Interleaved Coded Modulation}.
+\newblock {\em {IEEE}}, pages {1463--1466}, {1997}.
+\newblock {Research supported by European Space Agency (ESA)}.
+
+\bibitem{b:TCM}
+{Gottfried Ungerboek}.
+\newblock {Channel Coding with Multilevel/Phase Signal}.
+\newblock {\em {IEEE Transactions on Information Theory}}, ({1}):{55--67},
+  {January} {1981}.
+
+\bibitem{b:ProakisDG}
+{John G.~Proakis}.
+\newblock {\em {Digital Communications}}.
+\newblock {McGraw-Hill}, {III} edition, {1995}.
+
+\bibitem{b:UEP2}
+{Joohee Kim, Russell M. Mersereau, Yucel Altunbasak}.
+\newblock {Error-Resilient Image and Video Transmission Over the Internet Using
+  Unequal Error Protection}.
+\newblock {\em {IEEE TRANSACTIONS ON IMAGE PROCESSING}}, {12}({2}):{121--131},
+  {February} {2003}.
+
+\bibitem{b:UEP1}
+{Michael Gallant, Faouzi Kossentini}.
+\newblock {Rate-Distortion Optimized Layered Coding with Unequal Error
+  Protection for Robust Internet Video}.
+\newblock {\em {IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS FOR VIDEO
+  TECHNOLOGY}}, {11}({3}):{357--372}, {March} {2001}.
+
+\bibitem{b:moon}
+Todd~K. Moon.
+\newblock {\em {Error Correction Coding --- Mathematical Methods and
+  Algorithms}}.
+\newblock {John Wiley and Sons, Inc.}, 1\ap{th} edition, {March} {2005}.
+
+\bibitem{b:TCMpunct}
+{P.Robertson and T.Worz}.
+\newblock {Bandwidth-efficient turbo trellis-coded modulation using punctured
+  component codes}.
+\newblock {\em {IEEE J. Select. Areas Commun.}}, {16}({2}):{206--218},
+  {February} {1998}.
+
+\bibitem{b:LDPCGall}
+{Robert Gallagher}.
+\newblock {\em {Low-Density Parity-Check Codes}}.
+\newblock {Revisited Version}, {Massachussets Institute of Technology},
+  {Cambridge, Mass.}, {July} {1963}.
+
+\bibitem{b:ErrFloor}
+{Roberto Garello, Franco Chiaraluce, Paola Pierleoni, Marco Scaloni, Sergio
+  Benedetto}.
+\newblock {On Error Floor and Free Distance of Turbo Codes}.
+
+\bibitem{b:mhoms}
+{S.~Benedetto , R.~Garello , G.~Montorsi , C.~Berrou , C.~Douillard ,
+  D.~Giancristofaro , A.~Ginesi , L.~Giugno , M.~Luise }.
+\newblock {MHOMS: High Speed ACM Modem for Satellite Application}.
+\newblock {\em {IEEE Wireless Communications}}, {2005}.
+
+\bibitem{b:COSMOSKYMED}
+{S.Fagioli, A.Capuzi, R.Leonardi, G.Angino}.
+\newblock {COSMO-SKYMED: The Italian Contribution to The French-Italian
+  Inter-Governmental Agreement on Earth Observation}.
+\newblock {Customer Application Note}, {2006}.
+
+\bibitem{b:wicker}
+{Stephen B.~Wicker}.
+\newblock {\em {Error Control System for Digital Communication and Storage}}.
+\newblock {Prentice-Hall}, {1995}.
+
+\bibitem{b:LDPCRinascita}
+{Tom Richardson}.
+\newblock {The Renaissance of Gallager's Low-Density Parity-Check Codes}.
+\newblock {\em {IEEE Communications Magazine}}, pages {126--131}, {August}
+  {2003}.
+
+\end{thebibliography}

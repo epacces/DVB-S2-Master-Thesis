@@ -1,0 +1,47 @@
+
+
+\documentclass[twoside, 11pt]{toptesi}
+%\usepackage[T1]{fontenc}
+\usepackage{graphicx, epsfig}
+%\usepackage{txfonts}
+\usepackage{amsmath, amsthm}
+\usepackage{psfrag}
+\usepackage[italian]{babel}
+\usepackage{tikz}
+\usepackage{signalflowdiagram}
+\usepackage[T1]{fontenc}
+
+
+
+\bibliographystyle{plain}
+\graphicspath{{schemi/}}
+{  \theoremstyle{definition}  \newtheorem{Def}{Definition}[section]}
+
+\newtheorem{Theorem}{Theorem}[section]
+\DeclareMathSymbol{\virgola}{\mathpunct}{letters}{"3B}
+%\DeclareMathSymbol{\decimalcomma}{\mathord}{letters}{"3B}
+\newcommand{\im}{\mathrm i}
+\newcommand{\vet}[1]{\mathbf{#1}}
+%tikzstyle{add}=[circle, draw, %fill=blue!20,
+% inner sep=1pt]
+%\tikzstyle{mult}=[circle, draw,  inner sep=1pt]
+%\tikzstyle{ff} = [draw, inner sep = 1pt, minimum height=2em, minimum width=2em]
+
+\includeonly{%preliminari, %cap1, %
+cap2, %cap3, %cap4, %cap5, %AlgebraicDec,Basic,bibliografy
+}
+
+\begin{document}
+\english
+\include{preliminari}
+\include{cap1}
+\include{cap2}
+\include{cap3}
+\include{cap4}
+\include{cap5}
+\appendix
+\include{Basic}
+\include{bibliografy}
+%\include{AlgebraicDec}
+
+\end{document} 

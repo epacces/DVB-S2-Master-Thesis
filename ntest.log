@@ -1,0 +1,509 @@
+This is pdfTeX, Version 3.141592-1.40.4 (MiKTeX 2.6) (preloaded format=latex 2008.1.28)  30 JAN 2008 05:31
+entering extended mode
+**ntest.tex
+(ntest.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, german, ngerman, french, italian, loaded.
+("C:\Programmi\MiKTeX 2.6\tex\latex\koma-script\scrartcl.cls"
+Document Class: scrartcl 2007/12/24 v2.98 KOMA-Script document class (article)
+("C:\Programmi\MiKTeX 2.6\tex\latex\koma-script\scrkbase.sty"
+Package: scrkbase 2007/12/24 v2.98 KOMA-Script package (basics and keyval use)
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Programmi\MiKTeX 2.6\tex\latex\koma-script\scrlfile.sty"
+Package: scrlfile 2007/12/18 v2.98 KOMA-Script package (loading files)
+
+Package scrlfile, 2007/12/18 v2.98 KOMA-Script package (loading files)
+                  Copyright (C) Markus Kohm
+
+))
+Package scrkbase Info: You've used obsolete option `10pt'.
+(scrkbase)             \KOMAExecuteOptions{fontsize=10pt} will be
+(scrkbase)             used instead.
+(scrkbase)             You may simply replace `10pt'
+(scrkbase)             by `fontsize=10pt'.
+Class scrartcl Info: File `size10.clo' used to setup font sizes on input line 9
+10.
+ ("C:\Programmi\MiKTeX 2.6\tex\latex\base\size10.clo"
+File: size10.clo 2005/09/16 v1.4f Standard LaTeX file (size option)
+)
+("C:\Programmi\MiKTeX 2.6\tex\latex\koma-script\typearea.sty"
+Package: typearea 2007/12/24 v2.98 KOMA-Script package (type area)
+
+Package typearea, 2007/12/24 v2.98 KOMA-Script package (type area)
+                  Copyright (C) Frank Neukam, 1992-1994
+                  Copyright (C) Markus Kohm, 1994-
+
+\ta@bcor=\skip41
+\ta@div=\count79
+Package scrkbase Info: You've used obsolete option `a4paper'.
+(scrkbase)             \KOMAExecuteOptions{paper=a4} will be
+(scrkbase)             used instead.
+(scrkbase)             You may simply replace `a4paper'
+(scrkbase)             by `paper=a4'.
+\ta@hblk=\skip42
+\ta@vblk=\skip43
+\ta@temp=\skip44
+Package typearea Info: These are the values describing the layout:
+(typearea)             DIV  = 8
+(typearea)             BCOR = 0.0pt
+(typearea)             \paperwidth      = 597.50793pt
+(typearea)              \textwidth      = 373.44246pt
+(typearea)              DIV-departure   = -4/100
+(typearea)              \evensidemargin = 39.76274pt
+(typearea)              \oddsidemargin  = 39.76274pt
+(typearea)             \paperheight     = 845.04694pt
+(typearea)              \textheight     = 538.0pt
+(typearea)              \topmargin      = 0.36087pt
+(typearea)              \headheight     = 15.0pt
+(typearea)              \headsep        = 18.0pt
+(typearea)              \topskip        = 10.0pt
+(typearea)              \footskip       = 42.0pt
+(typearea)              \baselineskip   = 12.0pt
+(typearea)              on input line 906.
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\abovecaptionskip=\skip45
+\belowcaptionskip=\skip46
+\c@pti@nb@sid@b@x=\box26
+\c@figure=\count86
+\c@table=\count87
+\bibindent=\dimen102
+) ("C:\Programmi\MiKTeX 2.6\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\base\t1enc.def"
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+("C:\Programmi\MiKTeX 2.6\tex\latex\base\textcomp.sty"
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\base\ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
+)
+("C:\Programmi\MiKTeX 2.6\tex\latex\base\inputenc.sty"
+Package: inputenc 2006/05/05 v1.1b Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\unicode\utf8x.def"
+File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
+))
+("C:\Programmi\MiKTeX 2.6\tex\latex\unicode\ucs.sty"
+Package: ucs 2004/10/17 UCS: Unicode input support
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\unicode\data\uni-global.def"
+File: uni-global.def 2004/10/17 UCS: Unicode global data
+)
+\uc@secondtry=\count88
+\uc@combtoks=\toks17
+\uc@combtoksb=\toks18
+\uc@temptokena=\toks19
+)
+(gnuplot-lua-tikz.sty
+Package: gnuplot-lua-tikz 2007/09/30 (rev. 69) GNUPLOT Lua terminal style
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\frontendlayer\tikz.sty"
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\basiclayer\pgf.sty"
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\utilities\pgfrcs.sty"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\utilities\pgfutil-common.tex")
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\utilities\pgfutil-latex.def")
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\utilities\pgfrcs.code.tex"
+Package: pgfrcs 2007/06/08 v1.18 (rcs-revision 1.16)
+))
+Package: pgf 2007/01/01 v1.18 (rcs-revision 1.8)
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\basiclayer\pgfcore.sty"
+("C:\Programmi\MiKTeX 2.6\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\graphics\graphics.sty"
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Programmi\MiKTeX 2.6\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 90.
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\graphics\dvips.def"
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\systemlayer\pgfsys.sty"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\systemlayer\pgfsys.code.tex"
+Package: pgfsys 2007/06/07 v1.18 (rcs-revision 1.24)
+\pgf@x=\dimen105
+\pgf@y=\dimen106
+\pgf@xa=\dimen107
+\pgf@ya=\dimen108
+\pgf@xb=\dimen109
+\pgf@yb=\dimen110
+\pgf@xc=\dimen111
+\pgf@yc=\dimen112
+\c@pgf@counta=\count89
+\c@pgf@countb=\count90
+\c@pgf@countc=\count91
+\c@pgf@countd=\count92
+
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\systemlayer\pgf.cfg"
+File: pgf.cfg 2007/03/20  (rcs-revision 1.4)
+)
+Package pgfsys Info: Driver file for pgf: pgfsys-dvips.def on input line 846.
+
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\systemlayer\pgfsys-dvips.def"
+File: pgfsys-dvips.def 2007/05/28  (rcs-revision 1.17)
+
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\systemlayer\pgfsys-common-postscript.
+def"
+File: pgfsys-common-postscript.def 2007/06/07  (rcs-revision 1.16)
+\pgf@objectcount=\count93
+)))
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex"
+File: pgfsyssoftpath.code.tex 2007/02/19  (rcs-revision 1.5)
+) ("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex
+"
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) ("C:\Programmi\MiKTeX 2.6\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: dvips.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcore.code.tex"
+Package: pgfcore 2007/03/09 v1.18 (rcs-revision 1.5)
+
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\math\pgfmath.code.tex"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\math\pgfmathcalc.code.tex"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\math\pgfmathutil.code.tex")
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\math\pgfmathparser.code.tex"
+\pgfmath@stack=\toks20
+\c@pgfmath@parsecounta=\count94
+\c@pgfmath@parsecountb=\count95
+\c@pgfmath@parsecountc=\count96
+\pgfmath@parsex=\dimen113
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\math\pgfmathoperations.code.tex"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\math\pgfmathtrig.code.tex")
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\math\pgfmathrnd.code.tex"))
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\math\pgfmathbase.code.tex")))
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex"
+File: pgfcorepoints.code.tex 2007/04/19  (rcs-revision 1.9)
+\pgf@picminx=\dimen114
+\pgf@picmaxx=\dimen115
+\pgf@picminy=\dimen116
+\pgf@picmaxy=\dimen117
+\pgf@pathminx=\dimen118
+\pgf@pathmaxx=\dimen119
+\pgf@pathminy=\dimen120
+\pgf@pathmaxy=\dimen121
+\pgf@xx=\dimen122
+\pgf@xy=\dimen123
+\pgf@yx=\dimen124
+\pgf@yy=\dimen125
+\pgf@zx=\dimen126
+\pgf@zy=\dimen127
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcorepathconstruct.code.
+tex"
+File: pgfcorepathconstruct.code.tex 2007/06/07  (rcs-revision 1.9)
+\pgf@path@lastx=\dimen128
+\pgf@path@lasty=\dimen129
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcorepathusage.code.tex"
+File: pgfcorepathusage.code.tex 2007/03/09  (rcs-revision 1.8)
+\pgf@shorten@end@additional=\dimen130
+\pgf@shorten@start@additional=\dimen131
+) ("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex"
+File: pgfcorescopes.code.tex 2007/06/07  (rcs-revision 1.24)
+\pgfpic=\box27
+\pgf@hbox=\box28
+\pgf@layerbox@main=\box29
+\pgf@picture@serial@count=\count97
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcoregraphicstate.code.t
+ex"
+File: pgfcoregraphicstate.code.tex 2007/03/09  (rcs-revision 1.7)
+\pgflinewidth=\dimen132
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcoretransformations.cod
+e.tex"
+File: pgfcoretransformations.code.tex 2007/06/07  (rcs-revision 1.6)
+\pgf@pt@x=\dimen133
+\pgf@pt@y=\dimen134
+\pgf@pt@temp=\dimen135
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcorequick.code.tex"
+File: pgfcorequick.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcoreobjects.code.tex"
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcorepathprocessing.code
+.tex"
+File: pgfcorepathprocessing.code.tex 2007/03/09  (rcs-revision 1.6)
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex"
+File: pgfcorearrows.code.tex 2007/06/07  (rcs-revision 1.8)
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex"
+File: pgfcoreshade.code.tex 2007/03/09  (rcs-revision 1.8)
+\pgf@max=\dimen136
+\pgf@sys@shading@range@num=\count98
+)))
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\basiclayer\pgfbaseshapes.sty"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfbaseshapes.code.tex"
+Package: pgfbaseshapes 2007/06/07 v1.18 (rcs-revision 1.19)
+\pgfnodeparttextbox=\box30
+))
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\basiclayer\pgfbaseplot.sty"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfbaseplot.code.tex"
+Package: pgfbaseplot 2007/05/02 v1.18 (rcs-revision 1.7)
+\pgf@plotwrite=\write3
+))
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\basiclayer\pgfbaseimage.sty"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfbaseimage.code.tex"
+Package: pgfbaseimage 2007/05/31 v1.18 (rcs-revision 1.7)
+\pgfexternal@startupbox=\box31
+))
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\basiclayer\pgfbaselayers.sty"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfbaselayers.code.tex"
+Package: pgfbaselayers 2006/10/16 v1.18 (rcs-revision 1.5)
+))
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\basiclayer\pgfbasesnakes.sty"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfbasesnakes.code.tex"
+Package: pgfbasesnakes 2007/03/09 v1.18 (rcs-revision 1.11)
+\pgfsnakeremainingdistance=\dimen137
+\pgfsnakecompleteddistance=\dimen138
+))
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\basiclayer\pgfbasepatterns.sty"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfbasepatterns.code.tex"
+Package: pgfbasepatterns 2007/02/05 v1.18 (rcs-revision 1.10)
+)) ("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\basiclayer\pgfbasematrix.sty"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\basiclayer\pgfbasematrix.code.tex"
+Package: pgfbasematrix 2007/03/09 v1.18 (rcs-revision 1.11)
+\pgfmatrixcurrentrow=\count99
+\pgfmatrixcurrentcolumn=\count100
+\pgf@matrix@numberofcolumns=\count101
+))
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty"
+Package: pgfcomp-version-0-65 2006/10/11 v1.18 (rcs-revision 1.4)
+\pgf@nodesepstart=\dimen139
+\pgf@nodesepend=\dimen140
+)) ("C:\Programmi\MiKTeX 2.6\tex\latex\tools\calc.sty"
+Package: calc 2005/08/06 v4.2 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count102
+\calc@Bcount=\count103
+\calc@Adimen=\dimen141
+\calc@Bdimen=\dimen142
+\calc@Askip=\skip47
+\calc@Bskip=\skip48
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
+\calc@Ccount=\count104
+\calc@Cskip=\skip49
+)
+("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\utilities\pgffor.sty"
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\utilities\pgffor.code.tex"
+Package: pgffor 2006/10/16 v1.18 (rcs-revision 1.5)
+\pgffor@iter=\dimen143
+\pgffor@skip=\dimen144
+))
+("C:\Programmi\MiKTeX 2.6\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2006/11/18 v2.5f package option processing (HA)
+
+("C:\Programmi\MiKTeX 2.6\tex\generic\xkeyval\xkeyval.tex"
+\XKV@toks=\toks21
+\XKV@depth=\count105
+File: xkeyval.tex 2006/11/18 v2.5f key=value parser (HA)
+))
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\frontendlayer\tikz.code.tex"
+Package: tikz 2007/06/07 v1.18 (rcs-revision 1.87)
+
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\libraries\pgflibraryplothandlers.code
+.tex"
+File: pgflibraryplothandlers.code.tex 2007/03/09 v1.18 (rcs-revision 1.9)
+\pgf@plot@mark@count=\count106
+\pgfplotmarksize=\dimen145
+)
+\tikz@lastx=\dimen146
+\tikz@lasty=\dimen147
+\tikz@lastxsaved=\dimen148
+\tikz@lastysaved=\dimen149
+\tikzleveldistance=\dimen150
+\tikzsiblingdistance=\dimen151
+\tikz@figbox=\box32
+\tikz@tempbox=\box33
+\tikztreelevel=\count107
+\tikznumberofchildren=\count108
+\tikznumberofcurrentchild=\count109
+\tikz@fig@count=\count110
+\tikz@expandcount=\count111
+
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\libraries\pgflibrarytikztopaths.code.
+tex"
+File: pgflibrarytikztopaths.code.tex 2007/06/07 v1.18 (rcs-revision 1.7)
+))) ("C:\Programmi\MiKTeX 2.6\tex\latex\pgf\utilities\xxcolor.sty"
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count112
+\XC@countmixins=\count113
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2007/09/09 v1.5 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in pdf mode not detected.
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2006/08/21 v0.3 Provides ifxetex conditional
+)
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\libraries\pgflibrarytikzarrows.code.t
+ex"
+File: pgflibrarytikzarrows.code.tex 2006/10/11 v1.18 (rcs-revision 1.2)
+
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\libraries\pgflibraryarrows.code.tex"
+File: pgflibraryarrows.code.tex 2007/06/07 v1.18 (rcs-revision 1.7)
+))
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\libraries\pgflibrarytikzpatterns.code
+.tex"
+File: pgflibrarytikzpatterns.code.tex 2006/10/11 v1.18 (rcs-revision 1.2)
+
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\libraries\pgflibrarypatterns.code.tex
+"
+File: pgflibrarypatterns.code.tex 2007/03/09 v1.18 (rcs-revision 1.8)
+))
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\libraries\pgflibrarytikzplotmarks.cod
+e.tex"
+File: pgflibrarytikzplotmarks.code.tex 2006/10/11 v1.18 (rcs-revision 1.2)
+
+("C:\Programmi\MiKTeX 2.6\tex\generic\pgf\libraries\pgflibraryplotmarks.code.te
+x"
+File: pgflibraryplotmarks.code.tex 2007/03/09 v1.18 (rcs-revision 1.5)
+))
+\gpbasems=\skip50
+\gpbaselw=\skip51
+) (ntest.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 10.
+ ("C:\Programmi\MiKTeX 2.6\tex\latex\base\ts1cmr.fd"
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 10.
+
+("C:\Programmi\MiKTeX 2.6\tex\latex\unicode\ucsencs.def"
+File: ucsencs.def 2003/11/29 Fixes to fontencodings LGR, T3
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 81.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 81.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 81.
+ [1
+
+] (ntest.aux) ) 
+Here is how much of TeX's memory you used:
+ 10107 strings out of 95258
+ 166058 string characters out of 1184477
+ 251591 words of memory out of 1250614
+ 12901 multiletter control sequences out of 60000
+ 6991 words of font info for 22 fonts, out of 1000000 for 2000
+ 28 hyphenation exceptions out of 8191
+ 60i,7n,55p,391b,1036s stack positions out of 5000i,500n,10000p,200000b,32768s
+
+Output written on ntest.dvi (1 page, 30404 bytes).

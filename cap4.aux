@@ -1,0 +1,62 @@
+\relax 
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Hardware Implementation of BCH Encoder}{83}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{ch:BCHencImpl}{{5}{83}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}FEC Encoding Section}{83}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Block diagram of the overall FEC tx section\relax }}{84}}
+\newlabel{fig:ovrsys}{{5.1}{84}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Clock cycles required to provide each codeword for each operating mode of DVB-S2\relax }}{84}}
+\newlabel{tb:clkreq}{{5.1}{84}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Encoder Description}{85}}
+\newlabel{eq:prodotto}{{5.1}{85}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Block scheme of the combinatorial networks acting on the last \relax $p\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.} bits of \relax $\mathbf  {x}\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.}. \relax $a_{j \virgola l}\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.} is the coefficient at \relax $j\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.}-th row and \relax $l\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.}-th column of \relax $\mathbf  {A}^8\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.} matrix \relax }}{86}}
+\newlabel{fig:COMBout}{{5.2}{86}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Dealing with Each Error Protection}{86}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Block scheme representing the combinatorial networks acting on the \relax $p\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.} bit of input. \relax $b_{j \virgola l}\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.} is the coefficient at \relax $j\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.}-th row and \relax $l\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.}-th column of the \relax $\mathbf  {B}_8\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.} matrix\relax }}{87}}
+\newlabel{fig:COMBin}{{5.3}{87}}
+\newlabel{eq:BCHt12}{{5.2}{87}}
+\newlabel{eq:BCHt10}{{5.3}{87}}
+\newlabel{eq:BCHt8}{{5.4}{87}}
+\newlabel{eq:embedding}{{5.3}{88}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Interface and Parity Bits Extraction}{88}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Frequency and Memory Requirements}{89}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Architecture oriented to digital hardware implementation. Each combinatorial network on the left-hand side implements a row by column product of \relax $\mathbf  {B}_8 \mathbf  {u}\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.}. Each row of matrix \relax $\mathbf  {B}_8\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.} is indicated as \relax $\mathbf  {b}_j\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.} with \relax $0\leq j<192\relax \GenericError  {               }{LaTeX Error: Bad math environment delimiter}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type  I <command> <return>  to replace it with another command,\MessageBreak or  <return>  to continue without it.}. Each combinatorial network on the right-hand side implements a row by column sub-product in \textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:prodotto}\unskip \@@italiccorr )}}. The 8 bit bus on the input side carries message bits to be encoded.\relax }}{90}}
+\newlabel{fig:HWarch}{{5.4}{90}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Interface architecture. Parity bits are loaded into the 192 to 8 bits converter.\relax }}{91}}
+\newlabel{fig:Interface}{{5.5}{91}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces 192 to 8 bits converter architecture. Values into each FF represent the index mapping between the BCH encoder register and the interface register, used to extract and format data.\relax }}{92}}
+\newlabel{fig:Download}{{5.6}{92}}
+\@setckpt{cap4}{
+\setcounter{page}{93}
+\setcounter{equation}{7}
+\setcounter{enumi}{3}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{1}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{5}
+\setcounter{section}{5}
+\setcounter{subsection}{0}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{6}
+\setcounter{table}{1}
+\setcounter{parentequation}{7}
+\setcounter{ContinuedFloat}{0}
+\setcounter{r}{13}
+\setcounter{lstnumber}{1}
+\setcounter{KVtest}{0}
+\setcounter{subfigure}{0}
+\setcounter{subfigure@save}{2}
+\setcounter{lofdepth}{1}
+\setcounter{subtable}{0}
+\setcounter{subtable@save}{0}
+\setcounter{lotdepth}{1}
+\setcounter{Theorem}{0}
+\setcounter{Def}{0}
+\setcounter{lstlisting}{0}
+}

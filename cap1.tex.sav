@@ -1,0 +1,92 @@
+
+\chapter{Applications and Features of Satellite Communications}
+
+\section{Introduction}
+
+Satellite communications provide unique solutions for a number of communications and strategic applications that are possible only using the satellite environment. These applications are typically `nice' applications, such as:
+\begin{itemize}
+\item	Multimedia communications provided to wide geographical areas with low population density; in this case the deployment of the satellite is less expensive than the corresponding terrestrial network to provide the same service.
+\item 	Maritime communications (e.g. Inmarsat) also associated to radio-navigation systems.
+\item 	Television broadcasting: in this case, a single signal is broadcasted for a wide community of users, making more economically efficient the use of the satellite when compared to a wide network of local broadcasting stations to cover the geographical area.
+\item Earth observation and monitoring systems offering a distinctive potential for strategic (military and commercial) information gathering.
+\end{itemize}
+
+All of the above applications require from medium to high data rate communication links, which need to be implemented with the resources typical of a spacecraft. Clearly the available power, weight and antenna size, onboard, are limited: this leads to the requirement of promoting state-of-the art research in the field of modulation and coding, as well as synchronization techniques able to operate al close as possible to the ultimate limits of performances, at very low signal to noise ratios and saving as much as possible the used bandwidth, which, besides, has to be shared among various coexisting satellites as well as terrestrial applications.
+
+Hence state-of-the-art satellite communications for Earth Observation and Telecommunications (which are among the most appealing applications requiring high data rate modems) are characterized by the need for both maximum information throughput and minimum power and bandwidth consumption, requirements evidently contradictory with an inter-relation theoretically stated by the Shannon Bound. Additionally the available bandwidth, data rate and signal to noise ratio specifications vary according to each specific mission/from one mission to another. An ideal all-purpose MODEM unit, flexible for any mission application and hence commercially appealing, should have the following features:
+\begin{itemize}
+\item Flexible configurability of data rate and bandwidth allocated.
+\item High variability of signal to noise ratio of operation.
+\item Performance always at 1 dB maximum from the Shannon Capacity Bound (fixed modulation and coding quality).
+\item Efficient usage of power and hardware resources for processing.
+\end{itemize}
+Such a modem would allow having unique off-the-shelf solution, matching the needs of almost all the missions for Earth Observation and extra-high-speed telecommunications.
+
+The novel DVB-S2 modulation and coding scheme as well as the Modem for Higher Order Modulation Schemes (MOHMS) performance are so close to the Shannon Bound that they are expected to set the modulation and coding baseline for many years to come.
+
+\section{Remote Sensing and Earth Observation}
+
+Earth observation satellites have a key role to play in both the civilian and military sectors, monitoring nearly all aspects of our planet. This is the only technology capable of providing truly global coverage, particularly over the vast expanses of the oceans and sparsely populated land areas (e.g. deserts, mountains, forests, and polar regions).
+Earth observation data is being used by more than 300 research teams. Small high-tech firms, large corporations and public agencies (meteorological offices, etc.) use Earth-observation data for both operational and commercial purposes.
+
+
+
+
+
+\section{The Second Generation of Digital Video Broadcasting System}
+
+DVB-S2 is the second-generation DVB specification for broadband satellite applications, developed on the success of the first generation specifications (i.e. DVB-S for broadcasting and DVB-DSNG for satellite news gathering and contribution services), benefiting from the technological achievements of the last decade.
+
+DVB-S2 system has been designed for various broadband satellite application
+\begin{itemize}
+\item broadcasting services of Standard Definition TeleVision (SDTV) and High Definition TeleVision (HDTV);
+\item interactive applications oriented to professional or domestic services (i.e. Interactive Services including Internet Access for consumer applications);
+\item    professional service of Satellite News Gathering (SNG);
+\item    distribution of TV signals (VHF/UHF) to Earth digital transmitters;
+\item    data distribution and Internet Trunking.
+\end{itemize}
+
+The DVB-S2 standard achieves a major capacity of data transmission than the first generation systems, a total flexibility, a reasonable complexity
+\footnote{More precisely, the complexity is referred to amount of total operation to do, but it is a quantity difficult to define, since it is strongly dependent on the kind of implementation (analogical, digital oriented to hardware or software implementations) and on the selected design options.}
+of the receiver. In fact, it has been specified around three key concepts: best transmission performance, total flexibility and reasonable receiver complexity.
+
+To obtain a well balanced ratio between complexity and performance, DVB-S2 benefits from more recent developments in channel coding and modulation. Employment of these novel techniques translates in a 30 percent of capacity increase over DVB-S under the same transmission condition.
+
+To achieve the best performance, DVB-S2 is based on LDPC (Low Density Parity Check) codes, simple block codes with very limited algebraic structure, discovered by R. Gallager in 1962.
+LDPC codes have an easily parallelizable decoding algorithm which consists of simple operations such as addition, comparison and table look-up; moreover the degree of parallelism is adjustable which makes it easy to trade-off throughput and complexity.
+Their key characteristics, allowing quasi-error free operation at only 0,6 to 1,2 dB from the Shannon limit (see ), are:
+\begin{itemize}
+\item the very large LDPC code block length (64 800 bits for the normal frame, and 16 200 bits for the short frame);
+\item the large number of decoding iterations (around 50 Soft-Input-Soft-Output (SISO) iterations);
+\item the presence of a concatenated BCH outer code (without any interleaver), defined by the designers as a ``cheap insurance against unwanted error floors at high C/N ratios''.
+\end{itemize}
+
+Variable Coding and Modulation (VCM) functionalities allows different modulation and error protection levels which can be switched on a frame basis. The adoption of a return channel conveying the link conditions allows to achieve closed-loop Adaptive Coding and Modulation (ACM).
+
+High DVB-S2 flexibility allows to deal with any existing satellite transponder characteristics, with a large variety of spectrum efficiencies and associated C/N requirements. Furthermore, it is not limited to MPEG-2 video and audio source coding, but it is designed to handle a variety of audio-video and data formats including formats which the DVB Project is currently defining for future applications. Since video streaming applications are subjected to very strict time-constraints (around \(100 \unit{ms}\) for real-time applications), the major flexibility of present standard can be effectively exploited so as to employ unequal error protection techniques and differentiated service level (i.e. priority in the delivery queues). This kind of techniques are devoted to obtain, even in the worst transmission conditions, a graceful degradation of received video quality. More details about these interesting unicast IP services are in \cite{b:DVBstandard}.
+
+The DVB-S2 system has been optimized for the following broadband satellite application scenarios.
+\begin{description}
+\item[Broadcast Services (BS):] digital multi-programme Television (TV)/High
+Definition Television (HDTV) broadcasting services.
+DVB-S2 is intended to provide Direct-To-Home (DTH) services for consumer Integrated Receiver Decoder (IRD), as well as collective antenna systems (Satellite Master Antenna Television - SMATV) and cable television head-end stations.
+DVB-S2 may be considered a successor to the current DVB-S standard, and may be introduced for new services and allow for a long-term migration.
+BS services are transported in MPEG Transport Stream format. VCM may be applied on multiple transport stream to achieve a differentiated error protection for different services (TV, HDTV, audio, multimedia).
+
+\item[Interactive Services (IS):] interactive data services including internet
+access.
+DVB-S2 is intended to provide interactive services to consumer IRDs and to personal computers.
+No recommendation is included in the DVB-S and DVB-S2 standards as far as the return path is concerned.
+Therefore, interactivity can be established either via terrestrial connection through telephone lines, or via satellite.
+Data services are transported in (single or multiple) Transport Stream format or in (single or multiple) generic stream format.
+DVB-S2 can provide Constant Coding and Modulation (CCM), or ACM, where each individual satellite receiving station controls the protection mode of the traffic addressed to it.
+\item[DTVC and DSNG:] Digital TV Contribution and Satellite News Gathering.
+Digital television contribution applications by satellite consist of point-to-point or point-to-multipoint transmissions, connecting fixed or transportable uplink and receiving stations.
+Services are transported in single (or multiple) MPEG Transport Stream format.
+DVB-S2 can provide Constant Coding and Modulation (CCM), or Adaptive Coding and Modulation (ACM).
+In this latter case, a single satellite receiving station typically
+controls the protection mode of the full multiplex.
+\end{description}
+
+
+

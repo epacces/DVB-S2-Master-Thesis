@@ -1,0 +1,73 @@
+
+%% Serial Architecture (Type 2: serial fetching)
+\begin{signalflow}[node distance=10mm]%
+   % The \tikzgrid environment creates a fixed sized grid, where each
+   % node in the grid is placed using the familiar array syntax.
+   % The grid size is set using the node distance option.
+   % Tip: Use the xscale and yscale options to get different spacing in the
+   %      x and y directions.
+  \tikzgrid{
+      % building blocks
+      \node[coordinate]       (c1)  {}           &&
+      \node[node]       (n1)  {}           &&
+      \node[node]       (n2)  {}           & &
+      \node[coordinate] (c2)  {}           &
+      \node[coordinate] (c3)  {}           &
+      \node[node] (n3)        {}           & &
+      \node[node] (n4) {}                  &
+      \node[coordinate] (c4)  {}
+      \\
+        & &
+      \node[multiplier] (m1)  {$g_1$} & &
+      \node[multiplier] (m2)  {$g_2$} & & & &
+      \node[multiplier] (mn)  {$g_{r-1}$}
+      \\
+      \node[coordinate]  (a1)                 &
+      \node[delay]      (b1) {$x_0$}       &
+      \node[adder]      (a2)  {}           &
+      \node[delay]      (b2) {$x_1$}       &
+      \node[adder]      (a3)  {}           &
+      \node[delay]      (b3) {$x_2$}       &
+      \node[coordinate] (c5) {}            &
+      \node[coordinate] (c6) {}            &
+      \node[adder] (a4)  {}                &
+     \node[delay]      (br) {$x_{r-1}$}   &
+     \node[node]        (ny) {}     &
+      \node[adder]      (cr)  {}           &
+      \\ &&&&&&&&&
+      \node[input] (in) {$u(i)$}       & &
+      \node[node]  (n9) {}
+      \\ &&&&&&&&&&
+      \node[node] (n10) {}
+    }
+  % signal paths
+  % r is short hand notation for a real signal.
+  % Use c to get a complex style signal
+  \path[r>]  (in)--(n9);
+  \path[r] (c1)--(a1);
+  \path[r>] (a1)--(b1);
+  \path[r]  (br)--(cr);
+  \path[r]  (cr)--(c4);
+  \path[r>] (c4)--(n3);
+  \path[r>] (n3)--(mn);
+  \path[r>] (n3)--(c3);
+  \path[r.] (c3)--(c2);
+  \path[r>] (n2)--(n1);
+  \path[r]  (n1)--(c1);
+  \path[r>] (b3)--(c5);
+  \path[r.] (c5)--(c6);
+  \path[r>] (c6)--(a4);
+  \path[r>] (a4)--(br);
+  \path[r>] (mn)--(a4);
+  \path[r>] (c2)--(n2);
+  \path[r>] (n2)--(m2);
+  \path[r>] (n1)--(m1);
+  \path[r>] (m1)--(a2);
+  \path[r>] (m2)--(a3);
+  \path[r>] (b1)--(a2);
+  \path[r>] (a2)--(b2);
+  \path[r>] (b2)--(a3);
+  \path[r>] (a3)--(b3);
+ % \path[r>] (br)--(n7);
+%  \path[r>] (n7)--(cr);
+\end{signalflow}

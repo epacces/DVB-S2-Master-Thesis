@@ -1,0 +1,488 @@
+
+
+
+\chapter{Riassunto}
+
+\section{Applicazioni e caratteristiche delle comunicazioni satellitari}
+
+Le comunicazioni satellitari rivestono un ruolo molto importante in applicazioni che potremmo definire di nicchia o altamente strategiche quali
+
+\begin{itemize}
+\item 	La trasmissione e diffusione di dati multimediali su vaste aree geografiche a bassa densità di popolazione, dove per l'appunto è sconveniente investire in infrastrutture di reti di comunicazione.
+\item 	Le comunicazioni marittime (Inmarsat) e i sistemi di radionavigazione, questi ultimi in particolare si stanno largamente diffondendo tra i prodotti consumer (si pensi ai noti navigatori satellitari TomTom per autoveicoli).
+\item 	Diffusione della TV via satellite: è spesso economicamente più conveniente coprire una vasta area geografica attraverso satelliti piuttosto che attraverso una grossa rete di stazioni locali.
+\item 	Telerilevamento e osservazione della Terra, settore altamente strategico sia per applicazioni militari sia per applicazioni civili.
+\end{itemize}
+
+In generale tutti questi tipi d'applicazione richiedono un alto bit rate. Tuttavia le risorse a bordo dei satelliti sono preziose e limitate: questo spiega l'alto interesse da parte delle industrie a promuovere la ricerca nel campo delle modulazioni e di della codifica canale in modo da ottenere delle prestazioni il più possibile vicine a quelle limite.
+
+Le comunicazioni satellitari per l'osservazione della Terra e le Telecomunicazioni sono quindi caratterizzate dall'esigenza di ottenere un alto throughput e efficienze in banda e potenza molto alte. Inoltre la banda disponibile e requisiti sulla velocità di segnalazione e sul rapporto segnale rumore possono variare sensibilmente a seconda dell'applicazione e della specifica missione spaziale. Per questo motivo un'unità modem sufficientemente flessibile da poter essere utilizzata per un numero elevato di missioni e applicazioni dovrebbe avere le seguenti peculiarità:
+
+\begin{itemize}
+\item 	Regolazione della velocità di trasmissione e della larghezza di banda
+\item 		Prestazioni molto vicine (a un 1 dB massimo) dal limite di Shannon, rispetto al tipo di modulazione e codifica utilizzate
+\item 	Utilizzo efficiente delle risorse hardware e energetiche a bordo per l'acquisizione e l'elaborazione dei dati
+\end{itemize}
+Il sistema di modulazione e codifica adottato dal recente standard per le comunicazioni satellitari  DVB-S2, così come MOHMS, un innovativo modem ad alto ordine di modulazione e alte prestazioni sviluppato da TAS-I e finanziato dall'European Space Agency (ESA), è così vicino alle prestazioni limite (Shannon) da poter rappresentare una solida soluzione tecnologica per molti anni a venire.
+
+\subsection{Osservazione della Terra e telerilevamento}
+
+Come già accennato, i satelliti ricoprono un ruolo chiave in applicazioni (civili e militari) per cui è richiesta la copertura di vaste aree di territorio a bassa densità di popolazione (per esempio, oceani, deserti, zone polari, foreste, etc.).  La copertura di queste zone e l'alta capacità di acquisizione ed elaborazione di immagini fa sì che si possano fornire servizi quali, ad esempio, l'oceanografia, la meteorologia, la climatologia.
+
+COSMO-Sky-Med è un eccellente esempio di sistema integrato di telecomunicazione in grado scambiare dati con altri sistemi (esterni) di osservazione della Terra rispettandone le modalità e i protocolli di comunicazione. COSMO-Sky-Med (COSMO è un acronimo inglese che sta per costellazione di quattro piccoli satelliti per l'osservazione del Mediterraneo) è composto di una costellazione di quattro satelliti, operanti in banda X e equipaggiati di radar ad apertura sintetica ad alta risoluzione, disposti in orbita bassa. Thales Alenia Space (TAS) è responsabile dello sviluppo e della costruzione dell'intero sistema sia per il segmento spaziale sia per il segmento di terra.
+
+Le prestazioni di COSMO-Sky-Med sono caratterizzate da tre aspetti: il basso tempo di rivisita, il basso tempo risposta del sistema e le alte prestazioni fornite dal radar ad apertura sintetica a modalità operative multiple. Le alte prestazioni nella fase di acquisizione delle immagini sono garantite dal versatile radar ad apertura sintetica in grado di acquisire immagini in differenti modalità operative, generando quindi immagini a vari livelli di risoluzione e dimensione in modo da coprire un ampio spettro di esigenze applicative.
+
+I radar ad apertura sintetica (in inglese, Syntetic Aperture Radar) sono largamente usati nelle missioni il cui scopo è la raccolta di grossi volumi di immagini ad alta risoluzione. In questo campo Thales Alenia Spazio ricopre un ruolo importante nello sviluppo dell' X-SAR, radar ad apertura sintetica operante in banda X.  L'X-SAR è in grado di misurare circa ogni regione del Globo in qualsiasi condizione meteorologica e di luce, è in grado di penetrare la folta vegetazione, ghiaccio e sabbia in modo da poter fornire agli scienziati informazioni dettagliate sul clima e processi geologici così come sui cicli ideologici e le correnti oceaniche.
+
+Per quanto riguarda le applicazioni di COSMO-Sky-Med, la costellazione e la versatilità del SAR a modalità operative multiple consente di ottenere un'ampia varietà di immagini di differenti dimensioni e risoluzioni, con differenti livelli di accuratezza e di elaborazione, adatte pertanto ad applicazioni come il controllo e la sorveglianza di vaste zone di territorio, nonché il rilevamento di fenomeni critici. Attraverso le immagini ottenute per interferometria possono essere ottenute modelli tridimensionali e planimetrici (Digital Elevation Models) di città, costruzioni, strade, e/o rilievi topografici ad alta risoluzione.
+
+Le applicazioni bidimensionali (2D)  sono volte specialmente all'effettuazione di rilievi cartografici. Altre applicazioni possibili sono:
+\begin{itemize}
+\item 	Agricoltura
+\item 	Classificazione di zone geografiche
+\item 		Rilevamento e localizzazione di risorse geologiche come olio, gas e minerali
+\item Accurate mappe di zone urbane per stabilire l'evoluzione demografica e per la gestione della stessa (ad esempio, per mezzo dell'identificazione delle zone ad alta/bassa densità di popolazione), così come mappe di zone industriali insieme all'identificazione di costruzioni di interesse, zone aeroportuali, etc.
+\item 	Rilevamento e localizzazioni di infrastrutture di rete (gas, telefoni, strade) per la compilazione della banca dati GIS (Geographic Information System).
+\end{itemize}
+
+Altri campi di applicazione riguardano l'idrologia a il rilevamento del profilo costiero.
+Le applicazioni tridimensionali (3D) sono varie e comprendono:
+\begin{itemize}
+\item \emph{Aiuto decisionale}. Modelli tridimensionali forniscono un aiuto ai cittadini e ai sindaci nella comprensione e conoscenza del territorio e nella eventuale costruzione di una banca dati per poter effettuare delle simulazioni sulla base dei modelli acquisiti. Per esempio, tramite questo sistema si potrebbero valutare per mezzo di simulazioni l'impatto di una nuova infrastruttura sulla città.
+\item \emph{Gestione delle componenti di rischio industriale e ambientale}: simulazione, prevenzione, assistenza e assistenza \emph{post} incidente.
+    L'uso di modelli tridimensionali e planimetrici combinati a immagini ad alta risoluzione consente la simulazione di fenomeni come alluvioni, fuoco, terremoti, inquinamento atmosferico, etc.
+   % \begin{itemize}
+%    \item Prevention: preparation of intervention missions, reports of risky areas to survey, simulation of phenomena and related interventions;
+%    \item Crisis anticipation: types of risky building, communication network failure, secondary itineraries to use, 3D localization of interesting positions (e.g. helicopter landing zones);
+%    \item Post-crisis: damage evaluation, reconstruction planning.
+%    \end{itemize}
+\end{itemize}
+
+
+\subsection{La seconda generazione dello standard DVB-S}
+Sviluppato sul successo del DVB-S, il DVB-S2 è lo standard di seconda generazione per applicazioni satellitari a banda larga. Esso beneficia dei recenti progressi tecnologici ottenuti nella scorsa decade.
+Questo standard è stato progettato per svariate applicazioni a banda larga:
+\begin{itemize}
+\item Servizi diffusivi di TV a definizione standard (SDTV, Standard Definiton TeleVision) e ad alta definizione (HDTV, High Definition TeleVision)
+\item 		Applicazioni interattive per l'utenza domestica e professionale, compreso l'accesso ad Internet
+\item 	Servizi professionali di contribuzione TV ed SNG (Satellite News Gathering)
+\item 		Distribuzione di segnali TV a trasmettitori digitali terrestri VHF/UHF
+\item 	Distribuzione dati e di siti Internet (Internet trunking).
+
+\end{itemize}
+
+Sono tre i concetti chiave in base a cui lo standard DVB-S2 è stato definito: maggiore capacità trasmissiva rispetto ai sistemi di prima generazione ed in particolare al DVB-S, totale flessibilità, ragionevole complessità del ricevitore. Per ottenere il bilanciamento tra prestazioni e complessità, il DVB-S2 si avvale dei più recenti sviluppi nella codifica di canale e nella modulazione.
+
+L'adozione nel DVB-S2 di queste tecniche innovative di codifica e modulazione garantisce un aumento di capacità dell'ordine del 30\% rispetto al DVB-S nelle stesse condizioni di trasmissione, in modalità CCM (Constant Coding & Modulation), letteralmente Modulazione e Codifica Costanti), ossia con parametri di trasmissione fissi.
+
+La codifica di canale del DVB-S2 è basata sui codici LDPC (Low Density Parity Check), una famiglia di codici a blocco molto semplici, con una struttura algebrica molto limitata, scoperti da Robert Gallager  nel 1962. Questi codici hanno degli algoritmi di decodifica facilmente eseguibili in maniera parallela, consistenti in operazioni elementari come addizioni, confronti e letture da memoria. Inoltre il grado di parallelismo di questi algoritmi di codifica è facilmente modulabile, rendendo così semplice trovare il giusto compromesso tra complessità e throughput.
+
+Le caratteristiche chiave che consentono di raggiungere prestazioni a soli 0,6-1,2 dB dal limite di Shannon sono:
+\begin{itemize}
+\item 	la grande lunghezza del blocco di codifica LDPC (64800 bit per blocchi cosiddetti normali e 16200 bit per blocchi corti);
+\item 	l'elevato numero di iterazioni in decodifica (circa 50 interazioni SISO); deve essere sottolineato che la struttura di codifica mostra periodicità utilizzabili per realizzare decodificatori con alto parallelismo;
+\item 	la concatenazione con un codice esterno BCH (Bose-Chaudhuri-Hocquenghem) (senza nessun interlacciamento), definito dai progettisti come un "margine di sicurezza a basso costo contro eventuali errori residui non prevedibili ad elevati rapporti C/N" (error floor).
+\end{itemize}
+
+Nelle applicazioni punto-punto, come l'IP Unicast, il guadagno del DVB-S2 rispetto al DVB-S può essere ancora maggiore. La funzionalità ACM (Adaptive Coding & Modulation, letteralmente Modulazione e Codifica Adattative) permette infatti di variare lo schema di modulazione ed i livelli di protezione dagli errori ad ogni nuovo blocco elementare di codifica, ottimizzando il sistema di trasmissione alle condizioni di ricezione d'utente. Per informare il trasmettitore delle condizioni di ricezione del singolo utente, il sistema deve operare "ad anello chiuso", utilizzando un canale di ritorno via telefono o satellite.
+
+Il DVB-S2 è così flessibile da adattarsi a tutti i tipi di transponder satellitari esistenti, grazie ad un'ampia varietà di efficienze spettrali e rapporti segnale-rumore C/N richiesti. Inoltre, è progettato per trattare una grande varietà di formati audio-video e di dati, dall'MPEG-2 attualmente utilizzato
+negli standard DVB, a quelli che il progetto DVB sta attualmente definendo per le applicazioni future (H264 e VC9). Il sistema DVB-S2 si adatta a qualunque formato di flusso di dati in ingresso, compresi flussi digitali MPEG Transport Stream (TS), singoli o multipli, IP e ATM. Questo fa sì che anche se in futuro verranno definiti altri formati, essi potranno essere impiegati senza bisogno di modificare il sistema.
+
+Per quanto concerne i possibili scenari applicativi, il DVB-S2 è stato ottimizzato per i seguenti servizi a banda larga:
+\begin{description}
+\item[Servizi diffusivi (Broadcast Services)] Si tratta della diffusione del segnale (in formato MPEG) radiotelevisivo (HDTV, SDTV) non solo agli utenti dotati di decoder e ricevitore digitale (Integrated Receiver Decoder), ma anche a sistemi di raccolta del segnale (Satellite Master Antenna TeleVision) e a stazioni di inoltro del segnale via cavo. Da questo punto di vista il DVB-S2 può essere visto come il diretto successore del DVB-S, lo standard corrente.  La tecnica di modulazione e codifica variabile ad anello aperto (Variable Coding and Modulation, l'equivalente dell'ACM senza l'utilizzo del canale di ritorno) può essere usata in modalità di trasporto multiplo per ottenere un livello di protezione contro gli errori a seconda dei differenti servizi (TV, HDTV, audio, dati multimediali).
+
+\item["	Servizi interattivi (Interactive Services)] Il DVB-S2 è in grado di fornire servizi interattivi, tra cui l'accesso a internet, ai possessori di decoder digitali (consumer, ossia prodotti ad alta diffusione) e di personal computer. Dato che lo standard lascia piena libertà sul canale di ritorno, l'interattività potrebbe essere stabilita sia attraverso canali terrestri (utilizzando evidentemente le linee telefoniche) sia attraverso l'uso di satelliti. I dati possono essere trasportati in formato MPEG oppure in formato generico, in modalità CCM (Constant Coding and Modulation), ossia a modulazione e codifica costanti, oppure in ACM. In quest'ultimo caso ogni stazione ricevente controlla il livello di protezione dei dati ad essa indirizzati.
+%\item[DTVC and DSNG:] Digital TV Contribution and Satellite News Gathering.
+%Digital television contribution applications by satellite consist of point-to-point or point-to-multipoint transmissions, connecting fixed or transportable uplink and receiving stations.
+%Services are transported in single (or multiple) MPEG Transport Stream format.
+%DVB-S2 can provide Constant Coding and Modulation (CCM), or Adaptive Coding and Modulation (ACM).
+%In this latter case, a single satellite receiving station typically
+%controls the protection mode of the full multiplex.
+\end{description}
+
+
+\section{La sezione di trasmissione del DVB-S2: concetti e architettura}
+
+\subsection{Schemi di modulazione e codifica}
+
+In ogni sistema di comunicazione la scelta ed il progetto degli schemi di modulazione e codifica ha come finalità quella di trasmettere i dati in maniera sufficientemente affidabile per il tipo di applicazione richiesta, facendo al tempo stesso un uso efficiente delle risorse disponibili (banda, potenza, ed, in particolare nelle comunicazioni via satellite, peso ed ingombro delle apparecchiature).  Le quantità e i requisiti che vengono tipicamente valutati nella scelta di un particolare schema di modulazione e codifica sono i seguenti
+\begin{itemize}
+\item 	La probabilità d'errore (BER, Bit Error Rate), che dà un'utile indicazione su quanto sia affidabile la trasmissione di messaggi.
+\item 	L'efficienza spettrale, che misura l'efficienza di utilizzo della banda disponibile
+\item 	Il rapporto segnale rumore (SNR, Signal to Noise Ratio) necessario per raggiungere una desiderata qualità del servizio (QoS, Quality of Service) . Questo parametro indica quanto lo schema di modulazione e codifica scelto sfrutti efficientemente la potenza disponibile.
+\item	La complessità realizzativi, che rappresenta una misura del "costo" delle apparecchiature.
+\end{itemize}
+
+Nel 1948, Claude E. Shannon definisce e quantifica l'informazione, riuscendo inoltre a dimostrare che, per una qualsivoglia velocità di trasmissione minore o uguale a un cardinale parametro chiamato capacità di canale, esiste uno schema di codifica in grado di ottenere una probabilità d'errore arbitrariamente piccola, garantendo così una trasmissione completamente affidabile dei dati. Purtroppo egli nel suo teorema non dà alcuna indicazione su come poter trovare questi schemi di codifica. Shannon dimostra tuttavia che codici lunghi scelti casualmente assicurano una bassa probabilità d'errore media. Purtroppo una diretta realizzazione dei codici suddetti porta ad avere una complessità di decodifica molto alta. Dal 1948, quindi, l'impegno degli ingegneri delle telecomunicazioni si concentra sullo sviluppo di schemi realizzabili di modulazione e codifica, che si avvicinino alle prestazioni limite. Nonostante l'iniziale pessimismo, il problema viene risolto almeno per il caso di maggior interesse e importanza, il canale lineare gaussiano bianco (AWGN, Additive White Gaussian Noise).
+
+Nel 1980, poi, la migliore comprensione del significato del teorema di Shannon porta a una revisione del paradigma utilizzato sino ad allora nel campo delle modulazioni e della codifica. Queste due discipline, che prima di questo momento si sviluppavano indipendentemente, incominciano a diventare rigidamente collegate. Parallelamente, l'esigenza di ottenere alte efficienze spettrali fa aumentare la cardinalità delle modulazioni (il numero delle forma d'onda impiegate in ogni simbolo); contestualmente, vengono ideati codici a correzione d'errore ancora più efficaci. In tale contesto lavoro di Ungerboek sancisce l'arrivo dei codici TCM (Trellis Coded Modulation), rendendo chiari i vantaggi del trattare modulazione e codifica come una entità singola.
+
+Inoltre, vari schemi pubblicati in letteratura dimostrano che Turbo Codici (una tecnica di codifica introdotta nel 1993 da Claude Berrou) e TCM possono essere utilizzati con profitto congiuntamente. Tuttavia i Turbo Codici dovrebbero essere progettati ad hoc per ogni singola modulazione, una soluzione impraticabile per sistemi che adottano più costellazioni. La soluzione di questo problema prende il nome di Bit Interleaved Coding Modulation (BICM), tecnica grazie alla quale è possibile ottenere dei risultati eccellenti impiegando una singola soluzione di codifica per tutte le modulazioni previste. Questa grande flessibilità rende le BICM commercialmente appetibili per sistemi comunicazione satellitari a banda larga di tipo adattativo (Adaptive Coding Modulation, ACM) che necessitano di  un ampio ventaglio di efficienze spettrali. Appartengono alle soluzioni ACM anche lo standard ETSI DVB-S2 e la soluzione MHOMS in via di standardizzazione nel CCSDS (Consultive Committee for Space Data Systems).
+
+Il recente standard DVB-S2, successivo al già consolidato DVB-S, utilizza gran parte delle più recenti e innovative tecniche nel campo della codifica di canale e delle modulazioni congiuntamente a modulazioni ad alta cardinalità, come la 16APSK e la 32APSK. Più precisamente il DVB-S2 fornisce quattro schemi di modulazione
+\begin{itemize}
+  \item QPSK e 8-PSK, che sono tipicamente impiegati nelle applicazioni di radiodiffusione poiché hanno un inviluppo costante e quindi possono essere utilizzati agevolmente su trasponder satellitari vicini al regime di saturazione dei tipici amplificatori TWTA, Travelling Wave Tube Amplifier.
+  \item 16-APSK a 32-APSK, che possono anch'essi essere utilizzati in servizi diffusivi, tenendo presente che richiedono un maggior rapporto C/N e una maggiore complessità, poiché richiedono l'adozione di sofisticate tecniche di predistorsione delle costellazioni.
+\end{itemize}
+
+La tecnica di modulazione e codifica adattativa Adaptive Coding and Modulation (ACM) definisce una strategia innovativa per impiegare le risorse al meglio e aumentare la capacità di trasmissione dati: infatti, l'impiego di una strategia flessibile che ottimizza l'impiego delle risorse disponibili in quel determinato momento ne permette un più efficace sfruttamento; ciò in base alle condizioni di attenuazione del radiocollegamento.
+
+Il concetto di base è utilizzare un criterio di assegnazione delle risorse variabile nel tempo che tenga conto del requisito istantaneo di potenza degli utenti; infatti, in una tratta radio l'attenuazione, ad esempio, è variabile nel tempo, quindi conviene inviare un segnale più potente in condizioni di attenuazione molto elevata mentre è preferibile ridurre la potenza del segnale trasmesso quando l'attenuazione del canale è bassa; in entrambi i casi il rapporto segnale rumore al ricevitore dovrà essere maggiore o uguale di una certa soglia.
+
+In definitiva, le tecniche ACM sono indicate per i canali radiomobili, che hanno una risposta tempo variante, quindi una trasmissione adattativa permette di prevenire l'utilizzazione insufficiente della capacità di canale.
+La tecnica ACM può essere alternativa o combinata alle seguenti tecniche di mitigazione degli affievolimenti che si verificano nel canale di trasmissione.
+
+\begin{description}
+\item[	Controllo dinamico di potenza] Attraverso il controllo di potenza, il livello di segnale trasmesso varia in accordo con le fluttuazioni del canale. Questa strategia incrementa il livello massimo di potenza e nel caso di un ambiente multiutente il livello di interferenza co-canale, che può ridurre la capacità di canale se la coordinazione tra gli utenti non è permessa.
+\item[	Dimensione della costellazione adattativa] La modulazione adattativa gioca un ruolo importante perché consente l'incremento dell'efficienza di trasmissione dei dati. Il concetto consiste nel trasmettere con il tasso di informazione più elevato possibile per il livello di qualità del servizio assegnato, specificato in termini di probabilità di errore. La modulazione adattativa si ottiene usando una gerarchia di costellazioni differenti ordinate in dimensione crescente.
+\item[Rapporto di codifica adattativo] Lo schema di codifica viene cambiato in risposta allo stato del canale di trasmissione selezionando il compromesso migliore sul rapporto di codifica. A questo scopo sono particolarmente indicati i codici che consentono una codifica e decodifica adattativa senza modificare la struttura di base del codec, come quelli basati su un approccio pragmatico o "Interleaved bit modulation".
+\item[	Livello di potenza e dimensione della costellazione adattativa]La combinazione può essere impiegata su un canale diviso o condiviso da più utenti, permettendo un incremento del throughput significativo rispetto all'assenza del controllo dinamico di potenza.
+\item[Dimensione della costellazione e rapporto di codifica adattativi] La combinazione permette al sistema di scegliere la modulazione insieme al rapporto di codifica raggiungendo in modo ottimale le prestazioni richieste in termini di probabilità d'errore.
+\item[Livello di potenza e tasso di codifica adattativi] La combinazione permette di massimizzare l'efficienza spettrale garantendo un livello di potenza medio e le prestazioni richieste.
+\item[	Livello di potenza, dimensione della costellazione e tasso di codifica adattativi] Il livello di potenza, la dimensione della costellazione e il tasso di codifica possono essere adattati simultaneamente.
+\end{description}
+Se il valore di BER richiesto non è ottenibile tramite nessuna delle combinazioni, allora il sistema non trasmette dati.
+
+\subsection{Descrizione della sezione di trasmissione}
+
+Il sistema DVB-S2 è stato progettato in base a due livelli di trama del segnale:
+\begin{itemize}
+\item 		il primo, a livello fisico (PL, Physical Layer), che trasporta pochi bit di segnalazione molto protetti;
+\item 	il secondo, a livello di banda base (BB, BaseBand), che trasporta molti bit di segnalazione, per consentire la massima flessibilità di adattamento del segnale di ingresso.
+\end{itemize}
+
+Il primo livello di trama è stato progettato in modo tale da consentire di rivelare la modulazione e i parametri di codifica prima della demodulazione e della decodifica FEC e garantire la possibilità di sincronizzare il ricevitore (recupero diportante e fase, sincronizzazione di trama) in condizioni di C/N molto critiche, dettate dalle alte prestazioni del FEC.
+
+Il livello fisico del DVB-S2 è composto da sequenze regolari e periodiche di dati, denominate PLFRAME, costituenti la trama di livello fisico: all'interno di
+Uno stesso PLFRAME, lo schema di modulazione e codifica è omogeneo, ma può variare in modalità VCM (Variable Coding \& Modulation) tra PLFRAME adiacenti. Indipendentemente dall'applicazione (CCM o VCM), ogni PLFRAME è composto da:
+\begin{itemize}
+\item 	un carico utile FECFRAME di 64800 bit (FECFRAME normale) o 16200 bit (FECFRAME corto), corrispondente a un blocco codificato LDPC/BCH, generato codificando i bit d'utente secondo lo schema FEC scelto;
+\item 	l'intestazione del PLFRAME denominata PLHEADER, contenente informazioni per la sincronizzazione e la decodifica: tipo di modulazione e tasso di codifica FEC, lunghezza del FECFRAME, presenza/assenza di simboli pilota per facilitare la sincronizzazione.
+\end{itemize}
+
+L'intestazione del PLFRAME è composta sempre da 90 simboli (che usano una modulazione binaria \(\Pi/2\) BPSK ) e il carico utile da un numero intero multiplo di 90 simboli (ad esclusione dei simboli pilota).
+
+Poiché l'intestazione del PLFRAME è la prima entità ad essere decodificata dal ricevitore, non può essere protetta dal potente schema LDPC/BCH. D'altra parte esso deve poter essere ricevuto correttamente anche nelle peggiori condizioni di collegamento; si è pertanto ridotto al minimo (7) il numero di bit di segnalazione, per diminuire la perdita di efficienza globale, e per ridurre la complessità della decodifica sono stati protetti con un codice a blocco specifico con tasso di codifica molto basso 7/64, adatto per decodifica a correlazione con soft-decision. Nel caso peggiore, assumendo un FECFRAME di 64800 bit, l'efficienza del PLFRAME è 99,3\% (in assenza di simboli pilota).
+
+La trama di banda base permette invece una segnalazione più completa della configurazione trasmissiva, con indicazione della molteplicità dei flussi d'ingresso (singolo o multiplo), del tipo (generico GS, dall'inglese Generic Stream o TS, Transport Stream), e della modalità di trama, CCM o ACM. Grazie alla protezione del codice FEC LDPC/BCH e alla lunghezza dei blocchi di codifica, l'intestazione del blocco elementare della struttura di banda base, denominato BBFRAME, può contenere molti bit di segnalazione (80), senza perdere efficienza trasmissiva e neppure robustezza contro il rumore.
+
+L'intestazione BB trasporta quindi altre importanti informazioni di segnalazione come: etichetta dei flussi all'ingresso del modulatore, descrizione della posizione e delle caratteristiche dei pacchetti d'utente, indicazione della presenza di bit di riempimento (padding bits) nel BBFRAME trasmesso, segnalazione della messa in funzione di specifici strumenti (funzione di cancellazione dei pacchetti nulli (null packets), funzione di sincronizzazione del flusso di ingresso, segnalazione del coefficiente di roll-off adottato.
+
+Il sistema DVB-S2 è composto da una sequenza di blocchi funzionali.
+Il blocco identificato come Adattatore di modo e di flusso svolge funzioni legate all'applicazione. Esso fornisce l'interfaccia per il flusso di ingresso, strumenti opzionali richiesti per l'ACM (ad esempio per la sincronizzazione e la cancellazione dei pacchetti nulli nel caso di flussi di ingresso di tipo TS) e inserisce la codifica CRC (Cyclic Redundancy Check) per permettere al ricevitore di rivelare la presenza di errori nel flusso ricevuto.
+
+Oltre a ciò, nel caso di ingressi multipli, esso unisce i flussi di ingresso (Merger) per poi suddividerli (Slicer) in blocchi del codice FEC. Questi ultimi sono composti da bit presi da una sola porta di ingresso da trasmettere in modo omogeneo (stessa modulazione e codice FEC).
+Si inserisce poi l'intestazione di banda base (80 bit) davanti al Campo Dati per informare il ricevitore del formato del flusso di ingresso e del tipo di "adattamento" utilizzato. Nel caso i dati utente disponibili per la trasmissione non siano sufficienti a riempire completamente il BBFRAME, si provvederà a completarlo con bit di riempimento.
+In ultimo, nel blocco denominato "Stream Adapter" il BBFRAME viene moltiplicato per una sequenza pseudocasuale (Scrambler), che uniformemente distribuisce gli zeri e gli uno del BBFRAME, evitando la presenza di sequenze critiche per il codice FEC (DA MODIFICARE).
+Il blocco Codifica FEC effettua la codifica concatenata del codice esterno BCH e del codice interno LDPC. I rapporti di codifica del codice LDPC interno sono 1/4, 1/3, 2/5, 1/2, 3/5, 2/3, 3/4, 4/5, 5/6, 8/9, 9/10, da scegliersi congiuntamente allo schema di modulazione in base ai requisiti del sistema. I rapporti 1/4, 1/3 e 2/5 sono stati introdotti per operare in combinazione con lo schema di modulazione QPSK, per collegamenti di bassa qualità, dove il livello del segnale è al di sotto del livello di rumore. Le simulazioni al computer hanno dimostrato la superiorità di tali modalità rispetto alla modulazione BPSK combinata con velocità di codifica 1/2, 2/3 e 4/5. A seconda dell'area di applicazione i blocchi di codice FEC (FECFRAME), possono avere una lunghezza di 64800 o 16200 bit. L'introduzione di due possibili valori è stata dettata da due opposte necessità. Le prestazioni in funzione del rapporto C/N migliorano al crescere della lunghezza dei blocchi di codifica, ma aumenta anche molto il ritardo globale della catena trasmissiva. Quindi, per applicazioni non critiche per i ritardi (come ad esempio la diffusione di programmi), sono preferibili i blocchi lunghi, mentre per le applicazioni interattive un blocco più corto può essere più efficiente, in quanto un pacchetto di informazione "corto" viene immediatamente messo in onda dalla stazione trasmittente.
+La modulazione e il codice FEC sono costanti all'interno del FECFRAME, e possono cambiare in differenti FECFRAME nelle modalità VCM e ACM. Oltre a ciò il segnale trasmesso può contenere FECFRAME corti e normali. Per le modulazioni 8PSK, 16APSK e 32APSK ai bit codificati FEC
+si applica un interallacciatore di bit, per separare i bit assegnati allo stesso punto della costellazione in trasmissione.
+Il blocco Mapping associa i bit alla costellazione: QPSK, 8PSK, 16APSK o 32APSK a seconda dell'applicazione. Tipicamente, per applicazioni broadcast vengono proposte le costellazioni QPSK
+e 8PSK, poiché sono di fatto modulazioni ad inviluppo costante e possono essere usate su transponder da satellite non lineari portati vicino alla saturazione. Le modalità 16APSK e 32APSK invece sono principalmente orientate ad applicazioni professionali; possono anche essere impiegate
+per il broadcasting, ma richiedono la disponibilità di un più elevato livello di C/N al ricevitore e l'adozione di avanzati metodi di pre-distorsione nella stazione di up-link per attenuare gli effetti di nonlinearità del transponder. Sebbene non permettano efficienze di potenza analoghe agli schemi ad inviluppo costante, offrono però maggiore capacità trasmissiva.
+Il blocco di Generazione della trama PL, sincrono con i FECFRAME, gestisce l'inserzione dell'intestazione di livello fisico e dei simboli pilota opzionali (2,4 \% di perdita di capacità), di PLFRAME fittizi (Dummy Frame) in assenza di dati utili pronti per la trasmissione, e la moltiplicazione per una sequenza pseudocasuale (Scrambler) per la dispersione dell'energia.
+Il filtraggio in banda base e la modulazione in quadratura si applicano per modellare lo spettro del segnale e per generare il segnale RF. Il filtro usato in trasmissione è la radice quadrata del fi ltro
+a coseno rialzato con tre possibili coefficienti di roll-off a: 0,35 per continuità con il DVB-S, 0,25 e 0,20 per i casi in cui vi siano maggiori limitazioni di banda.
+
+
+\subsection{La codifica di canale}
+
+La FEC del DVB-S2 si basa sulla concatenazione di due codici a blocco: BCH e LDPC. Questa concatenazione è stata dettata dall'esigenza di limitare i tipici cali di pendenza della curva di probabilità d'errore ad alti rapporti segnale rumore. Tale fenomeno porta il nome di error floor e causa un appiattimento delle curve di BER dopo le regioni ripide (waterfall) a più bassi rapporti segnale rumore.
+
+I codici BCH prendono il loro nome da Bose, Ray-Chaudhury e Hocquenghem, che nel 1959 e '60 indicarono un modo di progettare codici a alfabeto binario con una specifica distanza minima. I codici BCH appartengono alla famiglia dei codici ciclici e quindi possono essere specificati da un generatore polinomiale.
+
+Il metodo di progetto di un codice BCH in grado di correggere \(t\) errori utilizza  estensivamente l'algebra dei campi finiti e la teoria dei codici ciclici, a cui sono state dedicate due appendici (l'appendice A sui campi di Galois e l'appendice B sui codici ciclici). Dalla tabella dei polinomi minimi fornita nello standard DVB-S2, in accordo con la procedura di progetto dei codici BCH, è possibile ottenere un generatore polinomiale del codice per ogni capacità correttiva prevista dalla codifica BCH esterna. Dalla teoria dei codici ciclici risulta che ogni parola di codice - risultante dal calcolo del prodotto o, come nel DVB-S2, del resto della divisione del messaggio per il generatore polinomiale del codice - deve essere un multiplo del generatore polinomiale. Infine, da alcune osservazioni sulla posizione delle radici dei polinomi forniti nello standard, risulta evidente che il codice BCH usato nel DVB-S2 deve essere primitivo. Il codice del utilizzato dal DVB-S2, essendo le radici del polinomio generatore giacenti in GF(\(2^{16}\)), deve avere la seguente lunghezza. Questo implica che il codice sia pure \emph{shortened}. Un codice è chiamato \emph{shortened} quando la potenziale lunghezza del messaggio che il codice potrebbe codificare viene troncata. Questo troncamento non ha, in linea di principio, ripercussioni negative sulle proprietà di distanza minima del codice e su alcuni algoritmi di codifica. Vale la pena ancora di osservare che in fase di codifica è sufficiente avere la sola conoscenza del polinomio generatore del codice, mentre in fase di decodifica occorre conoscere e determinare le sue radici.
+
+I codici LDPC furono scoperti da Gallager nel 1961, tuttavia ad essi è stata data importanza dopo l'invenzione dei Turbo codici e del principio della decodifica iterativa da parte di Berrou, Glavieux e Thimajshima nel 1993. Ciò ha permesso la decodifica di parole con blocchi di elevata lunghezza con complessità ragionevole, senza ricorrere ad algoritmi di decodifica a massima verosimiglianza.
+
+Nel progetto dei codici a blocchi lineari con blocchi di breve lunghezza, il problema è quello di realizzare strutture la cui distanza minima è la più elevata possibile in modo tale da ottenere una elevatà capacità in termini di rilevazione e di correzione degli errori. L'inconveniente principale dell'approccio classico è che nell' ipotesi di parole con blocchi di elevata lunghezza, trovare dei codici con elevata distanza minima è estremamente complicato.
+
+Nella codifica iterativa, i codici vengono costruiti in modo tale che le relazioni con i bit di ridondanza siano localmente semplici, mentre tali descrizioni locali del codice sono interconnesse tramite relazioni piuttosto complesse, ad esempio di tipo casuali. La decodifica iterativa calcola continuamente le semplici descrizioni elaborando iterativamente i risultati ottenuti, che vengono passati sotto forma di messaggi attraverso le complesse interconnessioni. Solitamente si adotta un grafo (Tanner Graph) per descrivere il processo di decodifica iterativa, in cui le equazioni di controllo di parità rappresentano i nodi che elaborano le informazioni e le interconnessioni rappresentano i rami che scambiano le informazioni.
+
+Il successo della decodifica iterativa rispetto alla decodifica a massima verosimiglianza che caratterizza il progetto di codici a blocchi lineari, si intuisce dall'osservazione empirica secondo la quale, nel caso di parole di codice di elevata lunghezza (almeno 1000 bit), per la nuova generazione di codici Low Density Parity Check (LDPC), la rappresentazione grafica è particolarmente sparsa e sono caratterizzati da bassa complessità ed eccellenti prestazioni in termini di probabilità di errore.
+
+I codici a blocchi lineari generici hanno approssimativamente lo stesso numero di "0" e di "1" nella matrice di controllo di parità che non è sparsa; invece, nei codici LDPC il numero di "1" è veramente piccolo rispetto al numero degli "0" e la matrice è a bassa densità di controlli di parità, cioè il grafo associato al codice è a bassa densità di rami. L'osservazione fatta è fondamentale perché la complessità degli algoritmi di decodifica iterativi dipende direttamente dalla densità dei rami del grafo, di conseguenza si è interessati a progettare di codici in cui la specifica è quella di mantenere il più possibile bassa tale densità.
+
+Gallager ha dimostrato negli anni '60 che una volta definite le prestazioni dei codici LDPC in termini di guadagno di codifica, cioè definita la distanza d dalla capacità di canale per una data probabilità di errore, è possibile stabilire il numero di controlli di parità necessari. Naturalmente, quanto più le prestazioni tendono al limite fisico di Shannon sulla capacità di canale, tanto più è richiesta una loro crescita. Inoltre l'andamento della complessità di decodifica è in netto contrasto con gli schemi di decodifica a massima verosimiglianza che soffrono di una crescita esponenziale della complessità quando si trasmette prossimi alla capacità di canale.
+
+L'osservazione fatta spiega la ragione per la quale la decodifica iterativa, rispetto alla decodifica a massima verosimiglianza è più promettente per una trasmissione affidabile delle informazioni, tendente al limite fisico di Shannon.
+
+L'algoritmo di decodifica LDPC valido nel caso in cui l'alfabeto dei messaggi è continuo con l'uscita del canale discreta è denominato Belief Propagation. In generale, gli algoritmi di decodifica iterativi possono operare sia nel dominio delle probabilità, sia nel dominio logaritmico che è più stabile numericamente. Nel dominio logaritmico, i messaggi passati in entrambe le direzioni attraverso i rami del grafo associato al codice, sono i logaritmi dei rapporti di verosimiglianza dei bit trasmessi (LLRs), che vengono calcolati a partire da quelli inizialmente forniti dal demodulatore al decodificatore.
+
+La proprietà fondamentale dei decodificatori LDPC, che sono di tipo Soft-Input Soft-Output, consiste nel garantire che ad ogni iterazione venga scambiata attraverso i rami del grafo solo l'informazione estrinseca dei messaggi passati tra i variable nodes e i check nodes. Il requisito essenziale del concetto di informazione estrinseca è che il messaggio in uscita dal generico check node nella direzione del generico variable node non dipende dal messaggio precedentemente inviato nel verso opposto dallo stesso variable node. Analogamente, il messaggio in uscita dal generico variable node nella direzione del check node non dipende dal messaggio precedentemente inviato nel verso opposto dallo stesso check node.
+
+I check nodes effettuano il controllo delle equazioni di parità quindi presentano una struttura hardware molto più complessa di quella dei variable nodes. Tale struttura di controllo può essere semplificata nell'ipotesi in cui i messaggi da elaborare rappresentino una sequenza di variabili aleatorie linearmente indipendenti. Nella pratica i messaggi non sono linearmente indipendenti, a causa della presenza di cicli nel grafo associato al codice LDPC.
+
+La seguente trattazione permette di chiarire l'algoritmo di codifica LDPC, integrando la descrizione fornita dalla Hughes Network System (HNS) che è stata utilizzata per la definizione dello standard DVD-S2.
+
+I parametri del codice HNS-LDPC dipendono dal rapporto di codifica e dalla lunghezza dei blocchi delle parole di codice, che può essere di tipo normal FECFRAME (n=64800) oppure di tipo short FECFRAME (n=16200).
+
+La matrice di controllo di parità ha una struttura bipartita. Si suppone che la codifica di canale permetta di conservare la sequenza informativa emessa dalla sorgente alle prime posizione della parola di codice. Tale affermazione equivale a dire che il codice HNS-LDPC è un codice sistematico.
+
+La generica parola di codice è suddivisa nella parte informativa e nella parte dedicata ai bit di ridondanza. L'operazione di codifica consiste nella determinazione dei bit di parità  che soddisfano un sistema di equazioni lineare omogeneo. Poiché, come appena detto, tale sistema è omogeneo e la matrice e vettore della parola di codice sono bipartiti, la risoluzione numerica del problema può essere efficientemente ottenuta:
+\begin{itemize}
+\item 	determinando un vettore ausiliario (il numero di operazioni di XOR necessarie a questo scopo risulta essere una costante associata ai rapporti di codifica previsti dal DVB-S2)
+\item 	determinando i bit di parità, attraverso un metodo chiamato back substitution. Si tratta di un processo di inversione di matrice, che però, presentando elevate regolarità, è possibile effettuare a basso costo via hardware.
+\end{itemize}
+Le elevate proprietà di regolarità delle matrici consente inoltre di ottenere un notevole risparmio di memoria. Per concludere, la complessità di codifica cresce linearmente con la dimensione dei blocchi della parola di codice.
+
+\subsection{Cenni sulle prestazioni raggiunte}
+
+Il DVB-S2 permette di selezionare lo schema di modulazione ed il tasso di codifica a seconda dei requisiti del servizio e delle caratteristiche del transponder da satellite impiegato. L'efficienza spettrale va da 0,5, usando la modulazione QPSK 1/4, a 4,5 bit/s/Hz, usando la configurazione 32-APSK 9/10, ed il rapporto segnale rumore da -2.4 dB a 16 dB (assumendo canale AWGN e demodulazione ideale). I risultati sono stati ottenuti attraverso simulazioni al calcolatore valutanti le prestazioni dei sistemi DVBS2 e DVB-S/DVB-DSNG ad un tasso d'errore sul pacchetto (PER, Packet Error Rate) TS di  , corrispondente circa a un pacchetto errato per ora di trasmissione in
+un servizio video a 5 Mbit/s.Su canale ideale affetto esclusivamente da rumore additivo Gaussiano bianco AWGN (Additive White Gaussian Noise), il risultato è un aumento della capacità trasmissiva dell'ordine del 20-35\% rispetto al DVB-S e DVB-DSNG nelle stesse condizioni di trasmissione, o una ricezione di 2-2,5 dB più robusta per la stessa efficienza spettrale.
+
+Il sistema DVB-S2 può essere usato nelle configurazioni "singola portante per transponder" o "multiportante per transponder" (Multiplazione a divisione di frequenza FDM, Frequency Division Multiplexing).
+
+Nella configurazioni a singola portante per transponder, la velocità di trasmissione Rs può essere adattata alla larghezza di banda BW del transponder (a -3dB), per ottenere la massima capacità trasmissiva compatibile con un degradamento accettabile del segnale dovuto alle limitazioni della larghezza di banda del transponder. Nella configurazione multi-portante FDM, Rs deve essere adattato all'intervallo di frequenza BS assegnato al servizio dal piano delle frequenze, per ottimizzare la capacità trasmissiva e contemporaneamente mantenere ad un livello accettabile le reciproche interferenze tra le portanti adiacenti.
+
+\section{Algoritmi di codifica BCH per il DVB-S2}
+
+\subsection{Descrizione dell'algoritmo di codifica}
+La codifica dei messaggi può essere di due tipi: sistematica e non sistematica. Quando i dati vengono codificati in maniera sistematica i bit di messaggio vengono esattamente replicati all'interno della parola di codice. A questi vengono poi aggiunti alcuni bit di ridondanza, talvolta chiamati bit di parità. Nello standard DVB-S2 la ridondanza del codice occupa i bit meno significativi, mentre l'informazione quelli più significativi (si veda l'espressione \eqref{eq:codsyst}). Da ciò discende che i bit d'informazione occupano le posizioni più significative della parola di codice, cosa che tipicamente si verifica.
+
+Il codice BCH, facendo parte della famiglia dei codici ciclici, condivide con essi l'algoritmo di codifica. Questo algoritmo consiste nella moltiplicazione del messaggio (espresso in notazione polinomiale) per il polinomio generatore del codice, se intendiamo avere una codifica non sistematica; se intendiamo invece ottenere una codifica sistematica, l'algoritmo consiste nella divisione del messaggio -- riempito di un numero di zeri (zero padded) pari al numero di bit di ridondanza nelle sue posizioni meno significative -- per il polinomio generatore, il cui resto rappresenta i bit di parità (o di ridondanza). La rappresentazione matematica del processo di codifica appena descritto è contenuta nella formula \eqref{eq:sistematica}.
+
+Le semplici architetture che realizzano l'operazione di codifica (tranne l'operazione di zero padding) sono chiamate Linear Feedback Shift Register (LFSR)  poiché consistono in un registro a scorrimento con anello di retroazione (si veda la figura \ref{fig:PolyDiv}). Come è facile intuire, occorrerà disporre in fase di codifica di una logica di controllo poiché questi semplici oggetti hanno la peculiarità di avere una risposta all'impulso infinita, cioè, in altre parole, sono dei filtri Infinite Impulse Response (IIR).
+
+Per quanto riguarda il loro funzionamento, i bit di messaggio entrano, dopo aver superato un nodo di somma (modulo 2), nella prima cella del registro a scorrimento.
+E' possibile provare che, dopo un certo numero di iterazioni, lo LFSR contiene all'interno del suo registro a scorrimento il resto della divisione del messaggio per il polinomio generatore del codice BCH (ciò è valido, più in generale, per un qualsiasi codice ciclico).
+
+L'analisi del funzionamento di questo LFSR (figura \ref{fig:PolyDiv}) conduce alle seguenti osservazioni:
+\begin{enumerate}
+\item 	il dispositivo è in grado di calcolare il resto della divisione in un numero di iterazioni pari alla lunghezza della parola di codice.
+\item 	il "recupero" dei bit di ridondanza calcolati dall'LFSR, almeno seguendo la procedura finora descritta, può essere problematico e, comunque, deve essere effettuato in maniera non seriale, a meno di non spezzare l'anello di retroazione. Come già accennato, il problema è intrinsecamente legato all'architettura degli LFSR, che sono dei filtri IIR. Il problema potrebbe essere risolto "congelando" lo stato del dispositivo per il tempo necessario all'estrazione dei bit di ridondanza dal registro a scorrimento.
+\end{enumerate}
+
+Alcune considerazioni di natura matematica e architetturale fanno intuire la convenienza di fare entrare i bit di messaggio nel nodo di somma (modulo 2) insieme ai valori contenuti nell'ultima cella del registro a scorrimento: si noterà, in particolare, che questa modifica consentirà di risparmiare un numero di iterazioni pari al numero di bit di ridondanza, cioè pari al numero di celle del registro a scorrimento.
+
+\subsection{Architetture seriali}
+
+Cercando di riassumere, abbiamo quindi
+\begin{itemize}
+\item 	Una architettura seriale LFSR (figura \ref{fig:PolyDiv}) in grado di calcolare i bit di ridondanza (o di resto) del messaggio in un numero di iterazioni pari alla lunghezza della parola di codice. Il problema di questa architettura è che la difficoltà di estrazione dei bit di resto calcolati ne impedisce il funzionamento in modalità seriale e continua. Nonostante ciò, questa architettura sarà presa in considerazione nel successivo passo di parallelizzazione del sistema.
+\item Una architettura seriale LFSR (figura \ref{fig:SerEnc}) in grado di calcolare i bit di resto del messaggio in un numero di iterazioni pari alla lunghezza del messaggio stesso, risparmiando in questa maniera un numero di colpi di clock pari al numero di celle del registro a scorrimento (uguali al numero di bit di ridondanza per ovvie ragioni). Si intuisce, inoltre, che questa architettura dovrebbe essere in grado di lavorare, almeno in linea di principio, in modalità seriale e continua.
+\end{itemize}
+Aggiungendo all'architettura in figura \ref{fig:SerEnc} una logica di controllo che consenta, una volta calcolati i bit di resto (la cui rappresentazione polinomiale è data dalla \eqref{eq:remainder}), di spezzare l'anello di retroazione e di leggere serialmente i dati contenuti nelle celle del registro a scorrimento, si ottiene infine l'architettura di un codificatore seriale per un codice BCH sistematico.
+
+Segue, ora, una breve descrizione del funzionamento di questo codificatore (figura \ref{fig:SerEnc}) in grado di fornire la codifica sistematica dei messaggi in un numero di iterazioni pari alla lunghezza delle parole di codice e di operare in maniera seriale e continua. Dividiamo il processo di codifica in due parti
+\begin{itemize}
+\item 	\textbf{La trasmissione dei bit di messaggio e il calcolo diretto dei bit di resto.}Inizialmente e per un numero di colpi di clock pari al numero dei bit componenti il messaggio da codificare, i bit di messaggio vengono trasmessi, in accordo con le specifiche del DVB-S2, dal più significativo al meno significativo, alimentando al tempo stesso il registro a scorrimento (anello di retroazione chiuso). Questa modalità ad anello chiuso è necessaria per il calcolo dei bit di resto, raccolti nelle celle del registro a scorrimento.
+\item 	\textbf{Trasmissione dei bit di resto (o di ridondanza).} Successivamente e per un numero di colpi di clock pari al numero dei bit di resto, l'anello di retroazione rimane aperto, dando modo così ai bit di ridondanza di poter uscire serialmente dalle celle del registro a scorrimento.
+\end{itemize}
+
+In conclusione, il tipo di architettura appena descritto realizza la divisione del messaggio per il polinomio generatore in un numero ridotto di colpi di clock, è in grado di operare in maniera realmente seriale e continua (nel senso che una volta codificato un messaggio è possibile modificarne immediatamente un altro), mantiene le caratteristiche di bassa complessità tipiche degli LFSR.
+
+\subsection{Algoritmi di codifica per architetture parallele}
+Dal punto di vista hardware, la lunghezza delle parole di codice (previste dal DVB-S2), i vincoli di frequenza imposti dell'analisi globale della sezione di trasmissione e la definizione dell'interfaccia con il codificatore LDPC che ha un ingresso parallelo, rendono necessario lo sviluppo di un modello di codificatore BCH parallelo che sia agevolmente integrabile con l'intera sezione di trasmissione del DVB-S2. In generale le architetture parallele consentono di ottenere dei \emph{throughput} più elevati e spesso vengono scelte per la realizzazione in hardware.
+
+Dalla teoria del controllo, sappiamo che ogni sistema lineare può essere modellato attraverso un sistema di equazioni di stato \eqref{eq:LinSys}. In questo tipo di rappresentazione matematica una equazione rappresenta l'evoluzione temporale dello stato del sistema, un'altra invece le uscite in funzione degli ingressi e dello stato per ogni istante di tempo. Il modello (del tutto generale) è stato particolarizzato per gli specifici sistemi (analizzati nella sezione precedente) che realizzano la codifica BCH sistematica (si veda \label{eq:LFSR}), concentrandoci solamente sull'equazione \eqref{eq:statequation} modellante l'evoluzione della traiettoria del vettore di stato poiché esso rappresenta il resto dell'operazione di divisione del messaggio per il generatore polinomiale.
+
+Riferendoci all'equazione \eqref{eq:statequation} che rappresenta l'evoluzione dello stato, cioè del contenuto delle celle del registro a scorrimento, definiamo la matrice di transizione di stato \(\vet A\) e il vettore di trasferimento dell'ingresso sullo stato \(\vet b\). Si osserva che, nel passaggio da una architettura seriale all'altra, le caratteristiche (si veda la \eqref{eq:ParSyst}) della matrice di transizione di stato \(\vet A\) rimangono, come era attendibile, invariate. Il vettore di trasferimento \(\vet b\) invece subisce delle modifiche (si confrontino le \eqref{eq:vetb} e \eqref{eq:ParSyst}) poiché nell'architettura seriale più veloce c'è una più immediata incidenza degli ingressi sullo stato del sistema, poiché i bit in ingresso entrano, attraverso il nodo di somma, direttamente sul principale collegamento di retroazione.
+
+Attraverso la definizione matematica delle due architetture seriali, mediante alcune semplici  manipolazioni della equazione \eqref{eq:statequation}, si perviene a un modello di sistema lineare a ingressi multipli (parallelo) e alla relativa equazione di stato.
+Il vettore di trasferimento si trasforma in una matrice di trasferimento \(\vet B_p\), le cui caratteristiche dipendono sia dal livello di parallelismo prescelto sia dal tipo di architettura seriale che si è resa parallela o, più precisamente, dalla posizione dell'ingresso/i rispetto allo LFSR. La matrice di transizione di stato del sistema parallelo \(\vet A\) non dipende dal tipo di architettura seriale da rendere parallela, ma solamente dal livello di parallelismo: infatti diventa \(\vet A^p\), ossia la matrice del sistema seriale elevata a potenza.
+
+
+\section{Realizzazione hardware del codificatore BCH}
+
+Nella fase di realizzazione in hardware del dispositivo si è dovuto tenere conto delle seguenti condizioni relative all'architettura del codificatore LDPC e, più in generale, della intera sezione di trasmissione del DVB-S2 progettata e sviluppata da TAS-I.
+
+\begin{itemize}
+\item La memoria d'ingresso del codificatore LDPC ha un livello di parallelismo pari a 360 e quindi il livello di parallelismo del codificatore BHC dovrebbe essere un divisore di 360.
+\item 	Il livello di parallelismo del BCH dovrebbe, inoltre, poter essere un divisore delle lunghezze di blocco previste dal DVB-S2
+\item Il codificatore BCH dovrebbe avere un livello di parallelismo tale da evitare che costituisca un vero e proprio collo di bottiglia dell'intera catena di trasmissione del DVB-S2 sviluppata.
+\end{itemize}
+Per queste ragioni, nella realizzazione in hardware del codificatore BCH è stato scelto un livello di parallelismo pari a 8.
+
+Inoltre, tra le due architetture parallele descritte nel capitolo 3 è stata scelta quella che impiega un numero inferiori di colpi di clock per la codifica dei messaggi (o blocchi di bit di informazione). Questo per avere, come verrà illustrato nella sezione dedicata al problema relativo al possibile cambio del rapporto di codifica tra una trama e l'altra, una architettura in grado di avere delle caratteristiche dinamiche e una versatilità maggiori (rispetto, ovviamente, all'architettura parallela corrispondente a quella in figura \ref{fig:PolyDiv}).
+
+\subsection{Descrizione del codificatore}
+
+L'architettura hardware (illustrata in figura \ref{fig:HWarch}) del codificatore BCH  comprende un registro a 192 celle (Flip Flop), 192 reti combinatorie d'ingresso e 192 reti combinatorie d'uscita, pilotate opportunamente da coefficienti (precalcolati)  memorizzati nelle LUT, e alcuni sommatori, che, per le note proprietà dell'algebra binaria, sono delle porte XOR a due ingressi.
+Il codificatore BCH compie per ogni processo di codifica le seguenti operazioni:
+\begin{itemize}
+\item I bit informativi, che arrivano in parallelo dal bit meno significativo al più significativo, vengono processati dalle 192 logiche combinatorie di ingresso, che hanno il compito di realizzare il prodotto (riga-colonna) tra la matrice \(\vet B_p\) e gli ingressi, come illustrato in figura \ref{fig:COMBin}.
+\item Le reti combinatorie più vicine all'interfaccia con il codificatore LDPC (figura ) processano invece gli ultimi otto (o, più in generale, \(p\)) bit, realizzando in gran parte il processo di retroazione. Esse, come per le reti combinatorie agenti sugli ingressi, realizzano gran parte del prodotto (si veda l'equazione \eqref{eq:prodotto} e si ricordi la struttura della matrice \(\vet A^p\) mostrata in ) tra la matrice \(\vet A^p\) e il vettore di stato.
+\item Le funzioni logiche relative alla sottomatrice diagonale \(\vet I\) contenuta in \(\vet A^p\) sono realizzate dalle porte XOR a due ingressi connesse all'uscita (come illustrato in figura) di alcune delle reti combinatorie agenti sugli ultimi 8 bit di stato.
+\item Al termine del numero di clock richiesti (in merito si consulti la tabella \ref{tb:clkreq}) per il calcolo dei bit di resto, il contenuto del registro deve essere azzerato prima di poter procedere con la codifica del messaggio successivo.
+\end{itemize}
+Come appena mostrato, le due reti combinatorie sono in realtà delle porte XOR a otto ingressi, le cui abilitazioni sono programmate dai coefficienti delle matrici facilmente memorizzabili in delle Look Up Table (LUT).
+
+L'architettura finora mostrata in realtà realizza la codifica BCH solamente per il livello di protezione più elevato (cioè \(t=12\)) previsto dallo standard. Come accennato nell'introduzione, il DVB-S2 prevede che il codificatore possa variare il suo livello di codifica trama per trama. Perciò occorre avere una archittetura hardware in grado sufficientemente flessibile da poter assicurare la realizzazione di questa caratteristica.
+Sebbene il generatore polinomiale del codice vari a seconda della sua capacità correttiva, la struttura della matrice \(\vet A^8\), legata specialmente all'architettura dello LFSR, rimane invariata. Tuttavia le dimensioni di \(\vet A^8\) diminuiscono e, contestualmente, variano i suoi coefficienti poiché, come appena detto, varia il polinomio generatore del codice. Il problema dei coefficienti viene facilmente superato memorizzando gli stessi in delle LUT; il problema relativo al calo delle dimensioni delle matrici \(\vet A^8\) e \(\vet B_8\), invece, può essere risolto inserendo queste matrici all'interno di matrici sovradimensionate (cioè di dimensioni pari a quelle corrispondenti alla capacità correttiva massima) come mostrato in \eqref{eq:embedding}. Questa operazione desritta in termini matematico matriciali corrisponde all'inibizione delle prime 32 (\(t=10\)) o 64 (\(t=8\)) coppie di reti combinatorie per mezzo dei coefficienti nulli memorizzati nelle LUT.
+
+
+Alla luce di queste nuove considerazioni circa le proprietà dinamiche di cui dovrebbe godere il codificatore BCH per DVB-S2, vogliamo ora giustificare la scelta di questa architettura hardware piuttosto di quella più lenta (almeno a livello teorico), la cui realizzazione avrebbe portato a risparmiare le 192 logiche combinatorie d'ingresso utilizzate dall'architettura da noi scelta. Senza entrare in maggiori dettagli, il motivo principale risiede proprio nella migliore facilità di realizzare un codificatore in grado di rispondere all'esigenza di poter cambiare la capacità correttiva del codice al termine di ogni processo di codifica.
+
+
+\subsection{Descrizione dell'interfaccia BCH-LDPC}
+
+Passiamo ora a descrivere il funzionamento dell'interfaccia BCH-LDPC, che ha il compito di passare al codificatore a valle la parte sistematica del codice BCH più i bit di ridondanza nell'ordine e formato compatibile con il DVB-S2. La figura \ref{fig:Interface} mostra l'archittettura dell'interfaccia composta da:
+\begin{itemize}
+\item un registro a scorrimento (figura \ref{fig:Download}) su cui vengono salvati i 192 elementi (bit di ridondanza) del registro del codificatore in un solo colpo di clock (caricamento parallelo), che successivamente vengono trasmessi su un bus a 8 bit. Il numero di colpi di clock richiesti (i valori sono riportati in tabella \ref{tb:clkreq}) per la completa lettura dei bit di ridondanza contenuti nel registro a scorrimento dipende dalla modalità operativa (per quanto riguarda la FEC) del DVB-S2;
+\item un multiplexer a cui è connesso sia il bus in uscita del suddetto registro a scorrimento sia il bus che trasporta i bit sistematici che alimentano il codificatore BCH.
+\end{itemize}
+
+Segue l'ordine temporale delle operazioni effettuate da questa interfaccia.
+\begin{enumerate}
+\item Una volta calcolati, i bit di ridondanza vengono salvati in un registro a scorrimento secondo l'associazione mostrata in figura \ref{fig:Download}. Per il caricamento parallelo del registro a scorrimento ci si serve di alcuni multiplexer, inserendoli tra le sue celle.
+\item Ora i bit appena salvati, durante il loro scorrimento attraverso le celle del registro, vengono 'catturati' da alcune linee che li convogliano sul bus di uscita a 8 bit.
+\item Mediante una opportuna logica di controllo e il multiplexer che precede l'LDPC, dapprima i bit sistematici e, successivamente, i bit di ridondanza vengono scritti nella memoria del codificatore LDPC.
+\end{enumerate}
+
+
+\section{Pacchetto software per la validazione del modello VHDL}
+
+\subsection{Implementazione software del codificatore seriale}
+
+La funzione C sviluppata cerca di riprodurre il comportamento del codificatore BCH seriale mostrato in figura \ref{fig:SerEnc}. A tal fine sono state utilizzate le seguenti variabili e parametri:
+\begin{itemize}
+\item il parametro \texttt{ticks}, che si riferisce al numero di iterazioni o colpi di clock che si desidera simulare;
+\item il vettore \texttt{m[]} da cui vengono letti i bit di messaggio e il vettore \texttt{out[]} su cui vengono scritti i bit in uscita del codificatore;
+\item il vettore \texttt{state[]}, che contiene i bit del registro a scorrimento;
+\item il contatore \texttt{encStep}, che indica il numero complessivo di iterazioni compiute dal codificatore. Quando questo contatore supera il numero di bit informativi, i bit di ridondanza calcolati dal codificatore vengono scritti nel vettore di uscita \texttt{out[]};
+\item il vettore \texttt{g[]}, che contiene i coefficienti del polinomio generatore del codice BCH;
+\item la variabile \texttt{r}, che indica la lunghezza del registro a scorrimento o, in altre parole, il numero di bit di ridondanza.
+\end{itemize}
+Vale la pena di sottolineare che nulla impedisce di adoperare la funzione \texttt{Run()} della classe \texttt{BCHenc} per simulare il funzionamento del codificatore parallelo dato che il parametro \texttt{ticks} è completamente definibile dall'utente.
+
+\subsection{Implementazione software del codificatore parallelo}
+
+I coefficienti delle matrici \(\vet A^8\) e \(\vet B_8\), calcolati per mezzo di apposite routine Matlab\copyright, sono stati salvati in alcune variabili locali. Più precisamente, le variabili locali contengono le sole sottomatrici \(\vet C_1\) e \(\vet C_2\) riferite alle reti combinatorie di uscita e le matici \(\vet B_8\), una per ogni polinomio generatore previsto dal DVB-S2.
+
+Per quanto riguarda le reti combinatorie, sono state utilizzate delle funzioni ausiliarie che ne imitano il comportamento in hardware
+\begin{itemize}
+\item la funzione \texttt{combc(index, input[])}, che realizza per ogni rete combinatoria (rappresentata dal parametro \texttt{index}) il prodotto riga per colonna tra la matrice \(\vet B_8\) e il vettore di ingresso;
+\item la funzione \texttt{combk(index,regold)}, che realizza il prodotto riga per colonna tra le sottomatrici \(\vet C_1\) e \(\vet C_2\) e \(x_{184}\virgola \ldots \virgola x_{191}\), gli ultimi otto bit del vettore di stato.
+\end{itemize}
+
+La parte iniziale della funzione \texttt{BCHkclkpar(n,k)} sviluppata carica dalla memoria le matrici corrispondenti alla coppia \((n \virgola k)\) associata alle modalità di codifica del DVB-S2. Il ciclo \texttt{for} nella parte centrale dell'algoritmo aggiorna ciclicamente il registro di stato del codificatore BCH. Infine, i bit calcolati vengono disposti in maniera conforme allo standard DVB-S2 e al formato di codifica sistematica.
+
+\subsection{Tabelle dei campi di Galois}
+
+Come accennato nel capitolo 2, la conoscenza del campo di Galois GF(\(2^{16}\)) in cui giacciono le radici dei polinomi generatori dei codici BCH è necessaria per la decodifica e/o la rilevazione degli errori occorsi in trasmissione. Poiché il BCH del DVB-S2 è primitivo, il campo di Galois ad esso associato può essere costruito utilizzando il polinomio \(g_1(x)\) nella tabella \ref{tb:BCHpoly}. Tale polinomio è infatti il polinomio primitivo di GF(\(2^{16}\)) per le ragioni indicate nel capitolo 2.
+
+I \(2^{16}-1\) elementi di GF(\(2^{16}\)) possono essere ottenuti attraverso una struttura a LFSR le cui interconnesioni sono stabilite dai coefficienti del polinomio primitivo del campo. Se questo LFSR viene inizializzato con (\(0\virgola \ldots \virgola 0 \virgola 1 \)) l'evoluzione del suo stato, in assenza di stimoli esterni, si ripete ogni \(2^{16}-1\) iterazioni: ciò significa che il valore con cui abbiamo inizializzato le celle del registro a scorrimento è un elemento primitivo di GF(\(2^{16}\)), che, come tale, può essere utilizzato nella costruzione di utili tabelle grazie alle quali è possibile eseguire facilmente le operazioni di prodotto tra gli elementi di GF(\(2^{16}\)).
+Nelle nostre simulazioni è stato quindi utilizzato \(\alpha=1\) (in notazione decimale) come elemento primitivo.
+
+Ad ogni iterazione dell'algoritmo, che simula il funzionamento dell'LFSR in assenza di stimoli esterni, vengono costruite e salvate le seguenti due tabelle:
+\begin{itemize}
+\item \texttt{powOfAlpha[i]}, che rappresenta \(\alpha^i\) per \(i = 0\virgola \ldots \virgola 2^{16}-2\)
+\item \texttt{indexAlpha[i]}, che rappresenta il logaritmo in base \(\alpha\) di un generico elemento del campo GF(\(2^{16}\))
+\end{itemize}
+
+\subsection{Decodifica BCH}
+La decodifica algebrica di un codice BCH ad alfabeto binario consta dei seguenti passi:
+\begin{itemize}
+\item Calcolo della sindrome. L'operazione consiste nella valutazione delle parole di codice nelle \(2t\) radici del polinomio generatore come indicato nell'equazione \eqref{eq:syndr}. Questo calcolo è realizzato dalla funzione \texttt{errordetection()}, che utilizza le tabelle dei campi di Galois e gli operatori bit a bit del C. La funzione, inoltre, ritorna il valore logico vero (\texttt{true}) se la sindrome non è nulla, altrimenti ritorna un valore logico falso (\texttt{false}). In caso di rilevazione di errori si ricorre all'algoritmo di Berlekamp-Massey.
+\item La determinazione del polinomio locatore degli errori, le cui radici forniscono un'indicazione sulla posizione degli errori nella parola di codice. L'algoritmo di Peterson e quello di Berlekamp-Massey consentono di trovare il polinomio \eqref{eq:elp} locatore degli errori. Nel pacchetto software sviluppato è stato utilizzato l'algoritmo di Berlekamp-Massey per la determinazione dei coefficienti di \eqref{eq:elp}. Questo algoritmo, sfruttando la relazione lineare (LFRS) \eqref{eq:SynLocLFSR} tra la sindrome e i coefficienti del polinomio locatore degli errori, costruisce iterativamente un LFSR in grado di riprodurre la sequenza \( \{S_1\virgola S_2\virgola \ldots \virgola S_{2t} \}\). I coefficienti di questo LFSR rappresentano i coefficienti del polinomio locatore degli errori.
+\item La ricerca delle radici del polinomio locatore degli errori. Generalmente questa operazione viene fatta usando la ricerca di Chien (\emph{Chien search}). Essa consiste nella valutazione della \eqref{eq:elp} in tutti gli elementi del campo, in successione, diversi da zero. Tale operazione sia in hardware che in software non è molto costosa. Se le radici trovate tramite la ricerca di Chien sono distinte e giacciono nel campo di riferimento, allora possono essere usate per determinare la posizione degli errori. Viceversa, se le radici sono coincidenti e non giacciono nel campo di riferimento, allora la decodifica fallisce.
+\end{itemize}
+
+La funzione \texttt{BerlMass()} che realizza l'algoritmo di Berlekamp-Massey utilizza le seguenti variabili:
+\begin{itemize}
+\item i vettori/tabelle \texttt{pow} e \texttt{index}, che sono utili nelle operazioni di moltiplicazione e conversione in notazione esponenziale degli elementi del campo di Galois;
+\item il vettore \texttt{c[]}, che indica le interconnessioni dell'LFSR attuale;
+\item il vettore \texttt{p[]}, che indica le interconnesioni di un LFSR usato in precedenza;
+\item la variabile \texttt{d}, che contiene la discrepanza (cioè la differenza tra il valore desiderato e quello prodotto dall'LFSR corrente) calcolata all'istante corrente;
+\item la variabile \texttt{dm}, che indica la discrepanza calcolata quando l'LFSR prescelto aveva le interconnesioni salvate nel vettore \texttt{p[]};
+\item un vettore ausiliario \texttt{T[]}, usato durante la routine d'aggiornamento del vettore \texttt{c[]};
+\item la variabile \texttt{l}, che rappresenta la quantità di scalamento da applicare durante l'aggiornamento;
+\item la variabile \texttt{k}, che conteggia le iterazioni dell'algoritmo;
+\item la variabile \texttt{L}, che contiene la lunghezza attuale dell'LFSR.
+\end{itemize}
+
+Per concludere, seguono i passi principali dell'algoritmo, che dopo \(2t\) iterazioni trova i coefficienti del polinomio locatore degli errori.
+\begin{itemize}
+\item Calcolo della discrepanza attraverso la formula \(S_k+ \sum_{i = i}^{L} {c_i S_{k-i}}\). Questo calcolo è facilmente realizzato utilizzando le tabelle dei campi e gli operatori bit a bit.
+\item Se la discrepanza è nulla, allora non occorre effettuare modifiche allo LFSR corrente (\texttt{l} viene incrementato di una unità). Se invece la discrepanza non è nulla ci sono due alternative: se \texttt{2*L=>k}, \texttt{c[]} viene aggiornato, ma mantiene la sua lunghezza; se invece \texttt{2*L<k} allora variano sia il valore di \texttt{c[]} sia la sua lunghezza. Il vecchio valore di \texttt{c[]} viene salvato in \texttt{p[]} e la discrepanza associata in \texttt{dm}; la variabile \texttt{l} viene riportata a 1.
+\end{itemize}
+
+
+
+
+\section{Prove di laboratorio preliminari della sezione TX del DVB-S2}
+
+\subsection{Introduzione}
+In questa sezione vengono presentati i risultati ottenuti dalla preliminare campagna di test effettuata sulla sezione di trasmissione del DVB-S2 sviluppata da TAS-I.
+Il codice VHDL (\emph{Very High Description Language}) è stato verificato in due passi: una prima verifica è stata fatta confrontando i risultati della simulazione RTL (\emph{Register Transfer Logic}) con quelli ottenuti con il simulatore software sviluppato; una seconda verifica è stata poi effettuata analizzando i risultati ottenuti sintetizzando su una Stratix II il progetto e analizzando qualitativamente le costellazioni ottenute. (vd Set up del test).
+Di seguito vengono elencati e brevemente descritti i blocchi funzionali che costituiscono la sezione di trasmissione che è stata collaudata:
+
+\begin{description}
+\item[Interfaccia di ingresso] È il blocco di interfaccia con il `mondo esterno' e ha il compito di acquisire un numero adeguato di pacchetti MPEG che dipende dalla velocità di simbolo \(R\ped{s}\), dalla modulazione e dal tasso di codifica del PLFRAME che deve essere generato. Il blocco svolge funzioni legate all'applicazione, fornisce l'interfaccia per il flusso di ingresso e gli strumenti opzionali richiesti per l'ACM ; inserisce la codifica CRC (Cyclic Redundancy Check) per permettere al ricevitore di rivelare la presenza di errori nel flusso ricevuto.
+
+\item[Formattatore DVB-S2] Questo blocco compone la trama per il formato FECFRAME normale.
+
+\item[Inserimento della intestazione] Questo blocco inserisce una intestazione di lunghezza fissa (BBHEADER) di 10 Byte (80 bit) davanti al campo dati per informare il ricevitore del formato del flusso di ingresso e del tipo di ``adattamento'' utilizzato. Nel caso i dati utente disponibili per la trasmissione non siano sufficienti a riempire completamente il BBFRAME, si provvede a completarlo con zeri di riempimento (\emph{zero padding}).
+
+\item[BB Scrambling] Per evitare la presenza di sequenze critiche per il codice FEC,  il BBFRAME viene moltiplicato per una sequenza pseudocasuale generata da un LFSR e inizializzata all'inizio di ogni trama. La sequenza di \emph{scrambling} è memorizzata in una ROM e i bit informativi vengono processati in parallelo.
+
+\item[Physical Layer Scrambling Block] Blocco simile al precedente, ma che agisce a livello fisico, che rende casuale la sequenza (complessa) prima che entri nel modulatore.
+
+
+
+\item[Blocco di codifica] Questo blocco effettua la codifica concatenata del codice esterno (BCH) e interno (LDPC).
+
+\item[Blocco di interlacciamento dei bit] La diretta implementazione del metodo di interlacciamento dei bit suggerito da Hughes Network Systems (HNS) riduce la velocità di simbolo massima raggiungibile, che è pari a \(f\ped{ck}/\eta\).
+    Attraverso l'uso, invece, di una archittettura parallela, capace di leggere \(\eta\) bit consecutivi, appartenenti a simboli differenti, per ogni colpo di clock, la velocità di simbolo è diventata pari a \(f\ped{ck}\).
+
+\item[Blocco di mapping] Associa i bit alla costellazione QPSK, 8-PSK, 16-ASK o 32-APSK a seconda delle applicazioni. Il \emph{mapping} delle costellazioni è memorizzato in una ROM. Le componenti \(I\) e \(Q\) sono entrambe rappresentate su 7 bit.
+
+
+\item[Blocco di generazione della trama PL] Gestisce l'inserzione dell'intestazione di livello fisico e dei simboli pilota opzionali, di PLFRAME fittizi (Dummy Frame) in assenza di dati utili pronti per la trasmissione, e la moltiplicazione per una sequenza pseudocasuale (Scrambler) per la dispersione dell'energia.
+    
+\item[Sezione di modulazione] In questa sezione si applicano il filtraggio in banda base e la modulazione in quadratura per modellare lo spettro del segnale e per generare il segnale a radiofrequenza. Il filtro usato in trasmissione è il tipico filtro a radice di coseno rialzato (SRRC, \emph{Squared Root Raised Cosine}) con tre possibili coefficienti di \emph{roll-off} (0,35, 0,25 e 0,20, per soddisfare i diversi requisiti di occupazione di banda).
+    
+\item[Sezione di interpolazione] Interpolatore di Farrow del terzo ordine utilizzato per modificare il rate in uscita del filtro polifase.
+
+\item[Sezione di conversione a frequenza intermedia] Questo blocco effettua una conversione in frequenza: porta il segnale in banda base a frequenza intermedia.
+
+\item[Filtro di precompensazione del DAC] È un filtro FIR che compensa la distorsione (circa \(4\unit{dB}\)) dalla continua alla metà della frequenza di campionamento) dovuta alla conversione digitale analogica del segnale.
+    
+%\item[Shaping Filter] Le componenti \(I\) e \(Q\) in uscita dal \emph{mapper} vengono processate da due differenti filtri sagomatori a radice di coseno rialzato (SRRC, \emph{Squared Raised Root Cosine}) a cui seguono due filtri interpolatori polifase. I filtri SRRC sono adoperati per minimizzare l'interferenza intersimbolica.
+
+
+%The \(I\) and \(Q\) data paths at the output of the serial to parallel block are processed by the SRRC (Squared Root Raised Cosine ) filter and polyphase interpolator included on the same structure.
+
+   % This filter is used to provide the interpolation and pulse shaping of the data in order to minimize intersymbol interference. The complex valued coded symbols stream, obtained at the DDPU output, is applied at the input of this sub-unit which performs SRRC pulse shaping by a FIR filter running at rate \(3 R\ped s\) . The choice of a processing rate equal to \(3 R\ped s\) is made considering that the desired sampling frequency  \(f\ped{SA}\) is achieved by interpolating the shaped signal; as a consequence an adequate attenuation of the signal spectrum replica, centered around the interpolator input sampling frequency, is required.
+
+%\item[Interpolator Section] Interpolatore di Farrow del terzo ordine utilizzato per modificare il rate all'uscita del filtro polifase.
+
+%\item[Digital Up Conversion (UPC) Stage] Questo blocco effettua una conversione in frequenza: porta il segnale in banda base a frequenza intermedia.
+
+%\item[DAC Precompensation Filter] Questo blocco è un filtro FIR che serve a compensare le distorsioni (circa \(4\unit{dB}\) dalla continua fino alla metà della frequenza di campionamento) introdotte dal convertitore digitale-analogico
+\end{description}
+
+
+\subsection{Obiettivi del test e messa a punto}
+
+Lo scopo di questa campagna di test è quello di verificare il progetto del codificatore/modulatore e di valutarne le prestazioni in termini di qualità e nettezza della costellazione. La Stratix II DSP Developement Board, su cui si sono effettuati i test, fornisce 2 convertitori D/A a 14 bit in grado di arrivare fino a 165 Msample/s.
+Il segnale in uscita dal convertitore digitale analogico è collegato a un VSA (Vector Signal Analyzer) a banda larga in grado di demodulare il segnale ricevuto.
+La configurazione del banco di misura è data in figura \ref{fig:TestEqu}.
+
+La frequenza di campionamento e la frequenza intermedia di conversione del segnale in banda base sono state progettate in modo da essere compatibili con i vincoli imposti dall'hardware sulla massima frequenza di campionamento, imposta dal convertitore digitale analogico, e sulle caratteristiche del filtro anti-immagine.
+Inoltre il convertitore parallelo seriale è stato inserito all'uscita del modulatore poiché il DAC è in grado di processare un campione per colpo di clock.
+
+La qualità delle costellazioni è stata valutata per mezzo dell'analisi statistica, fornita dallo strumento di misura, sull'errore di ampiezza e di fase in ricezione. Il modo in cui il VSA misura il valore degli errori di ampiezza e di fase è rappresentato rispettivamente in figura \ref{fig:EVMAGN} e \ref{fig:MAGNPHASE}. Questi errori (EVM, Error Vector Magnitude), inoltre, sono espressi relativamente alla radice quadrata della potenza media del segnale ideale. Inoltre lo strumento, oltre a fornire una media degli errori (relativi) di ampiezza e di fase, è in grado di fornire delle misure di deviazione standard dalla media.
+
+\subsection{Risultato del test}
+
+Dalle misure effettuate è possibile osservare l'importanza del filtro di pre-compensazione del convertitore digitale-analogico (DAC, Digital to Analog Converter) quando le velocità di trasmissione dei dati sono più elevate. Il convertitore infatti, avendo un comportamento in frequenza passabasso,  piega (alle alte frequenze) verso il basso lo spettro del segnale trasmesso (si osservi la figura \ref{fig:SpectrComp} in cui viene confrontato lo spettro del segnale filtrato del filtro di pre-compensazione con quello non filtrato).  Questo effetto negativo è chiaramente tanto più evidente quanto più le velocità di trasmissione \(R\ped{s}\) richieste sono elevate. Il filtro di precompensazione del DAC è in pratica un filtro equalizzatore che, controbilanciando l'effetto passabasso prodotto dal convertitore digitale-analogico, aumenta la piattezza dello spettro del segnale trasmesso.
+
+%\section{Schemi di modulazione e codifica}
+%
+%Il problema della scelta di schemi di modulazione e codifica deriva dall'esigenza di trasmettere messaggi in maniera univoca e affidabile su canali reali. Il canale infatti causa una degradazione delle caratteristiche del segnale trasmesso. Per questo motivo, infatti, è molto importante scegliere in maniera accurata lo schema di modulazione e codifica in modo da sfruttare al meglio le risorse a disposizione nella trasmissione del segnale. Si tratta di cercare il miglior compromesso (\emph{tradeoff}) tra prestazioni richieste (\emph{QoS} qualità del servizio) e risorse da utilizzare per raggiungere tali prestazioni.
+%
+%Il progetto di schemi di modulazione e codifica diventa quindi fondamentale nelle applicazioni satellitari poiché, come già osservato, i requisiti di banda e potenza sono altamente stringenti. Le quattro caratteristiche su cui è imperativo cercare il miglior compromesso sono le seguenti:
+%
+%\begin{itemize}
+%\item La probabilità d'errore (BER, dall'inglese \emph{bit error rate}) che dà un'utile indicazione su quanto affidabile sia la trasmissione di messaggi.
+%\item L'efficienza sprettrale, che dà una misura di quanto si stia sfruttando in maniera efficiente, in rapporto al bit rate, la banda disponibile.
+%\item Il rapporto segnale rumore richesto per ottenere una desiderata qualità del servizio (\emph{QoS}). Questa misura dà un'utile indicazione sull'efficienza in potenza.
+%\item La complessità di implementazione.
+%\end{itemize}
+%
+%I codici a correzione d'errore per le comunicazioni satellitari devono combinare una buona efficienza spettrale e un basso \emph{error floor} nonché una bassa complessità e un'alta flessibilità. Per modulazioni binarie 
