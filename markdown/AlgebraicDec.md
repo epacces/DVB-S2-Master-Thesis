@@ -1,0 +1,13 @@
+# Algebraic Decoding
+
+## Why Algebraic Decoding is Better
+
+In principle, each linear block codes can be ideally decoded by minimum distance or, i.e., Maximum Likelihood criterion. That means to choose the nearest codeword to the received vector. However, Maximum-Likelihood decoding is computationally very difficult for large codes since it requires a number of checks proportional to $`2^k`$ (exponential complexity). Hence, this way results inaccesible in most of the realistic cases (where $`k`$ is normally large).
+
+Another well-known approach is the standard array decoding, but its memory requirements for the syndrome decoding are very high. Although the current constraints on memory size of digital devices are less strict, it is still infeasible to use this approach for very long codes which are widespread in the modern reliable communications.
+
+It will show that the algebraic approach to decoding requires neither a prohibitive amount of memory nor an execessive computational effort. This last is pratically only related on a toepliz matrix inversion which in hardware can be result a ingenerous task [^1]
+
+## How to decode BCH
+
+[^1]: Although Levenson recursive algorithm is very fast in software, it could not be trivial to exploit this in hardware.
