@@ -1,0 +1,67 @@
+[
+  {
+    "file": "00-sommario.md",
+    "number": "",
+    "title": "Sommario"
+  },
+  {
+    "file": "01-ringraziamenti.md",
+    "number": "",
+    "title": "Ringraziamenti"
+  },
+  {
+    "file": "02-riassunto.md",
+    "number": "1",
+    "title": "Riassunto"
+  },
+  {
+    "file": "03-applications-and-features-of-satellite-communications.md",
+    "number": "2",
+    "title": "Applications and Features of Satellite Communications"
+  },
+  {
+    "file": "04-dvb-s2-modem-concepts-and-architecture.md",
+    "number": "3",
+    "title": "DVB-S2 MODEM Concepts and Architecture"
+  },
+  {
+    "file": "05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md",
+    "number": "4",
+    "title": "BCH Encoding Algorithms for DVB-S2 Digital Transmissions"
+  },
+  {
+    "file": "06-hardware-implementation-of-bch-encoder.md",
+    "number": "5",
+    "title": "Hardware Implementation of BCH Encoder"
+  },
+  {
+    "file": "07-software-package-for-vhdl-validation.md",
+    "number": "6",
+    "title": "Software Package for VHDL Validation"
+  },
+  {
+    "file": "08-preliminary-laboratory-test-of-dvb-s2-tx-section.md",
+    "number": "7",
+    "title": "Preliminary Laboratory Test of DVB-S2 TX Section"
+  },
+  {
+    "file": "09-conclusions.md",
+    "number": "8",
+    "title": "Conclusions"
+  },
+  {
+    "file": "10-galois-or-finite-fields.md",
+    "number": "A",
+    "title": "Galois (or Finite) Fields"
+  },
+  {
+    "file": "11-cyclic-codes.md",
+    "number": "B",
+    "title": "Cyclic Codes"
+  },
+  {
+    "file": "12-bibliography.md",
+    "number": "",
+    "title": "Bibliography"
+  }
+]
