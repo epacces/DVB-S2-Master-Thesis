@@ -14,6 +14,8 @@ The body of the thesis is in English; the abstract, acknowledgements and the ext
 
 - **Website:** <https://epacces.github.io/DVB-S2-Master-Thesis/>, one page per chapter with rendered equations.
 - **Markdown:** [`markdown/`](markdown/README.md), the same chapters, readable directly on GitHub.
+- **Interactive demos:** <https://epacces.github.io/DVB-S2-Master-Thesis/demos.html>, eight notebooks from Hamming codes to the full DVB-S2 chain that run in the browser ([`demos/`](demos)).
+- **Simulator:** [`sim/`](sim/README.md), the `dvbs2` Python package and `dvbs2sim` command-line tool.
 - **PDF:** [`TESI_FINALE.pdf`](TESI_FINALE.pdf) is the final version and the reference text. [`Ultima_versione.pdf`](Ultima_versione.pdf) and [`Tesi_05-07-08.pdf`](Tesi_05-07-08.pdf) are earlier drafts.
 
 The Markdown is generated from the LaTeX sources, and its figure, table and equation numbers match the PDF. The diagrams that were drawn in TikZ are images cut from the PDF ([`figures/`](figures)). The English text was proofread in 2026 (grammar, spelling and word choice only; the technical content is unchanged), and `TESI_FINALE.pdf` was rebuilt from the corrected sources. See [Rebuilding the PDF, the Markdown and the website](#-rebuilding-the-pdf-the-markdown-and-the-website).
@@ -45,6 +47,21 @@ $$\mathbf{x}(i+p) = \mathbf{A}^p\,\mathbf{x}(i) + \mathbf{B}_p\,\mathbf{u}_p(i)$
 
 which processes $p = 8$ bits per clock (1 Gbit/s at 125 MHz). The regular structure of $\mathbf{A}^p$ leads to a hardware architecture with a 192-flip-flop register and 192 input and 192 output combinational networks (8-input XORs gated by coefficients stored in LUTs). By disabling the first 32 or 64 network pairs, the same hardware serves all DVB-S2 BCH codes ($t = 12, 10, 8$), so it can switch on a frame-by-frame basis (ACM).
 
+## 🛰️ Simulator and interactive demos
+
+The 2008 C code covered only the BCH encoder and decoder. In 2026 it was rewritten and extended in Python ([`sim/`](sim/README.md)):
+
+- **Coding theory library.** GF(2^m) arithmetic, Hamming, cyclic and BCH codes (Berlekamp–Massey, Chien search) and the thesis' state-space **p-parallel BCH encoder**, which gives A^p and B_p for any p. The library reproduces the original C functions bit for bit, and the tests check it against line-by-line ports of `main.c`, `gfield.c` and `berlmass.c`.
+- **Full DVB-S2 physical layer.** All 28 MODCODs with normal and short frames, with or without pilots: BBFRAME and scrambling, BCH + LDPC (all 21 codes of the standard), bit interleaver, QPSK/8PSK/16APSK/32APSK, PLFRAME, AWGN, soft demapping and a numba-compiled layered LDPC decoder. Synchronization is ideal.
+- **Monte Carlo BER/FER** across multiple processes, with the results for every MODCOD in [`sim/results/`](sim/results).
+
+```bash
+cd sim && python -m venv .venv && .venv/bin/pip install -e '.[fast,dev]'
+.venv/bin/dvbs2sim ber --modcod 8PSK-3/5 --esn0 5.0:0.1:5.8 --plot 8psk35.png
+```
+
+The [interactive demos](demos/index.md) are [marimo](https://marimo.io) notebooks. They are published on the website as WebAssembly pages, and they also run locally with `marimo edit demos/01_parity_and_hamming.py`.
+
 ## 📂 Repository structure
 
 Everything lives in the repository root, as it was in the original LaTeX working folder:
@@ -64,7 +81,9 @@ Everything lives in the repository root, as it was in the original LaTeX working
 ├── TESI_FINALE.pdf          # Final thesis PDF (plus earlier drafts)
 ├── markdown/                # Thesis as Markdown, one file per chapter (generated, do not edit)
 ├── figures/                 # TikZ diagrams as PNGs cropped from TESI_FINALE.pdf
-├── tools/                   # LaTeX → Markdown converter and website builder
+├── tools/                   # LaTeX → Markdown converter, website and demo builders
+├── sim/                     # dvbs2 Python package: codes, DVB-S2 PHY simulator, tests, results
+├── demos/                   # marimo notebooks (interactive demos, exported to the website)
 ├── .github/workflows/       # Publishes the website to GitHub Pages on every push
 ├── main.c                   # C simulation package: driver for the BCH encoder/decoder tests
 ├── serenc.c, serial.c       # Serial (LFSR) BCH encoder models
@@ -80,7 +99,7 @@ The repository also contains LaTeX build output (`.aux`, `.log`, `.dvi`, …) an
 
 ### Notes on the C code
 
-The simulation code was written in 2008 for Borland/Turbo C++ on Windows: it uses `<conio.h>`, `<dos.h>` and the pre-standard `<iostream.h>`/`<fstream.h>` headers. It will not compile with a modern GCC/Clang without small changes. `main.c` is the driver; the other `.c` files contain the functions it uses (encoders, Galois field tables, error detection, Berlekamp–Massey decoding).
+The simulation code was written in 2008 for Borland/Turbo C++ on Windows: it uses `<conio.h>`, `<dos.h>` and the pre-standard `<iostream.h>`/`<fstream.h>` headers. It will not compile with a modern GCC/Clang without small changes. The files are kept as they were because chapter 5 prints them. Their Python counterparts in [`sim/`](sim/README.md) run on any platform, and `dvbs2sim bch-matrices` generates the `Matrices/*.txt` files that `load_matrices()` expects. `main.c` is the driver; the other `.c` files contain the functions it uses (encoders, Galois field tables, error detection, Berlekamp–Massey decoding).
 
 There is no VHDL in this repository. The hardware design was developed at TAS-I and is not part of this archive.
 
@@ -96,6 +115,7 @@ Requires Python 3, [pandoc](https://pandoc.org) 3.x and, for the PDF, [Tectonic]
 python3 tools/build_pdf.py --install  # LaTeX → TESI_FINALE.pdf
 python3 tools/tex2md.py               # LaTeX → markdown/ (one file per chapter)
 python3 tools/build_site.py           # markdown/ → _site/ (the website, for a local preview)
+python3 tools/build_demos.py          # demos/ → _site/demos/ (needs: pip install marimo uv build)
 ```
 
 `tools/build_pdf.py` compiles `master.tex` from a patched UTF-8 copy in `tools/build/pdf/`, because the 2008 sources target an older `toptesi` class and `latex`. The sources themselves are left unchanged. The title page layout and the line breaks differ slightly from the 2008 PDF.

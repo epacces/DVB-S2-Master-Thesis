@@ -1,3 +1,9 @@
 .DS_Store
 _site/
 tools/build/
+__pycache__/
+*.egg-info/
+.venv/
+sim/build/
+__marimo__/
+.pytest_cache/

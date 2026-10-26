@@ -50,6 +50,9 @@ def main():
                {"sidebar": sidebar(chapters, ch["file"])})
     pandoc(MD / "README.md", SITE / "index.html", "BCH-LDPC Concatenated Coding",
            {"sidebar": sidebar(chapters, None)})
+    # Landing page of the interactive demos (the notebooks are exported by tools/build_demos.py).
+    pandoc(ROOT / "demos" / "index.md", SITE / "demos.html", "Interactive demos",
+           {"sidebar": sidebar(chapters, None)})
 
     # Everything the chapters link to with ../ (images, the PDF).
     used = set()
@@ -61,7 +64,7 @@ def main():
     for name in ("style.css", "site.js"):
         shutil.copy2(TOOLS / name, SITE / name)
     (SITE / ".nojekyll").touch()
-    print("wrote %s (%d pages, %d files)" % (SITE.relative_to(ROOT), len(chapters) + 1, len(used)))
+    print("wrote %s (%d pages, %d files)" % (SITE.relative_to(ROOT), len(chapters) + 2, len(used)))
 
 
 if __name__ == "__main__":

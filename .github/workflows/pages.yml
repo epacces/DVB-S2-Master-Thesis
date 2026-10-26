@@ -1,4 +1,5 @@
-# Builds the thesis website from markdown/ and publishes it to GitHub Pages.
+# Builds the thesis website from markdown/, tests the simulator, exports the
+# marimo demos to WebAssembly and publishes everything to GitHub Pages.
 name: Publish thesis site
 
 on:
@@ -29,6 +30,20 @@ jobs:
 
       - name: Build site
         run: python3 tools/build_site.py
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test the dvbs2 package
+        run: |
+          pip install -e './sim[dev]'
+          pytest -q sim
+
+      - name: Export the interactive demos (WebAssembly)
+        run: |
+          pip install marimo uv build
+          python tools/build_demos.py
 
       - uses: actions/upload-pages-artifact@v3
         with:
