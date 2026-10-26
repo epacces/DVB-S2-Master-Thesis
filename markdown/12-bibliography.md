@@ -136,38 +136,38 @@ Tom Richardson. 2003. “<span class="nocase">The Renaissance of Gallager’s Lo
 
 </div>
 
-[^1]: More precisely, the complexity is referred to amount of total operations to perform, but it is a quantity difficult to define, since it is strongly dependent on the kind of implementation (analogic, digital) either implemented in hardware or software and on the selected design options.
+[^1]: More precisely, the complexity refers to the total amount of operations to perform, but it is a quantity difficult to define, since it is strongly dependent on the kind of implementation (analog, digital) either implemented in hardware or software and on the selected design options.
 
-[^2]: For the sake of truth it has to be highlighted that, after the DVB-S2 contest for modulation and coding was closed, other coding schemes have been reconsidered by TAS-I for extra high speed operations, with less decoding complexity and almost equal performance. This has been made possible emulating the LDPC parallelism via ad-hoc designed parallel interleavers.
+[^2]: For the sake of truth, it has to be highlighted that, after the DVB-S2 contest for modulation and coding was closed, other coding schemes have been reconsidered by TAS-I for extra high speed operations, with less decoding complexity and almost equal performance. This has been made possible by emulating the LDPC parallelism via ad-hoc designed parallel interleavers.
 
-[^3]: Sampling at Nyquist rate simply means to eliminate inter-symbol interference (ISI) while making channel discrete and memoryless. In other words, each symbol to be transmitted over the channel is made independent (obviously at the output) from the others.
+[^3]: Sampling at the Nyquist rate simply means to eliminate inter-symbol interference (ISI) while making the channel discrete and memoryless. In other words, each symbol to be transmitted over the channel is made independent (obviously at the output) from the others.
 
-[^4]: If we define $`W`$ as the the equivalent noise bandwidth on the Nyquist shaping filter, which is typically chosen in communications to eliminate ISI contribution, we obtain independently from any roll-off factor that $`W=R_{\mathrm{b}}`$. Note that, in fact, for the specific symmetry of Nyquist pulse the equivalent noise bandwidth on this pulse does not change with roll-off factor variations. Hence the reason of simplification $`\frac{E_{\mathrm{b}}R_{\mathrm{b}}}{N_{\mathrm{0}} W}=\frac{E_{\mathrm{b}}}{N_{\mathrm{0}}}`$ made in this relation.
+[^4]: If we define $`W`$ as the equivalent noise bandwidth of the Nyquist shaping filter, which is typically chosen in communications to eliminate ISI contribution, we obtain, independently of any roll-off factor that $`W=R_{\mathrm{b}}`$. Note that, in fact, because of the specific symmetry of the Nyquist pulse the equivalent noise bandwidth of this pulse does not change with roll-off factor variations. Hence the simplification $`\frac{E_{\mathrm{b}}R_{\mathrm{b}}}{N_{\mathrm{0}} W}=\frac{E_{\mathrm{b}}}{N_{\mathrm{0}}}`$ made in this relation.
 
-[^5]: It is a means to allow more than a packet format (e.g., IP) over MPEG frames.
+[^5]: It is a means to allow more than one packet format (e.g., IP) over MPEG frames.
 
-[^6]: Standardization committees such as ETSI (European Telecommunications Standard Institute) have imposed various rules as to interferences.
+[^6]: Standardization committees such as ETSI (European Telecommunications Standards Institute) have imposed various rules as to interference.
 
 [^7]: Note that each frame (either short or long) is processed from most significant to least significant bit, either by BCH or LDPC.
 
-[^8]: The *iterative decoding* achieves very close to Shannon limit performance at low/medium SNR. On the contrary, its performance may be significantly worse at high SNR. In fact, their free distance (the minimum Hamming distance between different codewords, i.e., the minimum Hamming weight of a nonzero codeword) can be low. This causes BER curve to flatten following the error floor tied to $`d_{\mathrm{free}}`$, after the waterfall region at low SNR. Performance of any binary code at high SNR can be well approximated by the expression of union bound, truncated to the contribution of free distance (terms at higher distance are negligible at high SNR). Such expression (Roberto Garello, Franco Chiaraluce, Paola Pierleoni, Marco Scaloni, Sergio Benedetto, n.d.) is
+[^8]: The *iterative decoding* achieves very close to Shannon limit performance at low/medium SNR. On the contrary, its performance may be significantly worse at high SNR. In fact, their free distance (the minimum Hamming distance between different codewords, i.e., the minimum Hamming weight of a nonzero codeword) can be low. This causes the BER curve to flatten following the error floor tied to $`d_{\mathrm{free}}`$, after the waterfall region at low SNR. Performance of any binary code at high SNR can be well approximated by the expression of union bound, truncated to the contribution of free distance (terms at higher distance are negligible at high SNR). Such expression (Roberto Garello, Franco Chiaraluce, Paola Pierleoni, Marco Scaloni, Sergio Benedetto, n.d.) is
     ``` math
     \mathrm{BER} \simeq \frac{1}{2}\frac{w_{\mathrm{free}}}{k} \mathrm{erfc} \left( \sqrt{d_{\mathrm{free}} \frac{k}{n}\frac{E_{\mathrm{b}}}{N_{\mathrm{0}}} }\right)
     ```
 
-[^9]: We remind that the performance over AWGN channels represents in communications an upper bound to the performance over more realistic channels. For this reason, comparison of the performance between two systems can be accomplished without any loss of generality over an AWGN environment. Comparisons under gaussian hypotheses are expected to be virtually the same over any non-gaussian environment/channel.
+[^9]: Recall that the performance over AWGN channels represents in communications an upper bound to the performance over more realistic channels. For this reason, comparison of the performance between two systems can be accomplished without any loss of generality over an AWGN environment. Comparisons under Gaussian hypotheses are expected to be virtually the same over any non-Gaussian environment/channel.
 
-[^10]: Very synthetically, multiplier and adder in LFSR shown in Figure [4.2](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:SerEnc) have to implement these operation in Galois arithmetic.
+[^10]: Very synthetically, multiplier and adder in LFSR shown in Figure [4.2](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:SerEnc) have to implement these operations in Galois arithmetic.
 
-[^11]: Over the real field, for example, taking the remainder after division by 4 of any number is as imposing $`4=0`$ so that $`13 \textrm{mod} 4 = 1`$ because 13 can be thought as $`4\times3+1`$ and, given that $`4=0`$, then the remainder is 1.
+[^11]: Over the real field, for example, taking the remainder after division by 4 of any number is the same as imposing $`4=0`$ so that $`13 \textrm{mod} 4 = 1`$ because 13 can be thought as $`4\times3+1`$ and, given that $`4=0`$, then the remainder is 1.
 
-[^12]: The degree of parallelism must be a divisor of numbers of clock ticks to encode a codeword. This architecture spends a number of ticks equal to 15 (codeword length) and therefore $`p`$ can be 5.
+[^12]: The degree of parallelism must be a divisor of the number of clock ticks to encode a codeword. This architecture spends a number of ticks equal to 15 (codeword length) and therefore $`p`$ can be 5.
 
 [^13]: Note also that $`p=8`$ is not only a divisor for 360, but also for 192($`t=12`$), 160($`t=10`$) and 128($`t=8`$)
 
 [^14]: Clearly, in software, this distinction is not so strict
 
-[^15]: *The nomenclature is slightly misguiding, since we already defined the order of a group.*
+[^15]: *The nomenclature is slightly misleading, since we already defined the order of a group.*
 
 ---
 

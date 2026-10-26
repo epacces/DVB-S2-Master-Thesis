@@ -58,7 +58,8 @@ def main():
     for rel in sorted(used):
         (SITE / rel).parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / rel, SITE / rel)
-    shutil.copy2(TOOLS / "style.css", SITE / "style.css")
+    for name in ("style.css", "site.js"):
+        shutil.copy2(TOOLS / name, SITE / name)
     (SITE / ".nojekyll").touch()
     print("wrote %s (%d pages, %d files)" % (SITE.relative_to(ROOT), len(chapters) + 1, len(used)))
 

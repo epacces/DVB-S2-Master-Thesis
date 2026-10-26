@@ -6,6 +6,8 @@
 -- into plain GFM so GitHub renders the math in captions.
 -- Each chapter heading is preceded by "<!-- chapter: N -->" so tex2md.py
 -- can split the output into one file per chapter.
+-- Every numbered item also gets a readable anchor for linking from outside:
+-- #section-4.3, #figure-4.1, #table-3.2, #eq-4.6a, #theorem-A.2.1.
 
 local LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -57,6 +59,7 @@ local function split_rows(body)
 end
 
 local function take_labels(s, n, ids)
+  table.insert(ids.numbers, n)
   for label in s:gmatch("\\label{([^}]*)}") do
     numbers[label] = n
     table.insert(ids, label)
@@ -66,7 +69,7 @@ end
 
 -- Returns the numbered math text and the labels defined in it.
 local function number_math(text)
-  local ids = {}
+  local ids = { numbers = {} }
   local parent = text:match("^%s*\\label{([^}]*)}%s*\\begin{align}")
   local env, body = text:match("\\begin{(align)}(.*)\\end{align}")
   if not env then
@@ -85,6 +88,7 @@ local function number_math(text)
       base = prefixed(eq)
       numbers[parent] = base
       table.insert(ids, parent)
+      table.insert(ids.numbers, base)
     end
     local rows = split_rows(body)
     for k, row in ipairs(rows) do
@@ -152,6 +156,9 @@ local number = {
     if referenced[h.identifier] then
       h.content:insert(1, anchor(h.identifier))
     end
+    if num then
+      h.content:insert(1, anchor((h.level == 1 and "chapter-" or "section-") .. num))
+    end
     if h.level == 1 then
       return { pandoc.RawBlock("html", "<!-- chapter: " .. (num or "") .. " -->"), h }
     end
@@ -185,7 +192,7 @@ local number = {
     local caption = pandoc.utils.blocks_to_inlines(f.caption.long)
     caption:insert(1, pandoc.Strong { pandoc.Str("Figure " .. n .. ":") })
     caption:insert(2, pandoc.Space())
-    local anchors = { anchor(f.identifier) }
+    local anchors = { anchor("figure-" .. n), anchor(f.identifier) }
     for _, id in ipairs(sublabels) do table.insert(anchors, anchor(id)) end
     return {
       pandoc.Para(anchors),
@@ -205,11 +212,12 @@ local number = {
     caption:insert(2, pandoc.Space())
     t.caption = pandoc.Caption()
     t.identifier = ""
-    local out = {}
+    local anchors = { anchor("table-" .. n) }
     if id and id ~= "" then
       numbers[id] = n
-      table.insert(out, pandoc.Para { anchor(id) })
+      table.insert(anchors, anchor(id))
     end
+    local out = { pandoc.Para(anchors) }
     table.insert(out, pandoc.Para { pandoc.Emph(caption) })
     table.insert(out, t)
     return out
@@ -240,9 +248,9 @@ local number = {
       strong[#strong] = pandoc.Str(n)
     end
     -- a plain anchor survives the trip through GFM; the div id does not
-    if referenced[d.identifier] then
-      table.insert(d.content, 1, pandoc.Plain { anchor(d.identifier) })
-    end
+    local anchors = { anchor((cls == "Def" and "definition-" or "theorem-") .. n) }
+    if referenced[d.identifier] then table.insert(anchors, anchor(d.identifier)) end
+    table.insert(d.content, 1, pandoc.Plain(anchors))
     d.identifier = ""
     return d
   end,
@@ -252,6 +260,7 @@ local number = {
     local text, ids = number_math(m.text)
     m.text = text
     local out = {}
+    for _, n in ipairs(ids.numbers) do table.insert(out, anchor("eq-" .. n)) end
     for _, id in ipairs(ids) do
       if referenced[id] then table.insert(out, anchor(id)) end
     end

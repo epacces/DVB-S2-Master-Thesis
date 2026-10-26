@@ -7,6 +7,7 @@
   --sidebar-bg: #f3f4f1;
   --code-bg: #f1f3f5;
   --figure-bg: #ffffff;
+  --target-bg: #fff4c2;
   --sidebar-width: 19rem;
 }
 
@@ -20,6 +21,7 @@
     --sidebar-bg: #1d2025;
     --code-bg: #22262c;
     --figure-bg: #f4f4f2;
+    --target-bg: #3a3420;
   }
 }
 
@@ -56,7 +58,6 @@ a { color: var(--accent); }
   text-decoration: none;
 }
 .sidebar li a:hover { background: var(--rule); }
-.sidebar li.current a { background: var(--accent); color: var(--bg); }
 
 .topbar { display: none; }
 
@@ -89,7 +90,9 @@ pre {
 }
 code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .88em; }
 
-mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .25rem 0; }
+/* Numbered equations get an inline min-width from MathJax; let wide ones
+   scroll inside their own box instead of widening the page. */
+mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .25rem 0; min-width: 0 !important; max-width: 100%; }
 
 .Theorem, .Def {
   border-left: 3px solid var(--accent);
@@ -98,10 +101,34 @@ mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: .
   background: var(--sidebar-bg);
 }
 
+/* Fragments: "#" links on headings, highlighted target, section list. */
+[id] { scroll-margin-top: 1rem; }
+.heading-link {
+  margin-left: .4rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 400;
+  opacity: 0;
+}
+h1:hover .heading-link, h2:hover .heading-link, h3:hover .heading-link,
+.heading-link:focus { opacity: 1; }
+.caption .self-link { color: inherit; text-decoration: none; }
+.caption .self-link:hover { text-decoration: underline; }
+.targeted { background: var(--target-bg); border-radius: 4px; transition: background 1s; }
+
+.sidebar li.current > a { background: var(--accent); color: var(--bg); }
+.sidebar li.current ol a { background: none; }
+.sidebar ol.toc { margin: .25rem 0 .5rem .6rem; border-left: 1px solid var(--rule); }
+.sidebar ol.toc a { padding: .15rem .5rem; font-size: 13px; color: var(--muted); }
+.sidebar ol.toc a:hover { color: var(--fg); }
+.sidebar ol.toc .toc-h3 a { padding-left: 1.3rem; }
+
 hr { border: 0; border-top: 1px solid var(--rule); margin: 3rem 0 1rem; }
 
 /* Narrow screens: the sidebar becomes a drawer. */
 @media (max-width: 900px) {
+  [id] { scroll-margin-top: 3.5rem; }
+  main p { overflow-x: auto; }  /* the odd very long inline formula */
   .topbar {
     display: flex;
     align-items: center;

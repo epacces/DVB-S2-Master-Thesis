@@ -1,78 +1,84 @@
-# B Cyclic Codes
+# <a id="chapter-B"></a>B Cyclic Codes
 
-We now deal with *cyclic codes*, which have additional algebraic structure to make encoding and decoding more efficient. In other words, they have some structure that can be easily exploited through encoding/decoding stages. Note that one of the most notorious cyclic codes are the Hamming codes. In fact, from a certain point of view, BCH codes can be conceived as an extension of Hamming codes. This ‘parallelism’ is well shown in (Stephen B. Wicker 1995), (F. J. MacWilliams, N. J. Sloane 1977).
+We now deal with *cyclic codes*, which have additional algebraic structure to make encoding and decoding more efficient. In other words, they have some structure that can be easily exploited in the encoding/decoding stages. Note that the Hamming codes are among the best-known cyclic codes. In fact, from a certain point of view, BCH codes can be conceived as an extension of Hamming codes. This ‘parallelism’ is well illustrated in (Stephen B. Wicker 1995), (F. J. MacWilliams, N. J. Sloane 1977).
 
-Cyclic codes are based on polynomial operations. A natural algebraic settings for the operation on polynomials is the algebraic structure of a ring. This appendix presents some elementary concepts related to shift operations and linear block codes, focusing on the algebraic description of cyclic codes. Galois fields and cyclic codes theory together are exploited in the design of a cyclic code with a specified minimum distance. The theoretical and practical connection between algebraic structures and code description shows a way of reducing the computational burden in decoding.
+Cyclic codes are based on polynomial operations. A natural algebraic setting for operations on polynomials is the algebraic structure of a ring. This appendix presents some elementary concepts related to shift operations and linear block codes, focusing on the algebraic description of cyclic codes. Galois fields and cyclic codes theory together are exploited in the design of a cyclic code with a specified minimum distance. The theoretical and practical connection between algebraic structures and code description shows a way of reducing the computational burden in decoding.
 
-## <a id="sec:shift"></a>B.1 Shift Operation
+## <a id="section-B.1"></a><a id="sec:shift"></a>B.1 Shift Operation
 
 We now introduce the mathematical definition of cyclic block codes.
 
 <div class="Def">
 
+<a id="definition-B.1.1"></a>
+
 **Definition B.1.1**. *A $`(n ,k)`$ block code $`\mathcal C`$ is said to be cyclic if it is linear and if for every codeword $`\mathbf{c}=(c_0 ,c_1 ,\ldots ,c_{n-1})`$ in $`\mathcal C`$, its right cyclic shift $`\mathbf{c'}=(c_{n-1} ,c_0 ,\ldots ,c_{n-2})`$ is also in $`\mathcal C`$.*
 
 </div>
 
-The operations of shifting and cyclic shifting can be conveniently represented using polynomials. The vector
+The operations of shifting and cyclic shifting can be conveniently represented using polynomials. The vector <a id="eq-B.1"></a>
 ``` math
 \begin{equation}
  \mathbf{c}=(c_0 ,c_1 ,\ldots ,c_{n-1})
  \tag{B.1}
 \end{equation}
 ```
-is represented by the polynomial
+is represented by the polynomial <a id="eq-B.2"></a>
 ``` math
 \begin{equation}
 c(x) = c_0 + c_1x+\ldots+c_{n-1}x^{n-1}
  \tag{B.2}
 \end{equation}
 ```
-using the obvious one-to-one correspondence. A (noncyclic) shift can be represented by polynomial multiplication:
+using the obvious one-to-one correspondence. A (noncyclic) shift can be represented by polynomial multiplication: <a id="eq-B.3"></a>
 ``` math
 \begin{equation}
 xc(x)= c_0x + c_1x^2+\ldots+c_{n-1}x^{n}
  \tag{B.3}
 \end{equation}
 ```
-However, if c(x) was a hypothetic codeword, the above operation obviously would not yield any codeword.
+However, if c(x) were a hypothetical codeword, the above operation would obviously not yield a codeword.
 
-As described in Appendix A, taking the remainder after division by $`x^n-1`$ translates into imposing $`x^n=1`$. So that getting $`xc(x)`$ module $`x^n-1`$ yields
+As described in Appendix A, taking the remainder after division by $`x^n-1`$ translates into imposing $`x^n=1`$. So, taking $`xc(x)`$ modulo $`x^n-1`$ yields <a id="eq-B.4"></a>
 ``` math
 \begin{equation}
 xc(x)=c_{n-1} + c_0x + c_1x^2+\ldots+ c_{n-2}x^{n-1}
  \tag{B.4}
 \end{equation}
 ```
-Could this result be any codeword, or rather, any element of the same set? In other words, this point is that mathematicians call closure under a given operation (or operator). Before dealing with this, we need to introduce another algebraic structure, the *ideals*. It will show that every cyclic codes forms ideals in a *ring of polynomials*.
+Could this result be a codeword, or rather, any element of the same set? In other words, this is what mathematicians call closure under a given operation (or operator). Before dealing with this, we need to introduce another algebraic structure, the *ideals*. It will be shown that every cyclic code forms an ideal in a *ring of polynomials*.
 
-## <a id="sec:ideals"></a>B.2 Rings of Polynomials and Ideals in Rings
+## <a id="section-B.2"></a><a id="sec:ideals"></a>B.2 Rings of Polynomials and Ideals in Rings
 
-Let $`R`$ be a ring. A polynomial $`f(x)`$ of degree $`n`$ with coefficients in $`R`$ is
+Let $`R`$ be a ring. A polynomial $`f(x)`$ of degree $`n`$ with coefficients in $`R`$ is <a id="eq-B.5"></a>
 ``` math
 \begin{equation}
 f(x) = \sum^{n}_{i=0}{a_ix^i}
  \tag{B.5}
 \end{equation}
 ```
-where $`a_n \neq 0`$. The symbol $`x`$ is said an *indeterminate*.
+where $`a_n \neq 0`$. The symbol $`x`$ is called an *indeterminate*.
 
 <div class="Def">
+
+<a id="definition-B.2.1"></a>
 
 **Definition B.2.1**. *The set of all polynomials with an indeterminate $`x`$ with coefficients in a ring $`R`$, using the usual operations for polynomial addition and multiplication, forms a ring called the *polynomial ring*. It is denoted as $`R[x]`$.*
 
 </div>
 
-Generally, polynomial multiplication has not an inverse. For example in the ring of polynomials with real coefficients $`\mathbb R [x]`$, there is no polynomial solutions $`f(x)`$ to
+Generally, polynomial multiplication does not have an inverse. For example in the ring of polynomials with real coefficients $`\mathbb R [x]`$, there is no polynomial solution $`f(x)`$ to
 ``` math
 f(x)(x^2+5x+1) = x^3+3x+1
 ```
 
-Let us now consider the residue class of polynomials rings $`GF(p)[x]`$ modulo $`x^n-1`$, denoted as $`GF(p)[x]/(x^n-1)`$. We have already shown ([A.2](10-galois-or-finite-fields.md#sec:GF)) that a quotient ring is a field if and only if $`x^n-1`$ cannot be factored over the base field $`GF(p)`$ ($`p`$ is a prime number). But let us return to our main question. In fact, we would like to find a set where every its shifted elements is still within such set. Such an algebraic structure is the following.
+Let us now consider the residue class of polynomial rings $`GF(p)[x]`$ modulo $`x^n-1`$, denoted as $`GF(p)[x]/(x^n-1)`$. We have already shown ([A.2](10-galois-or-finite-fields.md#sec:GF)) that a quotient ring is a field if and only if $`x^n-1`$ cannot be factored over the base field $`GF(p)`$ ($`p`$ is a prime number). But let us return to our main question. In fact, we would like to find a set where every shifted element is still within such a set. Such an algebraic structure is the following.
 
 <div class="Def">
 
-**Definition B.2.2**. *Let $`R`$ be a ring. A nonempty subset $`I\subseteq R`$ is an *ideal* if satisfies the following conditions:*
+<a id="definition-B.2.2"></a>
+
+**Definition B.2.2**. *Let $`R`$ be a ring. A nonempty subset $`I\subseteq R`$ is an *ideal* if it satisfies the following conditions:*
 
 1.  *$`I`$ forms a group under the addition operation in $`R`$.*
 
@@ -80,11 +86,13 @@ Let us now consider the residue class of polynomials rings $`GF(p)[x]`$ modulo $
 
 </div>
 
-It seems that a cyclic code form an ideal in a ring of polynomials. Furthermore, for cyclic codes the ideals are principal, as defined by the following.
+It seems that a cyclic code forms an ideal in a ring of polynomials. Furthermore, for cyclic codes the ideals are principal, as defined by the following.
 
 <div class="Def">
 
-**Definition B.2.3**. An ideal $`I`$ in a ring $`R`$ is said to be *principal* if there exist some $`g\in I`$ such that every element $`a \in I`$ can be expressed as a product $`a=mg`$ for some $`m \in R`$.For a principal ideal, such an element $`g`$ is called the *generator element*. The ideal generated by $`g`$ is denoted as $`\langle g \rangle`$:
+<a id="definition-B.2.3"></a>
+
+**Definition B.2.3**. An ideal $`I`$ in a ring $`R`$ is said to be *principal* if there exists some $`g\in I`$ such that every element $`a \in I`$ can be expressed as a product $`a=mg`$ for some $`m \in R`$. For a principal ideal, such an element $`g`$ is called the *generator element*. The ideal generated by $`g`$ is denoted as $`\langle g \rangle`$:
 ``` math
 \langle g \rangle= \{hg: h \in R \}
 ```
@@ -93,7 +101,7 @@ It seems that a cyclic code form an ideal in a ring of polynomials. Furthermore,
 
 <div class="Theorem">
 
-<a id="th:ideals"></a>
+<a id="theorem-B.2.1"></a><a id="th:ideals"></a>
 
 **Theorem B.2.1** (Todd K. Moon, (Moon 2005)). *Let $`I`$ be an ideal in $`\mathbb F_q /(x^n-1)`$. Then*
 
@@ -109,7 +117,7 @@ For example, it can be shown that in $`GF(2)[x]`$
 ``` math
 x^7-1=(x+1)(x^3+x+1)(x^3+x^2+1)
 ```
-In the ring $`GF(2)[x]/(x^7-1)`$, there are ideals corresponding to the different factorization of $`x^7+1 ,`$ so there are the following nontrivial ideals
+In the ring $`GF(2)[x]/(x^7-1)`$, there are ideals corresponding to the different factorizations of $`x^7+1 ,`$ so there are the following nontrivial ideals
 ``` math
 \begin{alignat*}
 3
@@ -119,43 +127,43 @@ In the ring $`GF(2)[x]/(x^7-1)`$, there are ideals corresponding to the differen
 \end{alignat*}
 ```
 
-## B.3 Algebraic Description
+## <a id="section-B.3"></a>B.3 Algebraic Description
 
-As said in Section [B.1](#sec:shift), cyclic shifting of a polynomial $`c(x)`$ is represented by $`xc(x)`$ modulo $`x^n-1`$ operation. Taking into account Theorem [B.2.1](#th:ideals) and what said as far, we can therefore reach the following conclusions as to cyclic codes:
+As said in Section [B.1](#sec:shift), cyclic shifting of a polynomial $`c(x)`$ is represented by $`xc(x)`$ modulo $`x^n-1`$ operation. Taking into account Theorem [B.2.1](#th:ideals) and what has been said so far, we can therefore reach the following conclusions regarding cyclic codes:
 
-- A $`(n ,k)`$ cyclic code has a unique minimal monic polynomial
+- A $`(n ,k)`$ cyclic code has a unique minimal monic polynomial <a id="eq-B.6"></a>
   ``` math
   \begin{equation}
       g(x) = g_0+g_1x+\ldots+g_{n-k}x^{n-k}
    \tag{B.6}
   \end{equation}
   ```
-  It, which is also the generator of ideal, is called the *generator polynomial* for the code, and its degree represents the redundancy $`r=n-k`$ of the code.
+  It, which is also the generator of the ideal, is called the *generator polynomial* for the code, and its degree represents the redundancy $`r=n-k`$ of the code.
 
-- Every codeword can be expressed as a multiple of the generator
+- Every codeword can be expressed as a multiple of the generator <a id="eq-B.7"></a>
   ``` math
   \begin{equation}
   c(x)=m(x)g(x)
    \tag{B.7}
   \end{equation}
   ```
-  Obviously, the degree of message polynomial $`m(x)`$ is less than $`k`$, so the dimension of the code is $`k`$. In other words, there are $`k`$ independently selectable coefficients in $`m(x)`$.
+  Obviously, the degree of the message polynomial $`m(x)`$ is less than $`k`$, so the dimension of the code is $`k`$. In other words, there are $`k`$ independently selectable coefficients in $`m(x)`$.
 
-  Generalization for the systematic coding is straightforward. In fact, by Euclid Theorem application we have
+  The generalization to systematic coding is straightforward. In fact, by applying Euclid’s theorem we have <a id="eq-B.8"></a>
   ``` math
   \begin{equation}
   m(x)x^{n-k}= q(x)g(x)+r(x) \Rightarrow m(x)x^{n-k}-r(x) = q(x)g(x)
    \tag{B.8}
   \end{equation}
   ```
-  and therefore if we conceive a codeword as $`m(x)x^{n-k}-r(x)`$ where $`r(x)`$ represents the remainder of $`m(x)`$ after division by $`g(x)`$, then we obtain an equivalent representation of cyclic code. This is called in literature systematic form and it has the following vector correspondence
+  and therefore if we conceive a codeword as $`m(x)x^{n-k}-r(x)`$ where $`r(x)`$ represents the remainder of $`m(x)`$ after division by $`g(x)`$, then we obtain an equivalent representation of the cyclic code. This is called the systematic form in the literature and it has the following vector correspondence <a id="eq-B.9"></a>
   ``` math
   \begin{equation}
   (-d_0,-d_1,\ldots ,-d_{n-k-1},m_0 ,m_1 ,\ldots ,m_{k-1}) \leftrightarrow x^{n-k}m(x)-r(x)
    \tag{B.9}
   \end{equation}
   ```
-  Loosely speaking, this different encoding process has the unique effect of changing one-to-one mapping between messages and correspondent codewords.
+  Loosely speaking, this different encoding process has the only effect of changing the one-to-one mapping between messages and corresponding codewords.
 
 - Furthermore, the generator $`g(x)`$ is a factor of $`x^{n-1}-1`$ in $`GF(q)[x]`$.
 

@@ -1,18 +1,18 @@
-# 6 Software Package for VHDL Validation
+# <a id="chapter-6"></a>6 Software Package for VHDL Validation
 
-## 6.1 Software Implementation of Serial Encoder
+## <a id="section-6.1"></a>6.1 Software Implementation of Serial Encoder
 
 This section describes the software implementations of the architecture illustrated in Figure [4.2](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:SerEnc). Recall that only this architecture is actually serial since the other one (depicted in Figure [4.1](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:PolyDiv)), which computes parity bits in $`n_{\mathrm{bch}}`$ clock ticks, needs a parallel fetching of the encoding result and a reset of the register at the end of each computation cycle[^14].
 
-The software implementation shown below simulates the serial architecture depicted in Figure [4.2](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:SerEnc). For the first $`k`$ clock ticks, the informative bits exits while the feedback loop is enabled. From $`k`$ to $`n`$ instead, the feedback loop is disabled and then all the parity bits ready to be fetched are carried (serially) to the output while zeros are going to be stored into each stage of the shift register, thus resetting the register. This is certainly an advantage with respect to architecture depicted in Figure [4.1](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:PolyDiv), which requires a parallel fetching of the parity bits together with, in turn, a reset of the shift register.
+The software implementation shown below simulates the serial architecture depicted in Figure [4.2](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:SerEnc). For the first $`k`$ clock ticks, the informative bits exit while the feedback loop is enabled. From $`k`$ to $`n`$ instead, the feedback loop is disabled and then all the parity bits ready to be fetched are carried (serially) to the output while zeros are going to be stored into each stage of the shift register, thus resetting the register. This is certainly an advantage with respect to the architecture depicted in Figure [4.1](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:PolyDiv), which requires a parallel fetching of the parity bits together with, in turn, a reset of the shift register.
 
-To simulate the two different behaviors of the serial encoder, which for $`k`$ clock cycles yields the bits of message while for the next one produces the parity bits, a integer `encStep` counter has been employed. It follows a useful description of the used variable:
+To simulate the two different behaviors of the serial encoder, which for $`k`$ clock cycles yields the bits of message while for the next one produces the parity bits, an integer `encStep` counter has been employed. A useful description of the variables used follows:
 
-- `ticks` is a function parameter and refers to the numbers of iteration/clock-ticks which have to be simulated; `m[], out[]`, other ones function parameters, are vector relevant to input and output. The function `Run` reads from `m[]` and write in turn the result of `ticks` computation cycles.
+- `ticks` is a function parameter and refers to the number of iterations/clock ticks which have to be simulated; `m[], out[]`, the other function parameters, are vectors relevant to input and output. The function `Run` reads from `m[]` and writes in turn the result of `ticks` computation cycles.
 
-- Vector of integer `state[]` represent the values contained in each register of the encoder.
+- The integer vector `state[]` represents the values contained in each register of the encoder.
 
-- `g[]` represent in vectorial form polynomial generator of the BCH code.
+- `g[]` represents, in vector form, the generator polynomial of the BCH code.
 
 - `r` is the length of the shift register.
 
@@ -50,15 +50,15 @@ void BCHenc::Run(int ticks,int *m,int *out)
 }
 ```
 
-This piece of software works serially, but the user may define the number of iterations that emulator machine has to perform. Anyway this software emulator, as its more physical version, takes $`n`$ clock ticks to encode a single codeword.
+This piece of software works serially, but the user may define the number of iterations that the emulator machine has to perform. Anyway this software emulator, as its physical counterpart, takes $`n`$ clock ticks to encode a single codeword.
 
-## 6.2 Software Implementations of Parallel Encoder
+## <a id="section-6.2"></a>6.2 Software Implementations of Parallel Encoder
 
 Matrices $`\mathbf{A}^8`$ and $`\mathbf{B}_8`$ defined in Section [4.3.3](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#sec:Regularity) have been pre-computed via software by a Matlab routine. Useful coefficients of these matrices can be stored in local variables (software) or in LUT (hardware). Note that, concerning the $`\mathbf{A}^8`$ matrix, the sub-matrices $`\mathbf{C}_1`$ and $`\mathbf{C}_2`$ should be stored in a dedicated memory for each t-error correction level to make the architecture flexible.
 
-The first software implementation refers to the slower parallel architecture which spends $`n`$ clock ticks to provide codewords associated to messages. Pre-computed parts of the matrix $`\mathbf{A}^8`$ relevant to each operating modes are loaded and saved in memory on $`(n ,k)`$ (only those provided by the standard) basis. Matrix $`\mathbf{B}_p`$, already defined in [(4.16)](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#eq:Btrivial) (see also the example in Section [4.3.3](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#sec:Regularity)), is trivial and its save in memory can be avoided since that form corresponds to connect the eight inputs to the first XOR stage of the architecture. In other words, the 192 combinatorial networks on the input side (depicted in Figure [5.4](06-hardware-implementation-of-bch-encoder.md#fig:HWarch)) in this kind of architecture are not necessary. The following function is dedicated to simulate the functioning of combinatorial networks on the output side:
+The first software implementation refers to the slower parallel architecture which spends $`n`$ clock ticks to provide codewords associated to messages. Pre-computed parts of the matrix $`\mathbf{A}^8`$ relevant to each operating mode are loaded and saved in memory on $`(n ,k)`$ (only those provided by the standard) basis. Matrix $`\mathbf{B}_p`$, already defined in [(4.16)](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#eq:Btrivial) (see also the example in Section [4.3.3](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#sec:Regularity)), is trivial and saving it in memory can be avoided since that form corresponds to connecting the eight inputs to the first XOR stage of the architecture. In other words, the 192 combinatorial networks on the input side (depicted in Figure [5.4](06-hardware-implementation-of-bch-encoder.md#fig:HWarch)) in this kind of architecture are not necessary. The following function is dedicated to simulating the functioning of the combinatorial networks on the output side:
 
-- Feedback combinatorial network acting on the last eight values of the state register. Function `combn(index, n, regold)` implements the product row by column between $`\mathbf{C}_1 ,\mathbf{C}_2`$ and $`x_{184},\ldots ,x_{191}`$.
+- The feedback combinatorial network acting on the last eight values of the state register. Function `combn(index, n, regold)` implements the row-by-column product between $`\mathbf{C}_1 ,\mathbf{C}_2`$ and $`x_{184},\ldots ,x_{191}`$.
 
 ``` objectivec
 
@@ -78,7 +78,7 @@ int comb_n(int index,int r, int *reg_old)
 }
 ```
 
-The first part of function `BCHnclkpar(int n,int k)` is relevant to the error protection level and consequently due to the state vector allocation (recall that register length can be 128, 160, 192 with respect to $`t = 8 ,10 ,12`$ possible values). In case of mismatch with the couples $`n ,k`$, provided by the standard DVB-S2 for the normal FECFRAME, simulation is aborted. The `for` cycle in the middle part of the program updates cyclically the register of the encoder, using the above function implementing each combinatorial networks. Eventually, output is formatted in the systematic form complyant with the DVB-S2 standard requirements.
+The first part of function `BCHnclkpar(int n,int k)` is relevant to the error protection level and, consequently, to the state vector allocation (recall that register length can be 128, 160, 192 with respect to $`t = 8 ,10 ,12`$ possible values). In case of mismatch with the pairs $`n ,k`$, provided by the standard DVB-S2 for the normal FECFRAME, simulation is aborted. The `for` cycle in the middle part of the program updates cyclically the register of the encoder, using the above function implementing each combinatorial network. Eventually, output is formatted in the systematic form compliant with the DVB-S2 standard requirements.
 
 ``` objectivec
 
@@ -162,11 +162,11 @@ void BCHnclk_par(int n,int k)
 }
 ```
 
-The second implementation is connected to the faster architecture (its correspondent serial version is depicted in Figure [4.2](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:SerEnc)) which spends $`k`$ clock ticks to compute parity bits, saving, compared to the first, $`r`$ clock cycles for each computation cycle or, i.e., for each encoding cycle. The function `combn(index, n, regold)` implementing the combinatorial networks on the output side is the same of the slower architecture according to what we said in Chapter [4](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#ch:BCHAlg&Arch) (i.e. matrix $`\mathbf{A}_8`$ cannot change). Therefore here we have two functions:
+The second implementation is connected to the faster architecture (its corresponding serial version is depicted in Figure [4.2](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:SerEnc)) which spends $`k`$ clock ticks to compute parity bits, saving, compared to the first, $`r`$ clock cycles for each computation cycle, i.e., for each encoding cycle. The function `combn(index, n, regold)` implementing the combinatorial networks on the output side is the same as that of the slower architecture according to what we said in Chapter [4](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#ch:BCHAlg&Arch) (i.e. matrix $`\mathbf{A}_8`$ cannot change). Therefore here we have two functions:
 
-- Function `combc(index, input)` provides the result of row by column product between matrix $`\mathbf{B}_8`$ and the inputs.
+- Function `combc(index, input)` provides the result of the row-by-column product between matrix $`\mathbf{B}_8`$ and the inputs.
 
-- Function `combn(index, n, regold)` implements the product row by column between $`\mathbf{C}_1 ,\mathbf{C}_2`$ and $`x_{184},\ldots ,x_{191}`$.
+- Function `combn(index, n, regold)` implements the row-by-column product between $`\mathbf{C}_1 ,\mathbf{C}_2`$ and $`x_{184},\ldots ,x_{191}`$.
 
 ``` objectivec
 
@@ -266,13 +266,13 @@ void BCHkclk_par(int n,int k)
 }
 ```
 
-## 6.3 Galois Fields Tables
+## <a id="section-6.3"></a>6.3 Galois Fields Tables
 
-As said in Section [3.3.1](04-dvb-s2-modem-concepts-and-architecture.md#sec:BCHstruct), the knowledge of the big field $`GF(2^{16})`$ where the roots of polynomial generators are is necessary to make error detection and decoding (e.g. by Berlekamp-Massey Algorithm). Galois field associated to this BCH code can be built by using $`g_1(x)`$ in Table [3.4](04-dvb-s2-modem-concepts-and-architecture.md#tb:BCHpoly), which is also the primitive polynomial of $`GF(2^{16})`$ for the reasons already expressed in Section [3.3.1](04-dvb-s2-modem-concepts-and-architecture.md#sec:BCHstruct).
+As said in Section [3.3.1](04-dvb-s2-modem-concepts-and-architecture.md#sec:BCHstruct), the knowledge of the big field $`GF(2^{16})`$ where the roots of polynomial generators are is necessary to perform error detection and decoding (e.g. by Berlekamp-Massey Algorithm). The Galois field associated with this BCH code can be built by using $`g_1(x)`$ in Table [3.4](04-dvb-s2-modem-concepts-and-architecture.md#tb:BCHpoly), which is also the primitive polynomial of $`GF(2^{16})`$ for the reasons already expressed in Section [3.3.1](04-dvb-s2-modem-concepts-and-architecture.md#sec:BCHstruct).
 
-All the $`2^{16}-1`$ elements of this field can be obtained by a LFSR structure (implementing the division algorithm as that depicted in Figure [4.1](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:PolyDiv)) where each connection/disconnection (since we are over GF(2)) corresponds to coefficients of $`g_1(x)`$. This LFSR architecture, however, performs all their operations in absence of external stimulus (i.e, the single input $`u(i)`$ is forced to zero $`u(i) = 0`$).
+All the $`2^{16}-1`$ elements of this field can be obtained by an LFSR structure (implementing the division algorithm as that depicted in Figure [4.1](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:PolyDiv)) where each connection/disconnection (since we are over GF(2)) corresponds to the coefficients of $`g_1(x)`$. This LFSR architecture, however, performs all its operations in absence of external stimulus (i.e., the single input $`u(i)`$ is forced to zero $`u(i) = 0`$).
 
-The state evolution repeats for each multiple of $`2^{16}-1`$: if the shift register is initialized by a unitary seed ($`0,\ldots ,0 ,1`$), then we will find the same seed after $`2^{16}-1`$ clock ticks. This means that the initialization seed is a primitive element of GF($`2^{16}`$). Each primitive element can be found by trial end errors:according to Definition A.3.2, when an initialization seed leads to have a 1 at $`2^{16}-1`$ clock tick, then a primitive element has been found, otherwise it does not. In our simulation, for the sake of simplicity, $`\alpha = 1`$ has been used as primitive element.
+The state evolution repeats for each multiple of $`2^{16}-1`$: if the shift register is initialized by a unitary seed ($`0,\ldots ,0 ,1`$), then we will find the same seed after $`2^{16}-1`$ clock ticks. This means that the initialization seed is a primitive element of GF($`2^{16}`$). Each primitive element can be found by trial and error: according to Definition A.3.2, when an initialization seed leads to have a 1 at $`2^{16}-1`$ clock tick, then a primitive element has been found, otherwise it does not. In our simulation, for the sake of simplicity, $`\alpha = 1`$ has been used as primitive element.
 
 ``` objectivec
 
@@ -315,30 +315,30 @@ At each clock cycle (evolution of the shift-register state) two tables are writt
 
 1.  Each $`\alpha^i`$ for $`i = 1,\ldots ,2^{16}-2`$ is stored in the `powOfAlpha[i]` vector/table.
 
-2.  Inverse of the `powOfAlpha[i]` vector/table is saved in the vetor/table `index­Al­pha[i]` which, given the $`\alpha^i`$ value (in decimal notation), provides the correspondent exponent of primitive element $`\alpha`$. In practice, this vector/table expresses a base $`\alpha`$ logarithm (i.e. $`\log_{\alpha}`$ operator).
+2.  Inverse of the `powOfAlpha[i]` vector/table is saved in the vector/table `index­Al­pha[i]` which, given the $`\alpha^i`$ value (in decimal notation), provides the corresponding exponent of primitive element $`\alpha`$. In practice, this vector/table expresses a base-$`\alpha`$ logarithm (i.e. $`\log_{\alpha}`$ operator).
 
 Usefulness of these two vector/tables will be made clear later on.
 
-## 6.4 Decoding BCH
+## <a id="section-6.4"></a>6.4 Decoding BCH
 
 Algebraic decoding of a binary BCH code consists of the following steps:
 
-1.  Computation of syndrome (this is implemented by `errordetection` function).
+1.  Computation of the syndrome (this is implemented by `errordetection` function).
 
 2.  Determination of an *error locator polynomial*, whose roots provide an indication of where the errors are. There are two ways of finding the locator polynomial: Peterson’s algorithm and the Berlekamp-Massey algorithm (used in our simulations). In addition, there are techniques based on Galois-field Fourier transforms.
 
 3.  Finding the roots of the error locator polynomial. Usually, this is done using the *Chien search*, which is an exhaustive search over all elements in the field.
 
-### 6.4.1 Error Detection
+### <a id="section-6.4.1"></a>6.4.1 Error Detection
 
-Before trying to decode a BCH codeword, a preliminary error detection must be accomplished. Parity check [(3.12)](04-dvb-s2-modem-concepts-and-architecture.md#eq:pchk) evaluation in the $`2t`$ roots of polynomial generator provides the code syndrome <a id="eq:syndr"></a>
+Before trying to decode a BCH codeword, a preliminary error detection must be accomplished. Parity check [(3.12)](04-dvb-s2-modem-concepts-and-architecture.md#eq:pchk) evaluation in the $`2t`$ roots of the generator polynomial provides the code syndrome <a id="eq-6.1"></a><a id="eq:syndr"></a>
 ``` math
 \begin{equation}
 \mathbf{S} = S_1 = c(\alpha) ,S_2 = c(\alpha^2) ,\ldots ,S_{2t} = c(\alpha^{2t})
  \tag{6.1}
 \end{equation}
 ```
-If the codeword received has not been corrupted by noise, then the syndrome is null since $`g(\alpha) = g(\alpha^2) = \ldots = g(\alpha^{2t})`$; otherwise it is not and then the decoding should be accomplished to exploit redundancy introduced and try to correct errors occurred. Values in [(6.1)](#eq:syndr) lie over $`GF(2^{16})`$ and all the decoding operations have to be carried out in the Galois field where the roots are.
+If the received codeword has not been corrupted by noise, then the syndrome is null since $`g(\alpha) = g(\alpha^2) = \ldots = g(\alpha^{2t})`$; otherwise it is not and then the decoding should be accomplished to exploit redundancy introduced and try to correct the errors that occurred. Values in [(6.1)](#eq:syndr) lie over $`GF(2^{16})`$ and all the decoding operations have to be carried out in the Galois field where the roots are.
 
 ``` objectivec
 
@@ -366,20 +366,20 @@ To evaluate the $`2t`$ equations relevant to the syndrome, the tables/vectors pr
 
 - compute products among elements of $`GF(2^{16})`$ expressed in exponential form (recall that each element in Galois fields can be written as any power of any primitive element), exploiting exponential properties which still hold in finite fields;
 
-- find the correspondent power of the primitive element which represents, for example, the sum between two elements of GF (e.g. $`\alpha^2 + \alpha^{11}`$).
+- find the corresponding power of the primitive element which represents, for example, the sum between two elements of GF (e.g. $`\alpha^2 + \alpha^{11}`$).
 
-If any error is detected (i.e. `syn` is `true`) then the codeword corrupted can be corrected using the Berlekamp-Massey algorithm.
+If any error is detected (i.e. `syn` is `true`) then the corrupted codeword can be corrected using the Berlekamp-Massey algorithm.
 
-### 6.4.2 Berlekamp-Massey Algorithm
+### <a id="section-6.4.2"></a>6.4.2 Berlekamp-Massey Algorithm
 
-Before giving a brief description of the algorithm, let us introduce some notation and mathematical concept. Returning to [(6.1)](#eq:syndr), suppose that $`\mathbf{r}`$, the received vector, contains $`\nu`$ errors in locations $`i_1 ,i_2 ,\ldots ,i_{\nu}`$ so that each element of $`\mathbf{S}`$ can be rewritten as
+Before giving a brief description of the algorithm, let us introduce some notation and mathematical concepts. Returning to [(6.1)](#eq:syndr), suppose that $`\mathbf{r}`$, the received vector, contains $`\nu`$ errors in locations $`i_1 ,i_2 ,\ldots ,i_{\nu}`$ so that each element of $`\mathbf{S}`$ can be rewritten as <a id="eq-6.2"></a>
 ``` math
 \begin{equation}
 S_j = \sum_{l =1}^{\nu} {{(\alpha^j)}^{i_l}} = \sum_{l =1}^{\nu} {{(\alpha^{i_l})}^j}
  \tag{6.2}
 \end{equation}
 ```
-Letting $`X_l = \alpha^{i_l}`$, we obtain the following $`2t`$ equations
+Letting $`X_l = \alpha^{i_l}`$, we obtain the following $`2t`$ equations <a id="eq-6.3"></a>
 ``` math
 \begin{equation}
 S_j = \sum_{l =1}^{\nu} {{X_l}^j} \qquad j = 1,2,\ldots ,2t
@@ -388,7 +388,7 @@ S_j = \sum_{l =1}^{\nu} {{X_l}^j} \qquad j = 1,2,\ldots ,2t
 ```
 in the $`\nu`$ unknown error locators. In principle this set of nonlinear equations could be solved by an exhaustive search, but this would be computationally expensive or intractable. To overcome this problem, a new polynomial is introduced, the *error locator polynomial* which casts the problem in a different, and more tractable, setting.
 
-The error locator polynomial is defined as <a id="eq:elp"></a>
+The error locator polynomial is defined as <a id="eq-6.4"></a><a id="eq:elp"></a>
 ``` math
 \begin{equation}
 \Lambda(x) = \prod_{l = 1}^{\nu} {(1-X_lx)} = \Lambda_{\nu}x^{\nu} + \ldots +\Lambda_1x + \Lambda_0
@@ -397,7 +397,7 @@ The error locator polynomial is defined as <a id="eq:elp"></a>
 ```
 where $`\Lambda_0 = 1`$. In practice, the roots of [(6.4)](#eq:elp) are at the reciprocals of the error locators.
 
-It is possible to demonstrate (for this proof and further information see (Moon 2005)) that there exist a linear feedback shift register relationship between the syndromes and the coefficients of the error locator polynomial. In practice, we can write <a id="eq:SynLocLFSR"></a>
+It is possible to demonstrate (for this proof and further information see (Moon 2005)) that there exists a linear feedback shift register relationship between the syndromes and the coefficients of the error locator polynomial. In practice, we can write <a id="eq-6.5"></a><a id="eq:SynLocLFSR"></a>
 ``` math
 \begin{equation}
 S_j = - \sum_{i = 1}^{\nu} {\Lambda_i S_{j-i}} \qquad j = \nu+1 ,\nu + 2 ,\ldots ,2t
@@ -406,16 +406,16 @@ S_j = - \sum_{i = 1}^{\nu} {\Lambda_i S_{j-i}} \qquad j = \nu+1 ,\nu + 2 ,\ldots
 ```
 This formula describes the output of a linear feedback shift register (LFSR) with coefficients $`\Lambda_1 ,\Lambda_2 ,\ldots ,\Lambda_{\nu}`$. From this point of view, the decoding problem consists of finding $`\Lambda_j`$ coefficients in such a way that the LFSR generates the known sequence of syndromes $`S_1,S_2,\ldots ,S_{2t}`$.
 
-In the Berlekamp-Massey algorithm, we build the LFRS that produces the entire sequence $`\{S_1,S_2,\ldots ,S_{2t} \}`$ by successively modifying an existing LFSR, if necessary to produce increasingly longer sequences. Clearly, we start with an LFRS that could produce $`S_1`$. We determine if that LFRS could also produce the sequence $`\{S_1,S_2\}`$; if it can, then no modifications are necessary. If the sequence cannot be produced using the current LFSR configuration, we determine a new LFRS that can produce the longer sequence. Proceeding inductively in this way, we start from an LFSR capable of producing the sequence $`\{S_1,S_2,\ldots ,S_{k-1} \}`$ and modify it, if necessary, so that it can also produce the sequence $`\{S_1,S_2,\ldots ,S_{k} \}`$. At each stage, the modification to the LFRS are accomplished so that the LFSR is the shortest possible. By this means, after completion of the algorithm an LFSR has been found that is able to produce $`\{S_1,S_2,\ldots ,S_{2t} \}`$ and its coefficients correspond to the error locator polynomial $`\Lambda(x)`$ of smallest degree.
+In the Berlekamp-Massey algorithm, we build the LFSR that produces the entire sequence $`\{S_1,S_2,\ldots ,S_{2t} \}`$ by successively modifying an existing LFSR, if necessary, to produce increasingly longer sequences. Clearly, we start with an LFSR that could produce $`S_1`$. We determine if that LFSR could also produce the sequence $`\{S_1,S_2\}`$; if it can, then no modifications are necessary. If the sequence cannot be produced using the current LFSR configuration, we determine a new LFSR that can produce the longer sequence. Proceeding inductively in this way, we start from an LFSR capable of producing the sequence $`\{S_1,S_2,\ldots ,S_{k-1} \}`$ and modify it, if necessary, so that it can also produce the sequence $`\{S_1,S_2,\ldots ,S_{k} \}`$. At each stage, the modifications to the LFSR are accomplished so that the LFSR is the shortest possible. By this means, after completion of the algorithm an LFSR has been found that is able to produce $`\{S_1,S_2,\ldots ,S_{2t} \}`$ and its coefficients correspond to the error locator polynomial $`\Lambda(x)`$ of smallest degree.
 
-Since we build up the LFSR using information from prior computations, we need a notation to represent the $`\Lambda(x)`$ used at different stages of algorithm. Let $`L_k`$ denote the length of LFSR produced at stage $`k`$ of the algorithm. Let
+Since we build up the LFSR using information from prior computations, we need a notation to represent the $`\Lambda(x)`$ used at different stages of the algorithm. Let $`L_k`$ denote the length of the LFSR produced at stage $`k`$ of the algorithm. Let <a id="eq-6.6"></a>
 ``` math
 \begin{equation}
 \Lambda^{[k]}(x) = 1 + \Lambda_1^{[k]}x + \cdots + \Lambda_{L_k}^{[k]}x^{L_k}
  \tag{6.6}
 \end{equation}
 ```
-be the *connection polynomial* at stage $`k`$, indicating the connections for the LFSR capable of producing the output sequence $`\{S_1,S_2,\ldots ,S_{k} \}`$. That is,
+be the *connection polynomial* at stage $`k`$, indicating the connections for the LFSR capable of producing the output sequence $`\{S_1,S_2,\ldots ,S_{k} \}`$. That is, <a id="eq-6.7"></a>
 ``` math
 \begin{equation}
 S_j = - \sum_{i = 1}^{L_k} {\Lambda_i^{[k]} S_{j-i}} \qquad j = L_k+1 ,L_k + 2 ,\ldots ,k
@@ -423,14 +423,14 @@ S_j = - \sum_{i = 1}^{L_k} {\Lambda_i^{[k]} S_{j-i}} \qquad j = L_k+1 ,L_k + 2 ,
 \end{equation}
 ```
 
-At some intermediate step, suppose we have a connection polynomial $`\Lambda^{[k-1]}(x)`$ of length $`L_{k-1}`$ that produces $`\{S_1,S_2,\ldots ,S_{k-1} \}`$ for some $`k-1 < 2t`$. We check if this connection polynomial also produces $`S_k`$ by computing the output
+At some intermediate step, suppose we have a connection polynomial $`\Lambda^{[k-1]}(x)`$ of length $`L_{k-1}`$ that produces $`\{S_1,S_2,\ldots ,S_{k-1} \}`$ for some $`k-1 < 2t`$. We check if this connection polynomial also produces $`S_k`$ by computing the output <a id="eq-6.8"></a>
 ``` math
 \begin{equation}
 \hat{S_k} = - \sum_{i = 1}^{L_k-1} {\Lambda_i^{[k-1]} S_{k-i}}
  \tag{6.8}
 \end{equation}
 ```
-If $`\hat{S_k}`$ is equal to $`S_k`$, then there is no need to update the LFSR, so $`\Lambda^{[k]}(x)= \Lambda^{[k-1]}(x)`$ and $`L_k=L_{k-1}`$. Otherwise, there is some nonzero *discrepancy* associated with $`\Lambda^{[k-1]}(x)`$, <a id="eq:discrepancy"></a>
+If $`\hat{S_k}`$ is equal to $`S_k`$, then there is no need to update the LFSR, so $`\Lambda^{[k]}(x)= \Lambda^{[k-1]}(x)`$ and $`L_k=L_{k-1}`$. Otherwise, there is some nonzero *discrepancy* associated with $`\Lambda^{[k-1]}(x)`$, <a id="eq-6.9"></a><a id="eq:discrepancy"></a>
 ``` math
 \begin{equation}
 d_k = S_k - \hat{S_k} = S_k + \sum_{i = 1}^{L_k-1} {\Lambda_i^{[k-1]} S_{k-i}} =
@@ -438,37 +438,37 @@ d_k = S_k - \hat{S_k} = S_k + \sum_{i = 1}^{L_k-1} {\Lambda_i^{[k-1]} S_{k-i}} =
  \tag{6.9}
 \end{equation}
 ```
-In this case we can update the connection polynomial using the formula
+In this case we can update the connection polynomial using the formula <a id="eq-6.10"></a>
 ``` math
 \begin{equation}
 \Lambda^{[k]}(x) = \Lambda^{[k-1]}(x) + A x^l \Lambda^{[m-1]}(x)
  \tag{6.10}
 \end{equation}
 ```
-where $`A`$ is some element in the field, $`l`$ is an integer, and $`\Lambda^{[m-1]}(x)`$ is one of the prior connection polynomials produced by our process associated with nonzero discrepancy $`d_m`$. Using this new connection polynomial, we compute the new discrepancy, denoted by $`{d_k}'`$, as <a id="eq:discrep2"></a>
+where $`A`$ is some element in the field, $`l`$ is an integer, and $`\Lambda^{[m-1]}(x)`$ is one of the prior connection polynomials produced by our process associated with nonzero discrepancy $`d_m`$. Using this new connection polynomial, we compute the new discrepancy, denoted by $`{d_k}'`$, as <a id="eq-6.11"></a><a id="eq-6.12"></a><a id="eq:discrep2"></a>
 ``` math
 \begin{align}
 {d_k}' &= \sum_{i = 0}^{L_k} {\Lambda_i^{[k]} S_{k-i}} \tag{6.11}\\
      &= \sum_{i = 0}^{L_k-1} {\Lambda_i^{[k-1]} S_{k-i}} + A \sum_{i = 0}^{L_m-1} {\Lambda_i^{[m-1]} S_{k-i-l}}
  \tag{6.12}\end{align}
 ```
-Now, let $`l=k-m`$. Then, by comparison with the definition of the discrepancy in [(6.9)](#eq:discrepancy), the second summation gives
+Now, let $`l=k-m`$. Then, by comparison with the definition of the discrepancy in [(6.9)](#eq:discrepancy), the second summation gives <a id="eq-6.13"></a>
 ``` math
 \begin{equation}
 A \sum_{i = 0}^{L_m-1} {\Lambda_i^{[m-1]} S_{m-i}} = A d_m
  \tag{6.13}
 \end{equation}
 ```
-Thus, if we choose $`A=-d_m^{-1}d_k`$, then the summation in [(6.12)](#eq:discrep2) gives
+Thus, if we choose $`A=-d_m^{-1}d_k`$, then the summation in [(6.12)](#eq:discrep2) gives <a id="eq-6.14"></a>
 ``` math
 \begin{equation}
 {d_k}' = d_k -d_m^{-1} d_k d_m = 0
  \tag{6.14}
 \end{equation}
 ```
-So the new connection polynomial produces the sequence $`\{S_1,S_2,\ldots ,S_{k} \}`$ with no discrepancy. We do not investigate here on how to find the shortest LFSR reproducing syndromes with no discrepancy. We assume that below algorithm could do that. For a complete treatment on LFSR length in Massey algorithm see (Moon 2005).
+So the new connection polynomial produces the sequence $`\{S_1,S_2,\ldots ,S_{k} \}`$ with no discrepancy. We do not investigate here how to find the shortest LFSR reproducing syndromes with no discrepancy. We assume that the algorithm below does that. For a complete treatment of the LFSR length in Massey algorithm see (Moon 2005).
 
-Algorithm shown below use the following variables
+The algorithm shown below uses the following variables
 
 - Vectors/tables `pow`, `index` to simplify multiplications among the elements of the Galois field
 
@@ -487,15 +487,15 @@ Algorithm shown below use the following variables
 
 - Variable `l` represents the amount of shift in update, namely $`l = k-m`$; `L` contains the current length of the LFSR
 
-Let us start to briefly describe the set of operations carried out by the `BerlMass()` C function. After the initialization step, the following operations are accomplished:
+Let us briefly describe the set of operations carried out by the `BerlMass()` C function. After the initialization step, the following operations are accomplished:
 
-1.  Compute discrepancy by $`S_k+ \sum_{i = i}^{L} {c_i S_{k-i}}`$ calculation. This computation is made by the useful pre-computed tables `pow[], index[]`, and using the ANSI C bit-wise operators.
+1.  Compute discrepancy by $`S_k+ \sum_{i = i}^{L} {c_i S_{k-i}}`$ calculation. This computation is made by means of the pre-computed tables `pow[], index[]`, and using the ANSI C bit-wise operators.
 
-2.  If the result of that calculation is zero, then there is no change in polynomial and `l` turns `l+1`. If discrepancy is nonzero, then there exist two options yet:
+2.  If the result of that calculation is zero, then there is no change in polynomial and `l` becomes `l+1`. If discrepancy is nonzero, then there exist two options:
 
-    - If the double of the current LFSR length is greater equal than `k`, the step counter, then $`c(x)`$ is updated, but retains its length.
+    - If twice the current LFSR length is greater than or equal to `k`, the step counter, then $`c(x)`$ is updated, but retains its length.
 
-    - Else $`c(x)`$ length and values change together. The non-updated $`c(x)`$ is saved into $`p(x)`$ and so the discrepancy associated to is stored into `dm`. The amount of shift in update turns 1.
+    - Else $`c(x)`$ length and values change together. The non-updated $`c(x)`$ is saved into $`p(x)`$ and so the discrepancy associated with it is stored into `dm`. The amount of shift in update becomes 1.
 
 After $`2t`$ cycles, $`c(x)`$ contains the coefficients of error locator polynomial $`\Lambda(x)`$.
 
@@ -614,47 +614,47 @@ fprintf(o3,"\n\n-------------------
 }
 ```
 
-### 6.4.3 Chien Search
+### <a id="section-6.4.3"></a>6.4.3 Chien Search
 
-Having now the error locator, its root must be found in our field of interest ($`GF(2^{16}`$). Since the search must be accomplished in a finite field, we can examine every element of the field to determine if it is a root. Thus polynomial $`\Lambda(x)`$ can be evaluated at each nonzero element of the field in succession: $`x=1 ,x= \alpha ,x = \alpha^2 ,\ldots ,x= \alpha^{2^{16}-2}`$.
+Having now the error locator, its roots must be found in our field of interest ($`GF(2^{16}`$). Since the search must be accomplished in a finite field, we can examine every element of the field to determine if it is a root. Thus polynomial $`\Lambda(x)`$ can be evaluated at each nonzero element of the field in succession: $`x=1 ,x= \alpha ,x = \alpha^2 ,\ldots ,x= \alpha^{2^{16}-2}`$.
 
-This can be easily implemented by two nested `for` cycles: the outer scans all the elements in GF, the inner evaluate the polynomial performing the above substitution and accumulating (step-by-step) in a `tmp` temporary variable its result. Clearly, if the overall result of this calculation gives 1 (in index form), then a root has been found. Supposing, for example, to have found $`\alpha^{12}`$ as root. Its inversion can be easily accomplished using some elementary properties of finite fields: expression $`\alpha^{-12}`$ can be thought as $`\alpha^{-12}\alpha^{2^{16}-1} = \alpha^{2^{16}-13}`$.
+This can be easily implemented by two nested `for` cycles: the outer scans all the elements in GF, the inner evaluates the polynomial performing the above substitution and accumulating (step-by-step) in a `tmp` temporary variable its result. Clearly, if the overall result of this calculation gives 1 (in index form), then a root has been found. Suppose, for example, that $`\alpha^{12}`$ has been found as a root. Its inversion can be easily accomplished using some elementary properties of finite fields: expression $`\alpha^{-12}`$ can be thought of as $`\alpha^{-12}\alpha^{2^{16}-1} = \alpha^{2^{16}-13}`$.
 
-If the roots found are distinct and all lie in the reference field, then we use these to determine the error locations. If they are not distinct or lie in the wrong field, then the received word is not within distance $`t`$ of any codeword. The correspondent error pattern is said to be an uncorrectable error pattern. An uncorrectable error pattern results in a decoder failure.
+If the roots found are distinct and all lie in the reference field, then we use these to determine the error locations. If they are not distinct or lie in the wrong field, then the received word is not within distance $`t`$ of any codeword. The corresponding error pattern is said to be an uncorrectable error pattern. An uncorrectable error pattern results in a decoder failure.
 
-## 6.5 Software Robustness and Validation
+## <a id="section-6.5"></a>6.5 Software Robustness and Validation
 
-The first proof of software functioning consists in a set of simulations to validate the package developed in C programming language and thus support VHDL designers in synthesization of the BCH encoder architecture. To this latter specific purpose, it was convenient setting up a package which can be used to simulate not only the correct functioning of the envisaged parallel encoder but, above all, his capacity of correcting $`t`$ errors on a operating mode basis.
+The first proof of software functioning consists of a set of simulations to validate the package developed in C programming language and thus support VHDL designers in the synthesis of the BCH encoder architecture. To this latter specific purpose, it was convenient to set up a package which can be used to simulate not only the correct functioning of the envisaged parallel encoder but, above all, its capacity of correcting $`t`$ errors on an operating-mode basis.
 
-This has been accomplished interconnecting each block of an ideal communication chain composed, in order, by:
+This has been accomplished by interconnecting each block of an ideal communication chain composed, in order, by:
 
 A Pseudo-Noise Source:  
-a LFSR with optimum taps, i.e., capable of generate sequences of maximum period;
+a LFSR with optimum taps, i.e., capable of generating sequences of maximum period;
 
 BCH Encoder/s  
-which emulates each kind of architectures and algorithms already discussed. The type of algorithm and relevant architecture to be emulated can be selected by the user before starting simulation cycle.
+which emulates each kind of architecture and algorithms already discussed. The type of algorithm and relevant architecture to be emulated can be selected by the user before starting the simulation cycle.
 
 An Error Pattern Generator:  
-without any loss of generality, the macro-block channel plus modem has been substituted by a pseudo-random error pattern generator. It generates an IID (Independent Identically Distributed) stochastic process whose samples, representing the errors occurred during the frame transmission, are distributed as an uniform p.d.f. In practice, we shall simulate an hard detection/corretion of errors.
+without any loss of generality, the macro-block channel plus modem has been substituted by a pseudo-random error pattern generator. It generates an IID (Independent Identically Distributed) stochastic process whose samples, representing the errors occurred during the frame transmission, are distributed as a uniform p.d.f. In practice, we shall simulate a hard detection/correction of errors.
 
 An Error Detection Block and Syndrome Calculator:  
-this block have the  
-simple task of computing syndromes associated to a received codeword. Clearly, if any error is occurred then the codeword must be processed by decoder to try correcting errors. Otherwise, no codewords are needed being corrected.
+this block has the  
+simple task of computing syndromes associated to a received codeword. Clearly, if any error has occurred then the codeword must be processed by decoder to try correcting errors. Otherwise, no codewords need to be corrected.
 
 A Berlekamp Massey Decoder:  
-when the number of errors is less or equal to $`t`$, Berlekamp Massey algorithm and, in turn, the Chien search of roots can correct the errors occurred during transmissions; in the other cases the decoder state its failure in decoding.
+when the number of errors is less than or equal to $`t`$, Berlekamp Massey algorithm and, in turn, the Chien search of roots can correct the errors occurred during transmission; in the other cases the decoder states its failure in decoding.
 
-In order to verify the functionality of all the algorithms, the positions of error found at the decoder size are compared with the positions added by the error pattern generation function. In case of any mismatch with the added error positions between decoder and error generator, a decoding failure is stated. The result of each simulation cycle can be saved onto a file, which can be indicated by the user.
+In order to verify the functionality of all the algorithms, the positions of error found at the decoder side are compared with the positions added by the error pattern generation function. In case of any mismatch with the added error positions between decoder and error generator, a decoding failure is stated. The result of each simulation cycle can be saved onto a file, which can be indicated by the user.
 
-### 6.5.1 Error Pattern Generation
+### <a id="section-6.5.1"></a>6.5.1 Error Pattern Generation
 
-Positions of errors are determined by using a C function (`uniform01()`) generating a uniform distributed r.v. between $`[0,1[`$, namely $`X`$; then
+Positions of errors are determined by using a C function (`uniform01()`) generating a uniformly distributed r.v. between $`[0,1[`$, namely $`X`$; then
 ``` math
 Y = \lfloor n_{\mathrm{bch}}\cdot X \rfloor
 ```
-represent the random error location, distributed uniformly between $`[0,n_{\mathrm{bch}}-1]`$.
+represents the random error location, distributed uniformly between $`[0,n_{\mathrm{bch}}-1]`$.
 
-### 6.5.2 The C Code
+### <a id="section-6.5.2"></a>6.5.2 The C Code
 
 This section provides the code used in the simulation campaign (the implementation of `uniform01()` will be omitted).
 

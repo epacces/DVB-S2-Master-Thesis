@@ -1,6 +1,6 @@
-# 1 Riassunto
+# <a id="chapter-1"></a>1 Riassunto
 
-## 1.1 Applicazioni e caratteristiche delle comunicazioni satellitari
+## <a id="section-1.1"></a>1.1 Applicazioni e caratteristiche delle comunicazioni satellitari
 
 Le comunicazioni satellitari rivestono un ruolo molto importante in applicazioni che potremmo definire di nicchia o altamente strategiche quali:
 
@@ -24,7 +24,7 @@ Le comunicazioni satellitari per l’osservazione della Terra e le Telecomunicaz
 
 Il sistema di modulazione e codifica adottato dal recente standard per le comunicazioni satellitari DVB-S2, così come MOHMS, un innovativo modem ad alto ordine di modulazione e alte prestazioni sviluppato da TAS-I e finanziato dall’European Space Agency (ESA), è così vicino alle prestazioni limite (Shannon) da poter rappresentare una solida soluzione tecnologica per molti anni a venire.
 
-### 1.1.1 Osservazione della Terra e telerilevamento
+### <a id="section-1.1.1"></a>1.1.1 Osservazione della Terra e telerilevamento
 
 Come già accennato, i satelliti ricoprono un ruolo chiave in applicazioni (civili e militari) per cui è richiesta la copertura di vaste aree di territorio a bassa densità di popolazione (per esempio, oceani, deserti, zone polari, foreste, etc.). La copertura di queste zone e l’alta capacità di acquisizione ed elaborazione di immagini fa sì che si possano fornire servizi quali, ad esempio, l’oceanografia, la meteorologia, la climatologia.
 
@@ -54,7 +54,7 @@ Altri campi di applicazione riguardano l’idrologia a il rilevamento del profil
 
 - *Gestione delle componenti di rischio industriale e ambientale*: simulazione, prevenzione, assistenza e assistenza *post* incidente. L’uso di modelli tridimensionali e planimetrici combinati a immagini ad alta risoluzione consente la simulazione di fenomeni come allagamenti, incendi, terremoti, inquinamento atmosferico, etc.
 
-### 1.1.2 La seconda generazione dello standard DVB-S
+### <a id="section-1.1.2"></a>1.1.2 La seconda generazione dello standard DVB-S
 
 Sviluppato sul successo del DVB-S, il DVB-S2 è lo standard di seconda generazione per applicazioni satellitari a banda larga. Esso beneficia dei recenti progressi tecnologici ottenuti nello scorso decennio. Questo standard è stato progettato per svariate applicazioni a banda larga:
 
@@ -94,9 +94,9 @@ Si tratta della diffusione del segnale (in formato MPEG) radiotelevisivo (HDTV, 
 Servizi interattivi (Interactive Services)  
 Il DVB-S2 è in grado di fornire servizi interattivi, tra cui l’accesso a internet, ai possessori di decoder digitali (consumer, ossia prodotti ad alta diffusione) e di personal computer. Dato che lo standard lascia piena libertà sul canale di ritorno, l’interattività potrebbe essere stabilita sia attraverso canali terrestri (utilizzando evidentemente le linee telefoniche) sia attraverso l’uso di satelliti. I dati possono essere trasportati in formato MPEG oppure in formato generico, in modalità CCM (Constant Coding and Modulation), ossia a modulazione e codifica costanti, oppure in ACM. In quest’ultimo caso ogni stazione ricevente controlla il livello di protezione dei dati ad essa indirizzati.
 
-## 1.2 La sezione di trasmissione del DVB-S2: concetti e architettura
+## <a id="section-1.2"></a>1.2 La sezione di trasmissione del DVB-S2: concetti e architettura
 
-### 1.2.1 Schemi di modulazione e codifica
+### <a id="section-1.2.1"></a>1.2.1 Schemi di modulazione e codifica
 
 In ogni sistema di comunicazione la scelta ed il progetto degli schemi di modulazione e codifica ha come finalità quella di trasmettere i dati in maniera sufficientemente affidabile per il tipo di applicazione richiesta, facendo al tempo stesso un uso efficiente delle risorse disponibili (banda, potenza, ed, in particolare nelle comunicazioni via satellite, peso ed ingombro delle apparecchiature). Le quantità e i requisiti che vengono tipicamente valutati nella scelta di un particolare schema di modulazione e codifica sono i seguenti
 
@@ -144,7 +144,7 @@ La tecnica ACM può essere alternativa o combinata alle seguenti tecniche di mit
 
 Se il valore di BER richiesto non è ottenibile tramite nessuna delle combinazioni, allora il sistema non trasmette dati.
 
-### 1.2.2 Descrizione della sezione di trasmissione
+### <a id="section-1.2.2"></a>1.2.2 Descrizione della sezione di trasmissione
 
 Il sistema DVB-S2 è stato progettato in base a due livelli di trama del segnale:
 
@@ -182,7 +182,7 @@ Il blocco di Generazione della trama PL, sincrono con i FECFRAME, gestisce l’i
 
 Il filtraggio in banda base e la modulazione in quadratura si applicano per modellare lo spettro del segnale e per generare il segnale RF (*Radio Frequency*). Il filtro usato in trasmissione è la radice quadrata del filtro a coseno rialzato con tre possibili coefficienti di *roll-off* a: 0,35 per continuità con il DVB-S, 0,25 e 0,20 per i casi in cui vi siano maggiori limitazioni di banda.
 
-### 1.2.3 La codifica di canale
+### <a id="section-1.2.3"></a>1.2.3 La codifica di canale
 
 La FEC del DVB-S2 si basa sulla concatenazione di due codici a blocco: BCH e LDPC. Questa concatenazione è stata dettata dall’esigenza di limitare i tipici cali di pendenza della curva di probabilità d’errore ad alti rapporti segnale rumore. Tale fenomeno porta il nome di *error floor* e causa un appiattimento delle curve di BER (*Bit Error Rate*) dopo le regioni ripide (le regioni a “cascata”, dall’inglese *waterfall*, tipiche della decodifica iterativa) a più bassi rapporti segnale rumore.
 
@@ -226,7 +226,7 @@ La generica parola di codice è suddivisa nella parte informativa e nella parte 
 
 Le elevate proprietà di regolarità delle matrici consente inoltre di ottenere un notevole risparmio di memoria. Per concludere, la complessità di codifica cresce linearmente con la dimensione dei blocchi della parola di codice.
 
-### 1.2.4 Cenni sulle prestazioni raggiunte
+### <a id="section-1.2.4"></a>1.2.4 Cenni sulle prestazioni raggiunte
 
 Il DVB-S2 permette di selezionare lo schema di modulazione e il tasso di codifica a seconda dei requisiti del servizio e delle caratteristiche del transponder da satellite impiegato. L’efficienza spettrale va da $`0,5`$, usando la modulazione QPSK 1/4, a $`4,5 bit/s/Hz`$, usando la configurazione 32-APSK 9/10, e il rapporto segnale rumore da $`-2,4 \,\mathrm{dB}`$ a 16 dB (assumendo canale AWGN e demodulazione ideale). I risultati sono stati ottenuti attraverso simulazioni al calcolatore valutanti le prestazioni dei sistemi DVBS2 e DVB-S/DVB-DSNG ad un tasso d’errore sul pacchetto (PER, Packet Error Rate) TS di $`10^{-7}`$, corrispondente circa a un pacchetto errato per ora di trasmissione in un servizio video a $`5 \,\mathrm{Mbit/s}`$. Su canale ideale affetto esclusivamente da rumore additivo Gaussiano bianco AWGN (Additive White Gaussian Noise), il risultato è un aumento della capacità trasmissiva dell’ordine del 20-35% rispetto al DVB-S e DVB-DSNG nelle stesse condizioni di trasmissione, o una ricezione di 2-2,5 dB più robusta per la stessa efficienza spettrale.
 
@@ -234,9 +234,9 @@ Il sistema DVB-S2 può essere usato nelle configurazioni ‘singola portante per
 
 Nella configurazioni a singola portante per transponder, la velocità di trasmissione $`R_{\mathrm{s}}`$ (*symbol rate*) può essere adattata alla larghezza di banda BW del transponder (a -3dB), per ottenere la massima capacità trasmissiva compatibile con un degradamento accettabile del segnale dovuto alle limitazioni della larghezza di banda del transponder. Nella configurazione multi-portante FDM, $`R_{\mathrm{s}}`$ deve essere adattato all’intervallo di frequenza BS assegnato al servizio dal piano delle frequenze, per ottimizzare la capacità trasmissiva e contemporaneamente mantenere ad un livello accettabile le reciproche interferenze tra le portanti adiacenti.
 
-## 1.3 Algoritmi di codifica BCH per il DVB-S2
+## <a id="section-1.3"></a>1.3 Algoritmi di codifica BCH per il DVB-S2
 
-### 1.3.1 Descrizione dell’algoritmo di codifica
+### <a id="section-1.3.1"></a>1.3.1 Descrizione dell’algoritmo di codifica
 
 La codifica dei messaggi può essere di due tipi: sistematica e non sistematica. Quando i dati vengono codificati in maniera sistematica i bit di messaggio vengono esattamente replicati all’interno della parola di codice. A questi vengono poi aggiunti alcuni bit di ridondanza, talvolta chiamati bit di parità. Nello standard DVB-S2 la ridondanza del codice occupa i bit meno significativi, mentre l’informazione quelli più significativi (si veda l’espressione [(4.2)](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#eq:codsyst)). Da ciò discende che i bit d’informazione occupano le posizioni più significative della parola di codice, cosa che tipicamente si verifica.
 
@@ -254,7 +254,7 @@ L’analisi del funzionamento di questo LFSR (figura [4.1](05-bch-encoding-algor
 
 Alcune considerazioni di natura matematica e architetturale fanno intuire la convenienza di fare entrare i bit di messaggio nel nodo di somma (modulo 2) insieme ai valori contenuti nell’ultima cella del registro a scorrimento: si noterà, in particolare, che questa modifica consentirà di risparmiare un numero di iterazioni pari al numero di bit di ridondanza, cioè pari al numero di celle del registro a scorrimento.
 
-### 1.3.2 Architetture seriali
+### <a id="section-1.3.2"></a>1.3.2 Architetture seriali
 
 Cercando di riassumere, abbiamo quindi
 
@@ -272,7 +272,7 @@ Segue, ora, una breve descrizione del funzionamento di questo codificatore (figu
 
 In conclusione, il tipo di architettura appena descritto realizza la divisione del messaggio per il polinomio generatore in un numero ridotto di colpi di clock, è in grado di operare in maniera realmente seriale e continua (nel senso che una volta codificato un messaggio è possibile modificarne immediatamente un altro), mantiene le caratteristiche di bassa complessità tipiche degli LFSR.
 
-### 1.3.3 Algoritmi di codifica per architetture parallele
+### <a id="section-1.3.3"></a>1.3.3 Algoritmi di codifica per architetture parallele
 
 Dal punto di vista hardware, la lunghezza delle parole di codice (previste dal DVB-S2), i vincoli di frequenza imposti dell’analisi globale della sezione di trasmissione e la definizione dell’interfaccia con il codificatore LDPC che ha un ingresso parallelo, rendono necessario lo sviluppo di un modello di codificatore BCH parallelo, che sia agevolmente integrabile con l’intera sezione di trasmissione del DVB-S2. In generale, le architetture parallele consentono di ottenere dei *throughput* più elevati e spesso vengono scelte per la realizzazione in hardware.
 
@@ -282,7 +282,7 @@ Riferendoci all’equazione [(4.7b)](05-bch-encoding-algorithms-for-dvb-s2-digit
 
 Attraverso la definizione matematica delle due architetture seriali, mediante alcune semplici manipolazioni della equazione [(4.7b)](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#eq:statequation), si perviene a un modello di sistema lineare a ingressi multipli (parallelo) e alla relativa equazione di stato. Il vettore di trasferimento si trasforma in una matrice di trasferimento $`\mathbf{B}_p`$, le cui caratteristiche dipendono sia dal livello di parallelismo prescelto sia dal tipo di architettura seriale che si è resa parallela o, più precisamente, dalla posizione dell’ingresso/i rispetto allo LFSR. La matrice di transizione di stato del sistema parallelo $`\mathbf{A}`$ non dipende dal tipo di architettura seriale da rendere parallela, ma solamente dal livello di parallelismo: infatti diventa $`\mathbf{A}^p`$, ossia la matrice del sistema seriale elevata a potenza.
 
-## 1.4 Realizzazione hardware del codificatore BCH
+## <a id="section-1.4"></a>1.4 Realizzazione hardware del codificatore BCH
 
 Nella fase di realizzazione in hardware del dispositivo si è dovuto tenere conto delle seguenti condizioni relative all’architettura del codificatore LDPC e, più in generale, della intera sezione di trasmissione del DVB-S2 progettata e sviluppata da TAS-I.
 
@@ -296,7 +296,7 @@ Per queste ragioni, nella realizzazione in hardware del codificatore BCH è stat
 
 Inoltre, tra le due architetture parallele descritte nel capitolo 3 è stata scelta quella che impiega un numero inferiori di colpi di clock per la codifica dei messaggi (o blocchi di bit di informazione). Questo per avere, come verrà illustrato nella sezione dedicata al problema relativo al possibile cambio del rapporto di codifica tra una trama e l’altra, una architettura in grado di avere delle caratteristiche dinamiche e una versatilità maggiori (rispetto, ovviamente, all’architettura parallela corrispondente a quella in figura [4.1](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:PolyDiv)).
 
-### 1.4.1 Descrizione del codificatore
+### <a id="section-1.4.1"></a>1.4.1 Descrizione del codificatore
 
 L’architettura hardware (illustrata in figura [5.4](06-hardware-implementation-of-bch-encoder.md#fig:HWarch)) del codificatore BCH comprende un registro a 192 celle (*Flip Flop*), 192 reti combinatorie d’ingresso e 192 reti combinatorie d’uscita, pilotate opportunamente da coefficienti (precalcolati) memorizzati nelle LUT, e alcuni sommatori, che, per le note proprietà dell’algebra binaria, sono delle porte XOR a due ingressi. Il codificatore BCH compie per ogni processo di codifica le seguenti operazioni:
 
@@ -314,7 +314,7 @@ L’architettura finora mostrata realizza in realtà la codifica BCH solamente p
 
 Alla luce di queste nuove considerazioni, circa le proprietà dinamiche di cui dovrebbe godere il codificatore BCH per DVB-S2, vogliamo ora giustificare la scelta di questa architettura hardware piuttosto che quella più lenta (almeno a livello teorico), la cui realizzazione avrebbe portato a risparmiare le 192 logiche combinatorie d’ingresso utilizzate dall’architettura da noi scelta. Senza entrare in maggiori dettagli, il motivo principale risiede proprio nella migliore facilità di realizzare un codificatore in grado di rispondere all’esigenza di poter cambiare la capacità correttiva del codice al termine di ogni processo di codifica.
 
-### 1.4.2 Descrizione dell’interfaccia BCH-LDPC
+### <a id="section-1.4.2"></a>1.4.2 Descrizione dell’interfaccia BCH-LDPC
 
 Passiamo ora a descrivere il funzionamento dell’interfaccia BCH-LDPC, che ha il compito di passare al codificatore a valle la parte sistematica del codice BCH più i bit di ridondanza nell’ordine e formato compatibile con il DVB-S2. La figura [5.5](06-hardware-implementation-of-bch-encoder.md#fig:Interface) mostra l’architettura dell’interfaccia composta da:
 
@@ -330,9 +330,9 @@ Segue l’ordine temporale delle operazioni effettuate da questa interfaccia.
 
 3.  Mediante una opportuna logica di controllo e il multiplexer che precede l’LDPC, dapprima i bit sistematici e, successivamente, i bit di ridondanza vengono scritti nella memoria del codificatore LDPC.
 
-## 1.5 Pacchetto software per la validazione del modello VHDL
+## <a id="section-1.5"></a>1.5 Pacchetto software per la validazione del modello VHDL
 
-### 1.5.1 Implementazione software del codificatore seriale
+### <a id="section-1.5.1"></a>1.5.1 Implementazione software del codificatore seriale
 
 La funzione C sviluppata emula il comportamento del codificatore BCH seriale mostrato in figura [4.2](05-bch-encoding-algorithms-for-dvb-s2-digital-transmissions.md#fig:SerEnc). A tal fine sono state utilizzate le seguenti variabili e parametri:
 
@@ -350,7 +350,7 @@ La funzione C sviluppata emula il comportamento del codificatore BCH seriale mos
 
 Vale la pena di sottolineare che nulla impedisce di adoperare la funzione `Run()` della classe `BCHenc` per simulare il funzionamento del codificatore parallelo dato che il parametro `ticks` è completamente definibile dall’utente.
 
-### 1.5.2 Implementazione software del codificatore parallelo
+### <a id="section-1.5.2"></a>1.5.2 Implementazione software del codificatore parallelo
 
 I coefficienti delle matrici $`\mathbf{A}^8`$ e $`\mathbf{B}_8`$, calcolati per mezzo di apposite routine Matlab, sono stati salvati in alcune variabili locali. Più precisamente, le variabili locali contengono le sole sottomatrici $`\mathbf{C}_1`$ e $`\mathbf{C}_2`$ riferite alle reti combinatorie di uscita e le matici $`\mathbf{B}_8`$, una per ogni polinomio generatore previsto dal DVB-S2.
 
@@ -362,7 +362,7 @@ Per quanto riguarda le reti combinatorie, sono state utilizzate delle funzioni a
 
 La parte iniziale della funzione `BCHkclkpar(n,k)` sviluppata carica dalla memoria le matrici corrispondenti alla coppia $`(n ,k)`$ associata alle modalità di codifica del DVB-S2. Il ciclo `for` nella parte centrale dell’algoritmo aggiorna ciclicamente il registro di stato del codificatore BCH. Infine, i bit calcolati vengono disposti in maniera conforme allo standard DVB-S2 e al formato di codifica sistematica.
 
-### 1.5.3 Tabelle dei campi di Galois
+### <a id="section-1.5.3"></a>1.5.3 Tabelle dei campi di Galois
 
 Come accennato nel capitolo [3](04-dvb-s2-modem-concepts-and-architecture.md#ch:DVBS2Arch&Conc), la conoscenza del campo di Galois GF($`2^{16}`$) in cui giacciono le radici dei polinomi generatori dei codici BCH è necessaria per la decodifica e/o la rilevazione degli errori occorsi in trasmissione. Poiché il BCH del DVB-S2 è primitivo, il campo di Galois ad esso associato può essere costruito utilizzando il polinomio $`g_1(x)`$ nella tabella [3.4](04-dvb-s2-modem-concepts-and-architecture.md#tb:BCHpoly). Tale polinomio è infatti il polinomio primitivo di GF($`2^{16}`$) per le ragioni indicate nel capitolo [3](04-dvb-s2-modem-concepts-and-architecture.md#ch:DVBS2Arch&Conc).
 
@@ -374,7 +374,7 @@ Ad ogni iterazione dell’algoritmo, che simula il funzionamento dell’LFSR in 
 
 - `indexAlpha[i]`, che rappresenta il logaritmo in base $`\alpha`$ di un generico elemento del campo GF($`2^{16}`$)
 
-### 1.5.4 Decodifica BCH
+### <a id="section-1.5.4"></a>1.5.4 Decodifica BCH
 
 La decodifica algebrica di un codice BCH ad alfabeto binario consta dei seguenti passi:
 
@@ -410,9 +410,9 @@ Per concludere, seguono i passi principali dell’algoritmo, che dopo $`2t`$ ite
 
 - Se la discrepanza è nulla, allora non occorre effettuare modifiche allo LFSR corrente (`l` viene incrementato di una unità). Se invece la discrepanza non è nulla ci sono due alternative: se `2*L=>k`, `c[]` viene aggiornato, ma mantiene la sua lunghezza; se invece `2*L<k` allora variano sia il valore di `c[]` sia la sua lunghezza. Il vecchio valore di `c[]` viene salvato in `p[]` e la discrepanza associata in `dm`; la variabile `l` viene riportata a 1.
 
-## 1.6 Prove di laboratorio preliminari della sezione TX del DVB-S2
+## <a id="section-1.6"></a>1.6 Prove di laboratorio preliminari della sezione TX del DVB-S2
 
-### 1.6.1 Introduzione
+### <a id="section-1.6.1"></a>1.6.1 Introduzione
 
 In questa sezione vengono presentati i risultati ottenuti dalla preliminare campagna di test effettuata sulla sezione di trasmissione del DVB-S2 sviluppata da TAS-I. Il codice VHDL (*Very high speed integrated circuits Hardware Description Language*) è stato verificato in due passi: una prima verifica è stata fatta confrontando i risultati della simulazione RTL (*Register Transfer Logic*) con quelli ottenuti con il simulatore software sviluppato; una seconda verifica è stata poi effettuata analizzando i risultati ottenuti sintetizzando su una Stratix II il progetto e analizzando qualitativamente le costellazioni ottenute (figure [7.5](08-preliminary-laboratory-test-of-dvb-s2-tx-section.md#fig:16PSK2MBaud), [7.7](08-preliminary-laboratory-test-of-dvb-s2-tx-section.md#fig:8PSK30MBaud), [7.9](08-preliminary-laboratory-test-of-dvb-s2-tx-section.md#fig:16APSK30MBaud)). Di seguito vengono elencati e brevemente descritti i blocchi funzionali che costituiscono la sezione di trasmissione che è stata collaudata:
 
@@ -456,7 +456,7 @@ conversione in frequenza: porta il segnale in banda base a frequenza intermedia.
 Filtro di precompensazione del DAC  
 È un filtro FIR che compensa la distorsione (circa $`4\,\mathrm{dB}`$ dalla continua alla metà della frequenza di campionamento) dovuta alla conversione digitale analogica del segnale.
 
-### 1.6.2 Setup di misura
+### <a id="section-1.6.2"></a>1.6.2 Setup di misura
 
 Il banco di misura allestito per l’esecuzione dei test è dato in figura [7.2](08-preliminary-laboratory-test-of-dvb-s2-tx-section.md#fig:TestEqu) e comprende:
 
@@ -470,11 +470,11 @@ La scheda di sviluppo include una Stratix II EP2S180, utilizzata per la sintesi 
 
 L’analisi statistica fornita dal software ha rappresentato un utile strumento di valutazione qualitativa delle prestazioni del trasmettitore in termini non solo di qualità delle costellazioni (per semplice ispezione visiva), ma anche in termini di valore medio degli errori di ampiezza e fase della costellazioni. In particolare, oltre all’errore sull’ampiezza e sulla fase, viene calcolata l’ampiezza del vettore errore (EVM, *Error Vector Magnitude*) definito come il vettore congiungente il punto della costellazione atteso e quello ricevuto (si osservino le figure [7.3](08-preliminary-laboratory-test-of-dvb-s2-tx-section.md#fig:EVMAGN) e [7.4](08-preliminary-laboratory-test-of-dvb-s2-tx-section.md#fig:MAGNPHASE)).
 
-### 1.6.3 Risultato del test
+### <a id="section-1.6.3"></a>1.6.3 Risultato del test
 
 Considerando le risorse HW a disposizione in termini di massima velocità di campionamento del DAC (165  ) e caratteristiche del filtro anti-aliasing all’uscita del DAC, i test sono stati eseguiti sui seguenti segnali: 2Mbaud 16 APSK e 30 MBaud 8 PSK e 16 APSK. Le costellazioni risultano essere ‘compatte’ e gli errori in ricezione presentano un valor medio piuttosto ridotto; inoltre è evidente l’effetto di distorsione introdotto dal DAC in figura [7.7b](08-preliminary-laboratory-test-of-dvb-s2-tx-section.md#fig:noDAC) (si osserva una costellazione piuttosto *scattered*).
 
-## 1.7 Conclusioni
+## <a id="section-1.7"></a>1.7 Conclusioni
 
 Nel documento di tesi si discute il progetto di una sezione di trasmissione numerica che assicura una trasmissione affidabile delle informazioni via satellite, rispettando i requisiti sfidanti sulle prestazioni imposti dallo standard DVB-S2.
 

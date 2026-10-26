@@ -18,15 +18,35 @@ function Image(img)
   return img
 end
 
--- Unwrap Emph around figure/table captions so they can be styled.
+-- Unwrap Emph around figure/table captions so they can be styled, and make
+-- "Figure 4.1:" a link to the figure's own anchor.
 function Para(p)
   if #p.content == 1 and p.content[1].t == "Emph" then
-    local first = p.content[1].content[1]
+    local inlines = p.content[1].content
+    local first = inlines[1]
     if first and first.t == "Strong" then
       local text = pandoc.utils.stringify(first)
-      if text:match("^Figure ") or text:match("^Table ") then
-        return pandoc.Div(pandoc.Plain(p.content[1].content), { class = "caption" })
+      local kind, num = text:match("^(%a+) ([%w%.]+):$")
+      if kind == "Figure" or kind == "Table" then
+        inlines[1] = pandoc.Link(first, "#" .. kind:lower() .. "-" .. num, "", { class = "self-link" })
+        return pandoc.Div(pandoc.Plain(inlines), { class = "caption" })
       end
     end
   end
+end
+
+-- A "#" link after each heading, pointing at its readable anchor
+-- (#section-4.3) when it has one.
+function Header(h)
+  local id = h.identifier
+  for _, el in ipairs(h.content) do
+    if el.t == "RawInline" then
+      local named = el.text:match('^<a id="((%a+)%-[^"]+)"></a>$')
+      if named and (named:match("^section%-") or named:match("^chapter%-")) then id = named end
+    end
+  end
+  if id ~= "" then
+    h.content:insert(pandoc.Link("#", "#" .. id, "", { class = "heading-link", ["aria-label"] = "Link to this section" }))
+  end
+  return h
 end

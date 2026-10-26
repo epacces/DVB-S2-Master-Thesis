@@ -16,7 +16,7 @@ The body of the thesis is in English; the abstract, acknowledgements and the ext
 - **Markdown:** [`markdown/`](markdown/README.md), the same chapters, readable directly on GitHub.
 - **PDF:** [`TESI_FINALE.pdf`](TESI_FINALE.pdf) is the final version and the reference text. [`Ultima_versione.pdf`](Ultima_versione.pdf) and [`Tesi_05-07-08.pdf`](Tesi_05-07-08.pdf) are earlier drafts.
 
-The Markdown is generated from the LaTeX sources, and its figure, table and equation numbers match the PDF. The diagrams that were drawn in TikZ are images cut from the PDF ([`figures/`](figures)). See [Rebuilding the Markdown and the website](#-rebuilding-the-markdown-and-the-website).
+The Markdown is generated from the LaTeX sources, and its figure, table and equation numbers match the PDF. The diagrams that were drawn in TikZ are images cut from the PDF ([`figures/`](figures)). The English text was proofread in 2026 (grammar, spelling and word choice only; the technical content is unchanged), and `TESI_FINALE.pdf` was rebuilt from the corrected sources. See [Rebuilding the PDF, the Markdown and the website](#-rebuilding-the-pdf-the-markdown-and-the-website).
 
 ## 🗂️ Contents of the thesis
 
@@ -88,14 +88,17 @@ There is no VHDL in this repository. The hardware design was developed at TAS-I 
 
 Chapter 6 reports preliminary tests of the full TX section on an Altera Stratix II EP2S180 prototyping board, measured with an Agilent wideband VSA and oscilloscope (QPSK/8PSK/16APSK/64APSK at 2 and 30 MBaud). For example, at 30 MBaud 8PSK the DAC pre-compensation filter brings the EVM from 9% down to 4%. The scatter plots and spectra are the `*APSK*.jpg`, `8PSK*.jpg`, `IQ*.jpg` and `Spectr*.jpg` images.
 
-## 🔧 Rebuilding the Markdown and the website
+## 🔧 Rebuilding the PDF, the Markdown and the website
 
-Requires [pandoc](https://pandoc.org) 3.x and Python 3.
+Requires Python 3, [pandoc](https://pandoc.org) 3.x and, for the PDF, [Tectonic](https://tectonic-typesetting.github.io) (`brew install tectonic`).
 
 ```sh
-python3 tools/tex2md.py       # LaTeX → markdown/ (one file per chapter)
-python3 tools/build_site.py   # markdown/ → _site/ (the website, for a local preview)
+python3 tools/build_pdf.py --install  # LaTeX → TESI_FINALE.pdf
+python3 tools/tex2md.py               # LaTeX → markdown/ (one file per chapter)
+python3 tools/build_site.py           # markdown/ → _site/ (the website, for a local preview)
 ```
+
+`tools/build_pdf.py` compiles `master.tex` from a patched UTF-8 copy in `tools/build/pdf/`, because the 2008 sources target an older `toptesi` class and `latex`. The sources themselves are left unchanged. The title page layout and the line breaks differ slightly from the 2008 PDF.
 
 `tools/tex2md.py` reads the cp1252-encoded LaTeX, expands the thesis macros (`\vet`, `\ped`, `\unit`, …), swaps the TikZ figures for the PNGs in `figures/` and runs pandoc with `tools/number.lua`, which numbers chapters, figures, tables and equations the way the PDF does. Edit the `.tex` files and rerun it rather than editing `markdown/` by hand.
 
