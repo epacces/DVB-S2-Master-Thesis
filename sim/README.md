@@ -28,7 +28,8 @@ the browser. Set `DVBS2_NO_NUMBA=1` to force that path.
 | `dvbs2.codes.cyclic` | systematic cyclic codes; clock-by-clock LFSR division and encoder traces |
 | `dvbs2.codes.bch` | BCH design, table-driven encoder, syndromes, Berlekamp–Massey (traceable), Chien search; `dvbs2_bch(rate, frame)` |
 | `dvbs2.codes.bch_parallel` | the thesis' state-space p-parallel encoder: A, A^p, B_p; n-clock and k-clock modes; shared 192-bit register |
-| `dvbs2.codes.ldpc` | DVB-S2 IRA LDPC codes (21 tables), accumulator encoder, layered sum-product / normalized / offset min-sum |
+| `dvbs2.codes.ldpc` | DVB-S2 IRA LDPC codes (21 tables), accumulator encoder, layered sum-product / normalized / offset min-sum, flooding min-sum |
+| `dvbs2.codes.ldpc_hw` | hardware view of the decoder: 360 × 360 circulant structure, a 360-parallel layered decoder (float or bit-true fixed point, numpy and numba), an architecture model (cycles, pipeline stalls, memory, throughput) |
 | `dvbs2.phy` | MODCODs, BBFRAME (header, CRC-8, BB scrambler), FEC, bit interleaver, QPSK/8PSK/16APSK/32APSK, exact and max-log demappers, PLFRAME (SOF, PLS code, pilots, Gold scrambling), AWGN, capacity limits |
 | `dvbs2.sim` | Monte Carlo engine (multiprocess, reproducible seeds), JSON results, plots |
 | `dvbs2.legacy` | line-by-line ports of the 2008 C functions, used by the tests to prove equivalence |
@@ -38,11 +39,20 @@ the browser. Set `DVBS2_NO_NUMBA=1` to force that path.
 ```bash
 dvbs2sim info                                    # the 28 MODCODs: K_bch, N_bch, t, slots, efficiency, QEF Es/N0
 dvbs2sim ber --modcod QPSK-1/2 --esn0 0.6:0.1:1.2 --plot qpsk12.png
-dvbs2sim ber --modcod 8PSK-3/5 --frame short --pilots --esn0 5:0.2:6.4 --decoder nms --workers 8
+dvbs2sim ber --modcod 8PSK-3/5 --frame short --pilots --esn0 5:0.2:6.4 --decoder nms:0.8125 --workers 8
+dvbs2sim ber --modcod QPSK-1/2 --esn0 0.8:0.05:1.1 --decoder fixed:6,8,6:2:b1   # bit-true hardware decoder
 dvbs2sim plot results/*.json --metric ber --x ebn0 -o all.png
 dvbs2sim bch-matrices -o Matrices                # the A^p / B_p files main.c expects
 python tools/generate_results.py                 # regenerate results/ (all MODCODs, normal and short)
+python tools/ldpc_study.py                       # LDPC decoder design study -> results/ldpc_study/
+python tools/ldpc_figures.py                     # its figures -> ../figures/ldpc-*.png
 ```
+
+`--decoder` accepts `spa`, `nms[:alpha]` and `oms[:beta]` (layered, rows in natural
+order), the same with a `flood-` prefix (flooding schedule) or an `hw-` prefix (the 360
+checks of a layer in parallel, as in hardware), and `fixed:w_ch,w_L,w_R[:scale[:A/2^k|:bB]]`,
+the bit-true model: word lengths of the channel LLRs, the posteriors and the messages,
+LSBs per LLR unit and a normalization `A/2^k` or an offset of `B` LSBs.
 
 ## Python API
 

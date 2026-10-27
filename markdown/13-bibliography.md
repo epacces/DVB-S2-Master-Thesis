@@ -26,6 +26,12 @@ D. Giancristofaro , M. Fonte , A. Bernardi , I. Martinazzo , M. Livi , R. 
 
 </div>
 
+<div id="ref-b:Hocevar" class="csl-entry">
+
+Dale E. Hocevar. 2004. “<span class="nocase">A Reduced Complexity Decoder Architecture via Layered Decoding of LDPC Codes</span>.” *<span class="nocase">IEEE Workshop on Signal Processing Systems (SiPS 2004)</span>*, 107–12.
+
+</div>
+
 <div id="ref-b:MacKay" class="csl-entry">
 
 David J.C. MacKay. 2003. *<span class="nocase">Information Theory, Inference, and Learning Algorithms</span>*. Cambridge University Press.
@@ -50,6 +56,18 @@ F. J. MacWilliams, N. J. Sloane. 1977. *<span class="nocase">The Theory of Err
 
 </div>
 
+<div id="ref-b:KienleDVBS2" class="csl-entry">
+
+Frank Kienle, Torben Brack, Norbert Wehn. 2005. “<span class="nocase">A Synthesizable IP Core for DVB-S2 LDPC Code Decoding</span>.” *<span class="nocase">Design, Automation and Test in Europe (DATE 2005)</span>* 3: 100–105.
+
+</div>
+
+<div id="ref-b:FactorGraphs" class="csl-entry">
+
+Frank R. Kschischang, Brendan J. Frey, Hans-Andrea Loeliger. 2001. “<span class="nocase">Factor Graphs and the Sum-Product Algorithm</span>.” *<span class="nocase">IEEE Transactions on Information Theory</span>* 47 (2): 498–519.
+
+</div>
+
 <div id="ref-b:BICM" class="csl-entry">
 
 G.Caire, G.Taricco, E.Biglieri. 1997. “Bit Interleaved Coded Modulation.” *IEEE*, 1463–66.
@@ -59,6 +77,12 @@ G.Caire, G.Taricco, E.Biglieri. 1997. “Bit Interleaved Coded Modulation.” *I
 <div id="ref-b:TCM" class="csl-entry">
 
 Gottfried Ungerboek. 1981. “<span class="nocase">Channel Coding with Multilevel/Phase Signal</span>.” *<span class="nocase">IEEE Transactions on Information Theory</span>*, no. 1: 55–67.
+
+</div>
+
+<div id="ref-b:ChenFossorier" class="csl-entry">
+
+Jinghu Chen, Marc P. C. Fossorier. 2002. “<span class="nocase">Near Optimum Universal Belief Propagation Based Decoding of Low-Density Parity Check Codes</span>.” *<span class="nocase">IEEE Transactions on Communications</span>* 50 (3): 406–14.
 
 </div>
 
@@ -80,9 +104,21 @@ Michael Gallant, Faouzi Kossentini. 2001. “<span class="nocase">Rate-Distortio
 
 </div>
 
+<div id="ref-b:MansourShanbhag" class="csl-entry">
+
+Mohammad M. Mansour, Naresh R. Shanbhag. 2003. “High-Throughput LDPC Decoders.” *<span class="nocase">IEEE Transactions on Very Large Scale Integration (VLSI) Systems</span>* 11 (6): 976–96.
+
+</div>
+
 <div id="ref-b:moon" class="csl-entry">
 
 Moon, Todd K. 2005. *<span class="nocase">Error Correction Coding — Mathematical Methods and Algorithms</span>*. 1st ed. John Wiley and Sons, Inc.
+
+</div>
+
+<div id="ref-b:UrardDVBS2" class="csl-entry">
+
+Pascal Urard, E. Yeo, Laurent Paumier, P. Georgelin, T. Michel, V. Lebars, E. Lantreibecq, B. Gupta. 2005. “<span class="nocase">A 135Mb/s DVB-S2 Compliant Codec Based on 64800b LDPC and BCH Codes</span>.” *IEEE International Solid-State Circuits Conference (ISSCC 2005)*, 446–47.
 
 </div>
 
@@ -125,6 +161,12 @@ Stephen B. Wicker. 1995. *<span class="nocase">Error Control System for Digital
 <div id="ref-b:LDPCRinascita" class="csl-entry">
 
 Tom Richardson. 2003. “<span class="nocase">The Renaissance of Gallager’s Low-Density Parity-Check Codes</span>.” *IEEE Communications Magazine*, 126–31.
+
+</div>
+
+<div id="ref-b:RichardsonUrbanke" class="csl-entry">
+
+Tom Richardson, Rüdiger Urbanke. 2008. *Modern Coding Theory*. Cambridge University Press.
 
 </div>
 
@@ -171,4 +213,4 @@ Tom Richardson. 2003. “<span class="nocase">The Renaissance of Gallager’s Lo
 
 ---
 
-[← Cyclic Codes](11-cyclic-codes.md) · [Contents](README.md)
+[← Cyclic Codes](12-cyclic-codes.md) · [Contents](README.md)

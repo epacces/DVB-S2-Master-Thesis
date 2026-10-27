@@ -103,7 +103,9 @@ def main(argv=None):
     p.add_argument("--esn0", required=True, help="start:step:stop or comma list, in dB")
     p.add_argument("--frame", default="normal", choices=["normal", "short"])
     p.add_argument("--pilots", action="store_true")
-    p.add_argument("--decoder", default="spa", choices=["spa", "nms", "oms"])
+    p.add_argument("--decoder", default="spa",
+                   help="spa, nms[:alpha], oms[:beta]; prefixes flood- (flooding) and hw- (360-parallel "
+                        "layers); fixed:w_ch,w_L,w_R[:scale[:7/8|:b1]] bit-true hardware model")
     p.add_argument("--demap", default="exact", choices=["exact", "maxlog"])
     p.add_argument("--iters", type=int, default=50)
     p.add_argument("--min-errors", type=int, default=50)

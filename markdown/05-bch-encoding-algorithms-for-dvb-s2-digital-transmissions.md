@@ -31,7 +31,7 @@ According to the cyclic code theory (see Appendix B), the systematic encoding of
     ```
     represent the $`r`$ parity bits.
 
-3.  Finally, as also stated in Section [A.1](10-galois-or-finite-fields.md#sec:algebraicstruct), <a id="eq-4.4"></a><a id="eq:systematic"></a>
+3.  Finally, as also stated in Section [A.1](11-galois-or-finite-fields.md#sec:algebraicstruct), <a id="eq-4.4"></a><a id="eq:systematic"></a>
     ``` math
     \begin{equation}
      x^{r}m(x)-d(x)

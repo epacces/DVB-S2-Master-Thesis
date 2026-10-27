@@ -89,11 +89,17 @@ class LDPCCode:
 
         algorithm: "nms" normalized min-sum (scale ``alpha``), "oms" offset
         min-sum (offset ``beta``), "spa" sum-product.  Layered schedule when
-        numba is available, otherwise flooding min-sum.
+        numba is available, otherwise flooding min-sum.  The parameter can
+        follow a colon ("nms:0.875", "oms:0.5"), and a prefix picks another
+        decoder (see :func:`parse_decoder`): "flood-" flooding schedule, "hw-"
+        360-parallel layers as in hardware, "fixed:6,8,6[:scale[:7/8|:b1]]"
+        the bit-true fixed-point model.
         Returns (hard decisions, posterior LLRs, iterations).
         """
-        if algorithm not in ("nms", "oms", "spa"):
-            raise ValueError("algorithm must be nms, oms or spa")
+        spec = parse_decoder(algorithm, alpha, beta)
+        if spec["schedule"] != "layered":
+            return self._decode_spec(llr, max_iter, spec)
+        algorithm, alpha, beta = spec["algorithm"], spec["alpha"], spec["beta"]
         a, b = (alpha, 0.0) if algorithm == "nms" else (1.0, beta) if algorithm == "oms" else (1.0, 0.0)
         if _kernels.HAVE_NUMBA:
             L, it = _kernels.layered_decode(llr, self.row_ptr, self.cols, max_iter, a, b, algorithm == "spa")
@@ -103,11 +109,67 @@ class LDPCCode:
             L, it = _kernels.flooding_minsum(llr, self.row_ptr, self.cols, max_iter, a, b)
         return (L < 0).astype(np.uint8), L, it
 
+    def _decode_spec(self, llr, max_iter, spec):
+        from . import ldpc_hw
+        if spec["schedule"] == "flooding":
+            if spec["algorithm"] == "spa":
+                raise ValueError("flooding is implemented for min-sum only")
+            a, b = (spec["alpha"], 0.0) if spec["algorithm"] == "nms" else (1.0, spec["beta"])
+            L, it = _kernels.flooding_minsum(llr, self.row_ptr, self.cols, max_iter, a, b)
+        else:
+            L, it = ldpc_hw.layer_decode(llr, self, max_iter, spec["algorithm"], spec["alpha"], spec["beta"],
+                                         fmt=spec["fmt"])
+        return (L < 0).astype(np.uint8), L, it
+
     def degree_profile(self) -> dict[int, int]:
         """Number of variable nodes of each degree."""
         deg = np.diff(self.H.tocsc().indptr)
         vals, counts = np.unique(deg, return_counts=True)
         return dict(zip(vals.tolist(), counts.tolist()))
+
+
+def parse_decoder(spec: str, alpha: float = 0.8, beta: float = 0.5) -> dict:
+    """Decoder description string -> schedule, algorithm, alpha, beta, fixed-point format.
+
+    "spa" | "nms[:alpha]" | "oms[:beta]"   layered, rows in natural order
+    "flood-nms[:alpha]" | "flood-oms[:beta]"   flooding schedule
+    "hw-nms[:alpha]" | "hw-oms[:beta]" | "hw-spa"   layers of 360 checks in parallel
+    "fixed:w_ch,w_L,w_R[:scale[:A/2^k | :bB]]"   bit-true model of the hw decoder,
+        e.g. "fixed:6,8,6:2:7/8" (normalized by 7/8) or "fixed:6,8,6:2:b1" (offset 1 LSB)
+    """
+    head, _, arg = spec.partition(":")
+    if head == "fixed":
+        from .ldpc_hw import FixedPoint
+        parts = arg.split(":") if arg else []
+        if not parts:
+            raise ValueError("fixed needs word lengths, e.g. fixed:6,8,6")
+        kw = {}
+        if len(parts) > 1:
+            kw["scale"] = float(parts[1])
+        if len(parts) > 2:
+            corr = parts[2]
+            if corr.startswith("b"):
+                kw.update(alpha_num=1, alpha_shift=0, beta=int(corr[1:]))
+            else:
+                num, den = (int(v) for v in corr.split("/"))
+                shift = den.bit_length() - 1
+                if 2 ** shift != den:
+                    raise ValueError("the alpha denominator must be a power of two")
+                kw.update(alpha_num=num, alpha_shift=shift)
+        return {"schedule": "hw", "algorithm": "fixed", "alpha": alpha, "beta": beta,
+                "fmt": FixedPoint.parse(parts[0], **kw)}
+    schedule = "layered"
+    for prefix, name in (("flood-", "flooding"), ("hw-", "hw")):
+        if head.startswith(prefix):
+            schedule, head = name, head[len(prefix):]
+    if head not in ("nms", "oms", "spa"):
+        raise ValueError("unknown decoder %r" % spec)
+    if arg:
+        if head == "nms":
+            alpha = float(arg)
+        elif head == "oms":
+            beta = float(arg)
+    return {"schedule": schedule, "algorithm": head, "alpha": alpha, "beta": beta, "fmt": None}
 
 
 _CACHE: dict = {}

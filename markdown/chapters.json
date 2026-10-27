@@ -45,22 +45,27 @@
     "title": "Preliminary Laboratory Test of DVB-S2 TX Section"
   },
   {
-    "file": "09-conclusions.md",
+    "file": "09-ldpc-decoder-design.md",
     "number": "8",
+    "title": "LDPC Decoder Design"
+  },
+  {
+    "file": "10-conclusions.md",
+    "number": "9",
     "title": "Conclusions"
   },
   {
-    "file": "10-galois-or-finite-fields.md",
+    "file": "11-galois-or-finite-fields.md",
     "number": "A",
     "title": "Galois (or Finite) Fields"
   },
   {
-    "file": "11-cyclic-codes.md",
+    "file": "12-cyclic-codes.md",
     "number": "B",
     "title": "Cyclic Codes"
   },
   {
-    "file": "12-bibliography.md",
+    "file": "13-bibliography.md",
     "number": "",
     "title": "Bibliography"
   }

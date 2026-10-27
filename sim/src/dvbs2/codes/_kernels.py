@@ -105,8 +105,11 @@ def layered_decode(llr, row_ptr, cols, max_iter=50, alpha=0.8, beta=0.0, spa=Fal
                     int(max_iter), float(alpha), float(beta), bool(spa))
 
 
-def flooding_minsum(llr, row_ptr, cols, max_iter=50, alpha=0.8, beta=0.0):
-    """Normalized/offset min-sum with a flooding schedule, numpy only."""
+def flooding_minsum(llr, row_ptr, cols, max_iter=50, alpha=0.8, beta=0.0, trace=None):
+    """Normalized/offset min-sum with a flooding schedule, numpy only.
+
+    ``trace`` (a list) receives the number of unsatisfied checks after each iteration.
+    """
     llr = np.asarray(llr, dtype=np.float64)
     # np.intp: Pyodide is 32-bit, where np.repeat refuses int64 counts.
     row_ptr = np.asarray(row_ptr, dtype=np.intp)
@@ -135,6 +138,104 @@ def flooding_minsum(llr, row_ptr, cols, max_iter=50, alpha=0.8, beta=0.0):
         R = np.where(neg, -1.0, 1.0) * sgn[row_of_edge] * m
         L = llr + np.bincount(cols, weights=R, minlength=llr.size)
         hard = (L < 0).astype(np.int64)
-        if not np.any(np.add.reduceat(hard[cols], starts) % 2):
+        unsat = np.add.reduceat(hard[cols], starts) % 2
+        if trace is not None:
+            trace.append(int(unsat.sum()))
+        if not np.any(unsat):
             break
     return L, it
+
+
+def _layer_parallel_impl(L0, row_ptr, cols, q, max_iter, alpha, beta, fixed, anum, adiv, beta_q,
+                         limL, limR, early_stop):
+    """Layered min-sum with the rows of each layer processed as if in parallel.
+
+    Every row of a layer reads L before any update; L then receives the sum of
+    the message changes (saturated to +-limL when ``fixed``).  Same arithmetic
+    as ldpc_hw._layer_numpy.
+    """
+    n = L0.size
+    n_rows = row_ptr.size - 1
+    rpl = n_rows // q
+    L = L0.astype(np.float64).copy()
+    R = np.zeros(cols.size, dtype=np.float64)
+    D = np.zeros(n, dtype=np.float64)
+    max_deg = 0
+    for r in range(n_rows):
+        max_deg = max(max_deg, row_ptr[r + 1] - row_ptr[r])
+    Q = np.empty(max_deg, dtype=np.float64)
+    it = 0
+    while it < max_iter:
+        it += 1
+        for l in range(q):
+            r0 = l * rpl
+            for r in range(r0, r0 + rpl):
+                a, b = row_ptr[r], row_ptr[r + 1]
+                d = b - a
+                min1 = 1e300
+                min2 = 1e300
+                pos = 0
+                odd = False
+                for e in range(d):
+                    v = L[cols[a + e]] - R[a + e]
+                    if fixed:
+                        v = min(max(v, -limL), limL)
+                    Q[e] = v
+                    mag = abs(v)
+                    if v < 0:
+                        odd = not odd
+                    if mag < min1:
+                        min2 = min1
+                        min1 = mag
+                        pos = e
+                    elif mag < min2:
+                        min2 = mag
+                if fixed:
+                    m1 = min(max(np.floor(min1 * anum / adiv) - beta_q, 0.0), limR)
+                    m2 = min(max(np.floor(min2 * anum / adiv) - beta_q, 0.0), limR)
+                else:
+                    m1 = max(alpha * min1 - beta, 0.0)
+                    m2 = max(alpha * min2 - beta, 0.0)
+                for e in range(d):
+                    m = m2 if e == pos else m1
+                    if (Q[e] < 0) != odd:
+                        m = -m
+                    D[cols[a + e]] += m - R[a + e]
+                    R[a + e] = m
+            for e in range(row_ptr[r0], row_ptr[r0 + rpl]):
+                c = cols[e]
+                v = L[c] + D[c]
+                D[c] = 0.0
+                if fixed:
+                    v = min(max(v, -limL), limL)
+                L[c] = v
+        if early_stop:
+            ok = True
+            for r in range(n_rows):
+                par = 0
+                for e in range(row_ptr[r], row_ptr[r + 1]):
+                    if L[cols[e]] < 0:
+                        par ^= 1
+                if par:
+                    ok = False
+                    break
+            if ok:
+                break
+    return L, it
+
+
+if HAVE_NUMBA:
+    _layer_parallel = numba.njit(cache=True)(_layer_parallel_impl)
+else:
+    _layer_parallel = None
+
+
+def layer_parallel_decode(L0, row_ptr, cols, q, max_iter, alpha, beta, params, early_stop=True):
+    """params: None (float) or (alpha_num, alpha_shift, beta, limL, limR) for the bit-true model."""
+    if _layer_parallel is None:
+        raise RuntimeError("needs numba")
+    fixed = params is not None
+    anum, ashift, beta_q, limL, limR = params if fixed else (1, 0, 0.0, 0, 0)
+    return _layer_parallel(np.ascontiguousarray(L0, dtype=np.float64), row_ptr, cols, int(q), int(max_iter),
+                           float(alpha), float(beta), fixed, float(anum), float(2 ** ashift), float(beta_q),
+                           float(limL), float(limR), bool(early_stop))

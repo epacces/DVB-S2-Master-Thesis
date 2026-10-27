@@ -1,4 +1,4 @@
-# <a id="chapter-5"></a>5 Hardware Implementation of BCH Encoder
+# <a id="chapter-5"></a><a id="ch:BCHencImpl"></a>5 Hardware Implementation of BCH Encoder
 
 ## <a id="section-5.1"></a>5.1 FEC Encoding Section
 

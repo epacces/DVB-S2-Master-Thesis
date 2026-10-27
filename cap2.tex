@@ -15,7 +15,7 @@ best possible use of the resources available for transmission, bandwidth, power,
 \item Implementation complexity, which is a measure of the cost of the equipment.
 \end{itemize}
 
-\subsection{BICM: How to Obtain Top Performance Using a Single Code and Various Modulations}
+\subsection{BICM: How to Obtain Top Performance Using a Single Code and Various Modulations} \label{sec:BICMintro}
 Forward Error Correction codes for satellite applications must combine power efficiency and low BER floor with flexibility and simplicity to allow for high-speed implementation. The existence of practical, simple, and powerful such coding designs for binary modulations has been settled with the advent of turbo codes \cite{b:Turbo} and the recent re-discovery of Low-Density Parity-Check (LDPC) codes \cite{b:LDPCGall}.
 In parallel, the field of channel coding for non-binary modulations has evolved significantly in recent years. Starting with Ungerboeck's work on Trellis-Coded Modulation (TCM) \cite{b:TCM}, the approach had been to consider channel code and modulation as a single entity, to be jointly designed and demodulated/decoded.
 
@@ -189,7 +189,7 @@ The ACM technique therefore allows one to significantly increase the average sys
 \end{itemize}
 
 %\section{Bit Scrambling and Interleaving}
-\section{ACM Modem System Description}
+\section{ACM Modem System Description} \label{sec:ACMdesc}
 
 The DVB-S2 ACM Modem system is defined as the functional block of equipment performing the adaptation of the baseband digital signals, from the output of a single (or multiple) MPEG transport stream multiplexer(s), or from the output of a single (or multiple) generic data source(s), to the satellite channel characteristics. Data services may be transported in Transport Stream format (e.g., using Multi-protocol Encapsulation\footnote{It is a means to allow more than one packet format (e.g., IP) over MPEG frames.}) or Generic Stream format.
 
@@ -497,7 +497,7 @@ Eventually, we have to conclude that the DVB-S2 BCH code is \emph{shortened}. A 
 \caption{Coding parameters for normal FECFRAME \(n\ped{LDPC}=64800\)} \label{tb:codpar}
 \end{table}
 
-\subsection{LDPC}
+\subsection{LDPC} \label{sec:LDPCstruct}
 
 %\section{Inner FEC: Low Density Parity Check Code}
 
@@ -666,6 +666,8 @@ unsatisfied neighbors than bits that are correct.
 %\begin{equation}
 %BER \simeq \frac{1}{2}\frac{w\ped{free}}{k} \mathrm{erfc} \left( \sqrt{d\ped{free} \frac{k}{n}\frac{E\ped b}{N\ped 0} }\right)
 %\end{equation}
+
+The message-passing rules sketched above are derived exactly, simplified for hardware and turned into a decoder architecture for the DVB-S2 code in Chapter~\ref{ch:LDPCdec}.
 
 \subsubsection{Encoding Procedure for The DVB-S2 Code}
 

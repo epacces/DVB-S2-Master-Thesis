@@ -1,0 +1,3573 @@
+{
+ "f_clk_mhz": 200.0,
+ "pipeline_depth": 6,
+ "format": {
+  "w_ch": 6,
+  "w_L": 8,
+  "w_R": 6,
+  "scale": 2,
+  "alpha_num": 1,
+  "alpha_shift": 0,
+  "beta": 1
+ },
+ "codes": [
+  {
+   "name": "DVB-S2 LDPC normal 1/4",
+   "n": 64800,
+   "k": 16200,
+   "q": 135,
+   "edges": 194399,
+   "block_edges": 540,
+   "weight2": 3,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1884,
+    "overlap": 1615,
+    "reordered": 545
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 1078,
+    "reordered": 8
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 777599,
+    "R_uncompressed": 1166394,
+    "input_buffer": 388800,
+    "output_buffer": 16200,
+    "rom": 9180,
+    "total": 1710179
+   },
+   "throughput_mbps": {
+    "serial": 170.34700315457414,
+    "overlap": 198.40783833435393,
+    "reordered": 575.4884547069272
+   },
+   "latency_us": {
+    "serial": 95.1,
+    "overlap": 81.65,
+    "reordered": 28.15
+   },
+   "frame": "normal",
+   "rate": "1/4",
+   "check_degree": [
+    3,
+    4
+   ],
+   "layer_degree": [
+    4,
+    4
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 1/4",
+   "n": 64800,
+   "k": 16200,
+   "q": 135,
+   "edges": 194399,
+   "block_edges": 540,
+   "weight2": 3,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1884,
+    "overlap": 1615,
+    "reordered": 545
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 1078,
+    "reordered": 8
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 777599,
+    "R_uncompressed": 1166394,
+    "input_buffer": 388800,
+    "output_buffer": 16200,
+    "rom": 9180,
+    "total": 1710179
+   },
+   "throughput_mbps": {
+    "serial": 57.142857142857146,
+    "overlap": 66.62553979025293,
+    "reordered": 196.00725952813065
+   },
+   "latency_us": {
+    "serial": 283.5,
+    "overlap": 243.15,
+    "reordered": 82.65
+   },
+   "frame": "normal",
+   "rate": "1/4",
+   "check_degree": [
+    3,
+    4
+   ],
+   "layer_degree": [
+    4,
+    4
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 1/4",
+   "n": 64800,
+   "k": 16200,
+   "q": 135,
+   "edges": 194399,
+   "block_edges": 540,
+   "weight2": 3,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1884,
+    "overlap": 1615,
+    "reordered": 545
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 1078,
+    "reordered": 8
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 777599,
+    "R_uncompressed": 1166394,
+    "input_buffer": 388800,
+    "output_buffer": 16200,
+    "rom": 9180,
+    "total": 1710179
+   },
+   "throughput_mbps": {
+    "serial": 34.329307056579786,
+    "overlap": 40.03459780056839,
+    "reordered": 118.11884797666788
+   },
+   "latency_us": {
+    "serial": 471.9,
+    "overlap": 404.65,
+    "reordered": 137.15
+   },
+   "frame": "normal",
+   "rate": "1/4",
+   "check_degree": [
+    3,
+    4
+   ],
+   "layer_degree": [
+    4,
+    4
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 1/3",
+   "n": 64800,
+   "k": 21600,
+   "q": 120,
+   "edges": 215999,
+   "block_edges": 600,
+   "weight2": 13,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1894,
+    "overlap": 1546,
+    "reordered": 591
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 959,
+    "reordered": 4
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 777598,
+    "R_uncompressed": 1295994,
+    "input_buffer": 388800,
+    "output_buffer": 21600,
+    "rom": 10200,
+    "total": 1716598
+   },
+   "throughput_mbps": {
+    "serial": 225.94142259414227,
+    "overlap": 276.21483375959076,
+    "reordered": 709.35960591133
+   },
+   "latency_us": {
+    "serial": 95.6,
+    "overlap": 78.2,
+    "reordered": 30.45
+   },
+   "frame": "normal",
+   "rate": "1/3",
+   "check_degree": [
+    4,
+    5
+   ],
+   "layer_degree": [
+    5,
+    5
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 1/3",
+   "n": 64800,
+   "k": 21600,
+   "q": 120,
+   "edges": 215999,
+   "block_edges": 600,
+   "weight2": 13,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1894,
+    "overlap": 1546,
+    "reordered": 591
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 959,
+    "reordered": 4
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 777598,
+    "R_uncompressed": 1295994,
+    "input_buffer": 388800,
+    "output_buffer": 21600,
+    "rom": 10200,
+    "total": 1716598
+   },
+   "throughput_mbps": {
+    "serial": 75.78947368421052,
+    "overlap": 92.78350515463917,
+    "reordered": 241.20603015075378
+   },
+   "latency_us": {
+    "serial": 285.0,
+    "overlap": 232.8,
+    "reordered": 89.55
+   },
+   "frame": "normal",
+   "rate": "1/3",
+   "check_degree": [
+    4,
+    5
+   ],
+   "layer_degree": [
+    5,
+    5
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 1/3",
+   "n": 64800,
+   "k": 21600,
+   "q": 120,
+   "edges": 215999,
+   "block_edges": 600,
+   "weight2": 13,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1894,
+    "overlap": 1546,
+    "reordered": 591
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 959,
+    "reordered": 4
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 777598,
+    "R_uncompressed": 1295994,
+    "input_buffer": 388800,
+    "output_buffer": 21600,
+    "rom": 10200,
+    "total": 1716598
+   },
+   "throughput_mbps": {
+    "serial": 45.531197301854974,
+    "overlap": 55.75632421270006,
+    "reordered": 145.30776992936427
+   },
+   "latency_us": {
+    "serial": 474.4,
+    "overlap": 387.4,
+    "reordered": 148.65
+   },
+   "frame": "normal",
+   "rate": "1/3",
+   "check_degree": [
+    4,
+    5
+   ],
+   "layer_degree": [
+    5,
+    5
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 2/5",
+   "n": 64800,
+   "k": 25920,
+   "q": 108,
+   "edges": 233279,
+   "block_edges": 648,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1928,
+    "overlap": 1502,
+    "reordered": 642
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 862,
+    "reordered": 2
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 738719,
+    "R_uncompressed": 1399674,
+    "input_buffer": 388800,
+    "output_buffer": 25920,
+    "rom": 11016,
+    "total": 1682855
+   },
+   "throughput_mbps": {
+    "serial": 266.39260020554985,
+    "overlap": 341.05263157894734,
+    "reordered": 785.4545454545455
+   },
+   "latency_us": {
+    "serial": 97.3,
+    "overlap": 76.0,
+    "reordered": 33.0
+   },
+   "frame": "normal",
+   "rate": "2/5",
+   "check_degree": [
+    5,
+    6
+   ],
+   "layer_degree": [
+    6,
+    6
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 2/5",
+   "n": 64800,
+   "k": 25920,
+   "q": 108,
+   "edges": 233279,
+   "block_edges": 648,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1928,
+    "overlap": 1502,
+    "reordered": 642
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 862,
+    "reordered": 2
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 738719,
+    "R_uncompressed": 1399674,
+    "input_buffer": 388800,
+    "output_buffer": 25920,
+    "rom": 11016,
+    "total": 1682855
+   },
+   "throughput_mbps": {
+    "serial": 89.34850051706307,
+    "overlap": 114.58885941644563,
+    "reordered": 266.6666666666667
+   },
+   "latency_us": {
+    "serial": 290.1,
+    "overlap": 226.2,
+    "reordered": 97.2
+   },
+   "frame": "normal",
+   "rate": "2/5",
+   "check_degree": [
+    5,
+    6
+   ],
+   "layer_degree": [
+    6,
+    6
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 2/5",
+   "n": 64800,
+   "k": 25920,
+   "q": 108,
+   "edges": 233279,
+   "block_edges": 648,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1928,
+    "overlap": 1502,
+    "reordered": 642
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 862,
+    "reordered": 2
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 738719,
+    "R_uncompressed": 1399674,
+    "input_buffer": 388800,
+    "output_buffer": 25920,
+    "rom": 11016,
+    "total": 1682855
+   },
+   "throughput_mbps": {
+    "serial": 53.67570925657486,
+    "overlap": 68.86291179596175,
+    "reordered": 160.59479553903344
+   },
+   "latency_us": {
+    "serial": 482.9,
+    "overlap": 376.4,
+    "reordered": 161.4
+   },
+   "frame": "normal",
+   "rate": "2/5",
+   "check_degree": [
+    5,
+    6
+   ],
+   "layer_degree": [
+    6,
+    6
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 1/2",
+   "n": 64800,
+   "k": 32400,
+   "q": 90,
+   "edges": 226799,
+   "block_edges": 630,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1784,
+    "overlap": 1341,
+    "reordered": 622
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 719,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 647999,
+    "R_uncompressed": 1360794,
+    "input_buffer": 388800,
+    "output_buffer": 32400,
+    "rom": 10710,
+    "total": 1598309
+   },
+   "throughput_mbps": {
+    "serial": 359.6004439511654,
+    "overlap": 476.8211920529801,
+    "reordered": 1012.5
+   },
+   "latency_us": {
+    "serial": 90.1,
+    "overlap": 67.95,
+    "reordered": 32.0
+   },
+   "frame": "normal",
+   "rate": "1/2",
+   "check_degree": [
+    6,
+    7
+   ],
+   "layer_degree": [
+    7,
+    7
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 1/2",
+   "n": 64800,
+   "k": 32400,
+   "q": 90,
+   "edges": 226799,
+   "block_edges": 630,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1784,
+    "overlap": 1341,
+    "reordered": 622
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 719,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 647999,
+    "R_uncompressed": 1360794,
+    "input_buffer": 388800,
+    "output_buffer": 32400,
+    "rom": 10710,
+    "total": 1598309
+   },
+   "throughput_mbps": {
+    "serial": 120.67039106145252,
+    "overlap": 160.35634743875278,
+    "reordered": 343.9490445859872
+   },
+   "latency_us": {
+    "serial": 268.5,
+    "overlap": 202.05,
+    "reordered": 94.2
+   },
+   "frame": "normal",
+   "rate": "1/2",
+   "check_degree": [
+    6,
+    7
+   ],
+   "layer_degree": [
+    7,
+    7
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 1/2",
+   "n": 64800,
+   "k": 32400,
+   "q": 90,
+   "edges": 226799,
+   "block_edges": 630,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1784,
+    "overlap": 1341,
+    "reordered": 622
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 719,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 647999,
+    "R_uncompressed": 1360794,
+    "input_buffer": 388800,
+    "output_buffer": 32400,
+    "rom": 10710,
+    "total": 1598309
+   },
+   "throughput_mbps": {
+    "serial": 72.49944059073619,
+    "overlap": 96.3855421686747,
+    "reordered": 207.1611253196931
+   },
+   "latency_us": {
+    "serial": 446.9,
+    "overlap": 336.15,
+    "reordered": 156.4
+   },
+   "frame": "normal",
+   "rate": "1/2",
+   "check_degree": [
+    6,
+    7
+   ],
+   "layer_degree": [
+    7,
+    7
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 3/5",
+   "n": 64800,
+   "k": 38880,
+   "q": 72,
+   "edges": 285119,
+   "block_edges": 792,
+   "weight2": 35,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1946,
+    "overlap": 1339,
+    "reordered": 757
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 582,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 647999,
+    "R_uncompressed": 1710714,
+    "input_buffer": 388800,
+    "output_buffer": 38880,
+    "rom": 13464,
+    "total": 1607543
+   },
+   "throughput_mbps": {
+    "serial": 395.92668024439917,
+    "overlap": 573.0287398673545,
+    "reordered": 1003.3548387096774
+   },
+   "latency_us": {
+    "serial": 98.2,
+    "overlap": 67.85,
+    "reordered": 38.75
+   },
+   "frame": "normal",
+   "rate": "3/5",
+   "check_degree": [
+    10,
+    11
+   ],
+   "layer_degree": [
+    11,
+    11
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 3/5",
+   "n": 64800,
+   "k": 38880,
+   "q": 72,
+   "edges": 285119,
+   "block_edges": 792,
+   "weight2": 35,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1946,
+    "overlap": 1339,
+    "reordered": 757
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 582,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 647999,
+    "R_uncompressed": 1710714,
+    "input_buffer": 388800,
+    "output_buffer": 38880,
+    "rom": 13464,
+    "total": 1607543
+   },
+   "throughput_mbps": {
+    "serial": 132.78688524590163,
+    "overlap": 192.71375464684016,
+    "reordered": 339.7116644823067
+   },
+   "latency_us": {
+    "serial": 292.8,
+    "overlap": 201.75,
+    "reordered": 114.45
+   },
+   "frame": "normal",
+   "rate": "3/5",
+   "check_degree": [
+    10,
+    11
+   ],
+   "layer_degree": [
+    11,
+    11
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 3/5",
+   "n": 64800,
+   "k": 38880,
+   "q": 72,
+   "edges": 285119,
+   "block_edges": 792,
+   "weight2": 35,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1946,
+    "overlap": 1339,
+    "reordered": 757
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 582,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 647999,
+    "R_uncompressed": 1710714,
+    "input_buffer": 388800,
+    "output_buffer": 38880,
+    "rom": 13464,
+    "total": 1607543
+   },
+   "throughput_mbps": {
+    "serial": 79.77020927369718,
+    "overlap": 115.83494711753315,
+    "reordered": 204.4701551406784
+   },
+   "latency_us": {
+    "serial": 487.4,
+    "overlap": 335.65,
+    "reordered": 190.15
+   },
+   "frame": "normal",
+   "rate": "3/5",
+   "check_degree": [
+    10,
+    11
+   ],
+   "layer_degree": [
+    11,
+    11
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 2/3",
+   "n": 64800,
+   "k": 43200,
+   "q": 60,
+   "edges": 215999,
+   "block_edges": 600,
+   "weight2": 12,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1536,
+    "overlap": 1069,
+    "reordered": 588
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 481,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 518399,
+    "R_uncompressed": 1295994,
+    "input_buffer": 388800,
+    "output_buffer": 43200,
+    "rom": 10200,
+    "total": 1478999
+   },
+   "throughput_mbps": {
+    "serial": 555.984555984556,
+    "overlap": 794.8482060717571,
+    "reordered": 1425.7425742574258
+   },
+   "latency_us": {
+    "serial": 77.7,
+    "overlap": 54.35,
+    "reordered": 30.3
+   },
+   "frame": "normal",
+   "rate": "2/3",
+   "check_degree": [
+    9,
+    10
+   ],
+   "layer_degree": [
+    10,
+    10
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 2/3",
+   "n": 64800,
+   "k": 43200,
+   "q": 60,
+   "edges": 215999,
+   "block_edges": 600,
+   "weight2": 12,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1536,
+    "overlap": 1069,
+    "reordered": 588
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 481,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 518399,
+    "R_uncompressed": 1295994,
+    "input_buffer": 388800,
+    "output_buffer": 43200,
+    "rom": 10200,
+    "total": 1478999
+   },
+   "throughput_mbps": {
+    "serial": 186.7704280155642,
+    "overlap": 267.90697674418607,
+    "reordered": 484.8484848484849
+   },
+   "latency_us": {
+    "serial": 231.3,
+    "overlap": 161.25,
+    "reordered": 89.1
+   },
+   "frame": "normal",
+   "rate": "2/3",
+   "check_degree": [
+    9,
+    10
+   ],
+   "layer_degree": [
+    10,
+    10
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 2/3",
+   "n": 64800,
+   "k": 43200,
+   "q": 60,
+   "edges": 215999,
+   "block_edges": 600,
+   "weight2": 12,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1536,
+    "overlap": 1069,
+    "reordered": 588
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 481,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 518399,
+    "R_uncompressed": 1295994,
+    "input_buffer": 388800,
+    "output_buffer": 43200,
+    "rom": 10200,
+    "total": 1478999
+   },
+   "throughput_mbps": {
+    "serial": 112.2369446609509,
+    "overlap": 161.1038597799739,
+    "reordered": 292.0892494929006
+   },
+   "latency_us": {
+    "serial": 384.9,
+    "overlap": 268.15,
+    "reordered": 147.9
+   },
+   "frame": "normal",
+   "rate": "2/3",
+   "check_degree": [
+    9,
+    10
+   ],
+   "layer_degree": [
+    10,
+    10
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 3/4",
+   "n": 64800,
+   "k": 48600,
+   "q": 45,
+   "edges": 226799,
+   "block_edges": 630,
+   "weight2": 23,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1484,
+    "overlap": 970,
+    "reordered": 607
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 363,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 453599,
+    "R_uncompressed": 1360794,
+    "input_buffer": 388800,
+    "output_buffer": 48600,
+    "rom": 10710,
+    "total": 1420109
+   },
+   "throughput_mbps": {
+    "serial": 647.1371504660453,
+    "overlap": 983.8056680161943,
+    "reordered": 1555.2
+   },
+   "latency_us": {
+    "serial": 75.1,
+    "overlap": 49.4,
+    "reordered": 31.25
+   },
+   "frame": "normal",
+   "rate": "3/4",
+   "check_degree": [
+    13,
+    14
+   ],
+   "layer_degree": [
+    14,
+    14
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 3/4",
+   "n": 64800,
+   "k": 48600,
+   "q": 45,
+   "edges": 226799,
+   "block_edges": 630,
+   "weight2": 23,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1484,
+    "overlap": 970,
+    "reordered": 607
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 363,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 453599,
+    "R_uncompressed": 1360794,
+    "input_buffer": 388800,
+    "output_buffer": 48600,
+    "rom": 10710,
+    "total": 1420109
+   },
+   "throughput_mbps": {
+    "serial": 217.4496644295302,
+    "overlap": 331.9672131147541,
+    "reordered": 528.5481239804242
+   },
+   "latency_us": {
+    "serial": 223.5,
+    "overlap": 146.4,
+    "reordered": 91.95
+   },
+   "frame": "normal",
+   "rate": "3/4",
+   "check_degree": [
+    13,
+    14
+   ],
+   "layer_degree": [
+    14,
+    14
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 3/4",
+   "n": 64800,
+   "k": 48600,
+   "q": 45,
+   "edges": 226799,
+   "block_edges": 630,
+   "weight2": 23,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1484,
+    "overlap": 970,
+    "reordered": 607
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 363,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 453599,
+    "R_uncompressed": 1360794,
+    "input_buffer": 388800,
+    "output_buffer": 48600,
+    "rom": 10710,
+    "total": 1420109
+   },
+   "throughput_mbps": {
+    "serial": 130.68029040064533,
+    "overlap": 199.67132292522595,
+    "reordered": 318.3753684900098
+   },
+   "latency_us": {
+    "serial": 371.9,
+    "overlap": 243.4,
+    "reordered": 152.65
+   },
+   "frame": "normal",
+   "rate": "3/4",
+   "check_degree": [
+    13,
+    14
+   ],
+   "layer_degree": [
+    14,
+    14
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 4/5",
+   "n": 64800,
+   "k": 51840,
+   "q": 36,
+   "edges": 233279,
+   "block_edges": 648,
+   "weight2": 34,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1444,
+    "overlap": 911,
+    "reordered": 614
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 297,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 427679,
+    "R_uncompressed": 1399674,
+    "input_buffer": 388800,
+    "output_buffer": 51840,
+    "rom": 11016,
+    "total": 1397735
+   },
+   "throughput_mbps": {
+    "serial": 709.1655266757866,
+    "overlap": 1116.0387513455328,
+    "reordered": 1640.506329113924
+   },
+   "latency_us": {
+    "serial": 73.1,
+    "overlap": 46.45,
+    "reordered": 31.6
+   },
+   "frame": "normal",
+   "rate": "4/5",
+   "check_degree": [
+    17,
+    18
+   ],
+   "layer_degree": [
+    18,
+    18
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 4/5",
+   "n": 64800,
+   "k": 51840,
+   "q": 36,
+   "edges": 233279,
+   "block_edges": 648,
+   "weight2": 34,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1444,
+    "overlap": 911,
+    "reordered": 614
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 297,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 427679,
+    "R_uncompressed": 1399674,
+    "input_buffer": 388800,
+    "output_buffer": 51840,
+    "rom": 11016,
+    "total": 1397735
+   },
+   "throughput_mbps": {
+    "serial": 238.3448275862069,
+    "overlap": 376.8811341330425,
+    "reordered": 557.4193548387096
+   },
+   "latency_us": {
+    "serial": 217.5,
+    "overlap": 137.55,
+    "reordered": 93.0
+   },
+   "frame": "normal",
+   "rate": "4/5",
+   "check_degree": [
+    17,
+    18
+   ],
+   "layer_degree": [
+    18,
+    18
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 4/5",
+   "n": 64800,
+   "k": 51840,
+   "q": 36,
+   "edges": 233279,
+   "block_edges": 648,
+   "weight2": 34,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1444,
+    "overlap": 911,
+    "reordered": 614
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 297,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 427679,
+    "R_uncompressed": 1399674,
+    "input_buffer": 388800,
+    "output_buffer": 51840,
+    "rom": 11016,
+    "total": 1397735
+   },
+   "throughput_mbps": {
+    "serial": 143.2439900525007,
+    "overlap": 226.72206429040017,
+    "reordered": 335.75129533678756
+   },
+   "latency_us": {
+    "serial": 361.9,
+    "overlap": 228.65,
+    "reordered": 154.4
+   },
+   "frame": "normal",
+   "rate": "4/5",
+   "check_degree": [
+    17,
+    18
+   ],
+   "layer_degree": [
+    18,
+    18
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 5/6",
+   "n": 64800,
+   "k": 54000,
+   "q": 30,
+   "edges": 237599,
+   "block_edges": 660,
+   "weight2": 39,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1422,
+    "overlap": 869,
+    "reordered": 659
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 248,
+    "reordered": 38
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 399599,
+    "R_uncompressed": 1425594,
+    "input_buffer": 388800,
+    "output_buffer": 54000,
+    "rom": 11220,
+    "total": 1372019
+   },
+   "throughput_mbps": {
+    "serial": 750.0,
+    "overlap": 1217.587373167982,
+    "reordered": 1595.2732644017724
+   },
+   "latency_us": {
+    "serial": 72.0,
+    "overlap": 44.35,
+    "reordered": 33.85
+   },
+   "frame": "normal",
+   "rate": "5/6",
+   "check_degree": [
+    21,
+    22
+   ],
+   "layer_degree": [
+    22,
+    22
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 5/6",
+   "n": 64800,
+   "k": 54000,
+   "q": 30,
+   "edges": 237599,
+   "block_edges": 660,
+   "weight2": 39,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1422,
+    "overlap": 869,
+    "reordered": 659
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 248,
+    "reordered": 38
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 399599,
+    "R_uncompressed": 1425594,
+    "input_buffer": 388800,
+    "output_buffer": 54000,
+    "rom": 11220,
+    "total": 1372019
+   },
+   "throughput_mbps": {
+    "serial": 252.10084033613447,
+    "overlap": 411.42857142857144,
+    "reordered": 541.3533834586466
+   },
+   "latency_us": {
+    "serial": 214.2,
+    "overlap": 131.25,
+    "reordered": 99.75
+   },
+   "frame": "normal",
+   "rate": "5/6",
+   "check_degree": [
+    21,
+    22
+   ],
+   "layer_degree": [
+    22,
+    22
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 5/6",
+   "n": 64800,
+   "k": 54000,
+   "q": 30,
+   "edges": 237599,
+   "block_edges": 660,
+   "weight2": 39,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1422,
+    "overlap": 869,
+    "reordered": 659
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 248,
+    "reordered": 38
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 399599,
+    "R_uncompressed": 1425594,
+    "input_buffer": 388800,
+    "output_buffer": 54000,
+    "rom": 11220,
+    "total": 1372019
+   },
+   "throughput_mbps": {
+    "serial": 151.51515151515153,
+    "overlap": 247.5360990144396,
+    "reordered": 325.98853003320255
+   },
+   "latency_us": {
+    "serial": 356.4,
+    "overlap": 218.15,
+    "reordered": 165.65
+   },
+   "frame": "normal",
+   "rate": "5/6",
+   "check_degree": [
+    21,
+    22
+   ],
+   "layer_degree": [
+    22,
+    22
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 8/9",
+   "n": 64800,
+   "k": 57600,
+   "q": 20,
+   "edges": 194399,
+   "block_edges": 540,
+   "weight2": 30,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1140,
+    "overlap": 673,
+    "reordered": 510
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 163,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 302399,
+    "R_uncompressed": 1166394,
+    "input_buffer": 388800,
+    "output_buffer": 57600,
+    "rom": 9180,
+    "total": 1276379
+   },
+   "throughput_mbps": {
+    "serial": 994.8186528497409,
+    "overlap": 1667.1490593342983,
+    "reordered": 2181.818181818182
+   },
+   "latency_us": {
+    "serial": 57.9,
+    "overlap": 34.55,
+    "reordered": 26.4
+   },
+   "frame": "normal",
+   "rate": "8/9",
+   "check_degree": [
+    26,
+    27
+   ],
+   "layer_degree": [
+    27,
+    27
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 8/9",
+   "n": 64800,
+   "k": 57600,
+   "q": 20,
+   "edges": 194399,
+   "block_edges": 540,
+   "weight2": 30,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1140,
+    "overlap": 673,
+    "reordered": 510
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 163,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 302399,
+    "R_uncompressed": 1166394,
+    "input_buffer": 388800,
+    "output_buffer": 57600,
+    "rom": 9180,
+    "total": 1276379
+   },
+   "throughput_mbps": {
+    "serial": 335.0785340314136,
+    "overlap": 565.5375552282769,
+    "reordered": 744.1860465116279
+   },
+   "latency_us": {
+    "serial": 171.9,
+    "overlap": 101.85,
+    "reordered": 77.4
+   },
+   "frame": "normal",
+   "rate": "8/9",
+   "check_degree": [
+    26,
+    27
+   ],
+   "layer_degree": [
+    27,
+    27
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 8/9",
+   "n": 64800,
+   "k": 57600,
+   "q": 20,
+   "edges": 194399,
+   "block_edges": 540,
+   "weight2": 30,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1140,
+    "overlap": 673,
+    "reordered": 510
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 163,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 302399,
+    "R_uncompressed": 1166394,
+    "input_buffer": 388800,
+    "output_buffer": 57600,
+    "rom": 9180,
+    "total": 1276379
+   },
+   "throughput_mbps": {
+    "serial": 201.46904512067158,
+    "overlap": 340.5261602128288,
+    "reordered": 448.5981308411215
+   },
+   "latency_us": {
+    "serial": 285.9,
+    "overlap": 169.15,
+    "reordered": 128.4
+   },
+   "frame": "normal",
+   "rate": "8/9",
+   "check_degree": [
+    26,
+    27
+   ],
+   "layer_degree": [
+    27,
+    27
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 9/10",
+   "n": 64800,
+   "k": 58320,
+   "q": 18,
+   "edges": 194399,
+   "block_edges": 540,
+   "weight2": 36,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1116,
+    "overlap": 656,
+    "reordered": 507
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 152,
+    "reordered": 3
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 291599,
+    "R_uncompressed": 1166394,
+    "input_buffer": 388800,
+    "output_buffer": 58320,
+    "rom": 9180,
+    "total": 1266299
+   },
+   "throughput_mbps": {
+    "serial": 1028.5714285714284,
+    "overlap": 1730.5637982195844,
+    "reordered": 2221.714285714286
+   },
+   "latency_us": {
+    "serial": 56.7,
+    "overlap": 33.7,
+    "reordered": 26.25
+   },
+   "frame": "normal",
+   "rate": "9/10",
+   "check_degree": [
+    29,
+    30
+   ],
+   "layer_degree": [
+    30,
+    30
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 9/10",
+   "n": 64800,
+   "k": 58320,
+   "q": 18,
+   "edges": 194399,
+   "block_edges": 540,
+   "weight2": 36,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1116,
+    "overlap": 656,
+    "reordered": 507
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 152,
+    "reordered": 3
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 291599,
+    "R_uncompressed": 1166394,
+    "input_buffer": 388800,
+    "output_buffer": 58320,
+    "rom": 9180,
+    "total": 1266299
+   },
+   "throughput_mbps": {
+    "serial": 346.524064171123,
+    "overlap": 587.3111782477341,
+    "reordered": 757.8947368421052
+   },
+   "latency_us": {
+    "serial": 168.3,
+    "overlap": 99.3,
+    "reordered": 76.95
+   },
+   "frame": "normal",
+   "rate": "9/10",
+   "check_degree": [
+    29,
+    30
+   ],
+   "layer_degree": [
+    30,
+    30
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC normal 9/10",
+   "n": 64800,
+   "k": 58320,
+   "q": 18,
+   "edges": 194399,
+   "block_edges": 540,
+   "weight2": 36,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 1116,
+    "overlap": 656,
+    "reordered": 507
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 152,
+    "reordered": 3
+   },
+   "memory_bits": {
+    "L": 518400,
+    "R_compressed": 291599,
+    "R_uncompressed": 1166394,
+    "input_buffer": 388800,
+    "output_buffer": 58320,
+    "rom": 9180,
+    "total": 1266299
+   },
+   "throughput_mbps": {
+    "serial": 208.36012861736336,
+    "overlap": 353.66889023650697,
+    "reordered": 456.8742655699177
+   },
+   "latency_us": {
+    "serial": 279.9,
+    "overlap": 164.9,
+    "reordered": 127.65
+   },
+   "frame": "normal",
+   "rate": "9/10",
+   "check_degree": [
+    29,
+    30
+   ],
+   "layer_degree": [
+    30,
+    30
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 1/4",
+   "n": 16200,
+   "k": 3240,
+   "q": 36,
+   "edges": 48599,
+   "block_edges": 135,
+   "weight2": 4,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 478,
+    "overlap": 418,
+    "reordered": 147
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 287,
+    "reordered": 16
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 204119,
+    "R_uncompressed": 291594,
+    "input_buffer": 97200,
+    "output_buffer": 3240,
+    "rom": 2025,
+    "total": 436184
+   },
+   "throughput_mbps": {
+    "serial": 134.30051813471502,
+    "overlap": 153.37278106508876,
+    "reordered": 427.7227722772277
+   },
+   "latency_us": {
+    "serial": 24.125,
+    "overlap": 21.125,
+    "reordered": 7.575
+   },
+   "frame": "short",
+   "rate": "1/4",
+   "check_degree": [
+    3,
+    4
+   ],
+   "layer_degree": [
+    3,
+    4
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 1/4",
+   "n": 16200,
+   "k": 3240,
+   "q": 36,
+   "edges": 48599,
+   "block_edges": 135,
+   "weight2": 4,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 478,
+    "overlap": 418,
+    "reordered": 147
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 287,
+    "reordered": 16
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 204119,
+    "R_uncompressed": 291594,
+    "input_buffer": 97200,
+    "output_buffer": 3240,
+    "rom": 2025,
+    "total": 436184
+   },
+   "throughput_mbps": {
+    "serial": 45.04692387904067,
+    "overlap": 51.48986889153755,
+    "reordered": 145.45454545454547
+   },
+   "latency_us": {
+    "serial": 71.925,
+    "overlap": 62.925,
+    "reordered": 22.275
+   },
+   "frame": "short",
+   "rate": "1/4",
+   "check_degree": [
+    3,
+    4
+   ],
+   "layer_degree": [
+    3,
+    4
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 1/4",
+   "n": 16200,
+   "k": 3240,
+   "q": 36,
+   "edges": 48599,
+   "block_edges": 135,
+   "weight2": 4,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 478,
+    "overlap": 418,
+    "reordered": 147
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 287,
+    "reordered": 16
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 204119,
+    "R_uncompressed": 291594,
+    "input_buffer": 97200,
+    "output_buffer": 3240,
+    "rom": 2025,
+    "total": 436184
+   },
+   "throughput_mbps": {
+    "serial": 27.062017122572563,
+    "overlap": 30.938171401289093,
+    "reordered": 87.62677484787018
+   },
+   "latency_us": {
+    "serial": 119.725,
+    "overlap": 104.725,
+    "reordered": 36.975
+   },
+   "frame": "short",
+   "rate": "1/4",
+   "check_degree": [
+    3,
+    4
+   ],
+   "layer_degree": [
+    3,
+    4
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 1/3",
+   "n": 16200,
+   "k": 5400,
+   "q": 30,
+   "edges": 53999,
+   "block_edges": 150,
+   "weight2": 4,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 472,
+    "overlap": 384,
+    "reordered": 152
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 238,
+    "reordered": 6
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 194398,
+    "R_uncompressed": 323994,
+    "input_buffer": 97200,
+    "output_buffer": 5400,
+    "rom": 2250,
+    "total": 428848
+   },
+   "throughput_mbps": {
+    "serial": 226.65267576075553,
+    "overlap": 277.992277992278,
+    "reordered": 690.0958466453674
+   },
+   "latency_us": {
+    "serial": 23.825,
+    "overlap": 19.425,
+    "reordered": 7.825
+   },
+   "frame": "short",
+   "rate": "1/3",
+   "check_degree": [
+    4,
+    5
+   ],
+   "layer_degree": [
+    5,
+    5
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 1/3",
+   "n": 16200,
+   "k": 5400,
+   "q": 30,
+   "edges": 53999,
+   "block_edges": 150,
+   "weight2": 4,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 472,
+    "overlap": 384,
+    "reordered": 152
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 238,
+    "reordered": 6
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 194398,
+    "R_uncompressed": 323994,
+    "input_buffer": 97200,
+    "output_buffer": 5400,
+    "rom": 2250,
+    "total": 428848
+   },
+   "throughput_mbps": {
+    "serial": 76.02956705385427,
+    "overlap": 93.3852140077821,
+    "reordered": 234.52768729641696
+   },
+   "latency_us": {
+    "serial": 71.025,
+    "overlap": 57.825,
+    "reordered": 23.025
+   },
+   "frame": "short",
+   "rate": "1/3",
+   "check_degree": [
+    4,
+    5
+   ],
+   "layer_degree": [
+    5,
+    5
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 1/3",
+   "n": 16200,
+   "k": 5400,
+   "q": 30,
+   "edges": 53999,
+   "block_edges": 150,
+   "weight2": 4,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 472,
+    "overlap": 384,
+    "reordered": 152
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 238,
+    "reordered": 6
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 194398,
+    "R_uncompressed": 323994,
+    "input_buffer": 97200,
+    "output_buffer": 5400,
+    "rom": 2250,
+    "total": 428848
+   },
+   "throughput_mbps": {
+    "serial": 45.675618524000846,
+    "overlap": 56.11847233047545,
+    "reordered": 141.26880313930673
+   },
+   "latency_us": {
+    "serial": 118.225,
+    "overlap": 96.225,
+    "reordered": 38.225
+   },
+   "frame": "short",
+   "rate": "1/3",
+   "check_degree": [
+    4,
+    5
+   ],
+   "layer_degree": [
+    5,
+    5
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 2/5",
+   "n": 16200,
+   "k": 6480,
+   "q": 27,
+   "edges": 58319,
+   "block_edges": 162,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 470,
+    "overlap": 369,
+    "reordered": 162
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 215,
+    "reordered": 8
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 184679,
+    "R_uncompressed": 349914,
+    "input_buffer": 97200,
+    "output_buffer": 6480,
+    "rom": 2430,
+    "total": 420389
+   },
+   "throughput_mbps": {
+    "serial": 273.1296101159115,
+    "overlap": 346.9879518072289,
+    "reordered": 778.3783783783784
+   },
+   "latency_us": {
+    "serial": 23.725,
+    "overlap": 18.675,
+    "reordered": 8.325
+   },
+   "frame": "short",
+   "rate": "2/5",
+   "check_degree": [
+    5,
+    6
+   ],
+   "layer_degree": [
+    6,
+    6
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 2/5",
+   "n": 16200,
+   "k": 6480,
+   "q": 27,
+   "edges": 58319,
+   "block_edges": 162,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 470,
+    "overlap": 369,
+    "reordered": 162
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 215,
+    "reordered": 8
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 184679,
+    "R_uncompressed": 349914,
+    "input_buffer": 97200,
+    "output_buffer": 6480,
+    "rom": 2430,
+    "total": 420389
+   },
+   "throughput_mbps": {
+    "serial": 91.62248144220574,
+    "overlap": 116.5991902834008,
+    "reordered": 264.22018348623857
+   },
+   "latency_us": {
+    "serial": 70.725,
+    "overlap": 55.575,
+    "reordered": 24.525
+   },
+   "frame": "short",
+   "rate": "2/5",
+   "check_degree": [
+    5,
+    6
+   ],
+   "layer_degree": [
+    6,
+    6
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 2/5",
+   "n": 16200,
+   "k": 6480,
+   "q": 27,
+   "edges": 58319,
+   "block_edges": 162,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 470,
+    "overlap": 369,
+    "reordered": 162
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 215,
+    "reordered": 8
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 184679,
+    "R_uncompressed": 349914,
+    "input_buffer": 97200,
+    "output_buffer": 6480,
+    "rom": 2430,
+    "total": 420389
+   },
+   "throughput_mbps": {
+    "serial": 55.04353365895095,
+    "overlap": 70.07299270072993,
+    "reordered": 159.11602209944752
+   },
+   "latency_us": {
+    "serial": 117.725,
+    "overlap": 92.475,
+    "reordered": 40.725
+   },
+   "frame": "short",
+   "rate": "2/5",
+   "check_degree": [
+    5,
+    6
+   ],
+   "layer_degree": [
+    6,
+    6
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 1/2",
+   "n": 16200,
+   "k": 7200,
+   "q": 25,
+   "edges": 48599,
+   "block_edges": 135,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 404,
+    "overlap": 328,
+    "reordered": 140
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 201,
+    "reordered": 13
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 164158,
+    "R_uncompressed": 291594,
+    "input_buffer": 97200,
+    "output_buffer": 7200,
+    "rom": 2025,
+    "total": 400183
+   },
+   "throughput_mbps": {
+    "serial": 352.5091799265606,
+    "overlap": 433.0827067669173,
+    "reordered": 996.5397923875433
+   },
+   "latency_us": {
+    "serial": 20.425,
+    "overlap": 16.625,
+    "reordered": 7.225
+   },
+   "frame": "short",
+   "rate": "1/2",
+   "check_degree": [
+    4,
+    7
+   ],
+   "layer_degree": [
+    4,
+    7
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 1/2",
+   "n": 16200,
+   "k": 7200,
+   "q": 25,
+   "edges": 48599,
+   "block_edges": 135,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 404,
+    "overlap": 328,
+    "reordered": 140
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 201,
+    "reordered": 13
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 164158,
+    "R_uncompressed": 291594,
+    "input_buffer": 97200,
+    "output_buffer": 7200,
+    "rom": 2025,
+    "total": 400183
+   },
+   "throughput_mbps": {
+    "serial": 118.37237977805178,
+    "overlap": 145.6752655538695,
+    "reordered": 339.22261484098937
+   },
+   "latency_us": {
+    "serial": 60.825,
+    "overlap": 49.425,
+    "reordered": 21.225
+   },
+   "frame": "short",
+   "rate": "1/2",
+   "check_degree": [
+    4,
+    7
+   ],
+   "layer_degree": [
+    4,
+    7
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 1/2",
+   "n": 16200,
+   "k": 7200,
+   "q": 25,
+   "edges": 48599,
+   "block_edges": 135,
+   "weight2": 8,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 404,
+    "overlap": 328,
+    "reordered": 140
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 201,
+    "reordered": 13
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 164158,
+    "R_uncompressed": 291594,
+    "input_buffer": 97200,
+    "output_buffer": 7200,
+    "rom": 2025,
+    "total": 400183
+   },
+   "throughput_mbps": {
+    "serial": 71.12867374660411,
+    "overlap": 87.56460930373974,
+    "reordered": 204.40028388928317
+   },
+   "latency_us": {
+    "serial": 101.225,
+    "overlap": 82.225,
+    "reordered": 35.225
+   },
+   "frame": "short",
+   "rate": "1/2",
+   "check_degree": [
+    4,
+    7
+   ],
+   "layer_degree": [
+    4,
+    7
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 3/5",
+   "n": 16200,
+   "k": 9720,
+   "q": 18,
+   "edges": 71279,
+   "block_edges": 198,
+   "weight2": 27,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 450,
+    "overlap": 314,
+    "reordered": 240
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 143,
+    "reordered": 69
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 161999,
+    "R_uncompressed": 427674,
+    "input_buffer": 97200,
+    "output_buffer": 9720,
+    "rom": 2970,
+    "total": 401489
+   },
+   "throughput_mbps": {
+    "serial": 427.7227722772277,
+    "overlap": 610.3610675039246,
+    "reordered": 795.0920245398773
+   },
+   "latency_us": {
+    "serial": 22.725,
+    "overlap": 15.925,
+    "reordered": 12.225
+   },
+   "frame": "short",
+   "rate": "3/5",
+   "check_degree": [
+    10,
+    11
+   ],
+   "layer_degree": [
+    11,
+    11
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 3/5",
+   "n": 16200,
+   "k": 9720,
+   "q": 18,
+   "edges": 71279,
+   "block_edges": 198,
+   "weight2": 27,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 450,
+    "overlap": 314,
+    "reordered": 240
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 143,
+    "reordered": 69
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 161999,
+    "R_uncompressed": 427674,
+    "input_buffer": 97200,
+    "output_buffer": 9720,
+    "rom": 2970,
+    "total": 401489
+   },
+   "throughput_mbps": {
+    "serial": 143.5215946843854,
+    "overlap": 205.38827258320126,
+    "reordered": 268.3229813664596
+   },
+   "latency_us": {
+    "serial": 67.725,
+    "overlap": 47.325,
+    "reordered": 36.225
+   },
+   "frame": "short",
+   "rate": "3/5",
+   "check_degree": [
+    10,
+    11
+   ],
+   "layer_degree": [
+    11,
+    11
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 3/5",
+   "n": 16200,
+   "k": 9720,
+   "q": 18,
+   "edges": 71279,
+   "block_edges": 198,
+   "weight2": 27,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 450,
+    "overlap": 314,
+    "reordered": 240
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 143,
+    "reordered": 69
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 161999,
+    "R_uncompressed": 427674,
+    "input_buffer": 97200,
+    "output_buffer": 9720,
+    "rom": 2970,
+    "total": 401489
+   },
+   "throughput_mbps": {
+    "serial": 86.22754491017965,
+    "overlap": 123.46776754525247,
+    "reordered": 161.3947696139477
+   },
+   "latency_us": {
+    "serial": 112.725,
+    "overlap": 78.725,
+    "reordered": 60.225
+   },
+   "frame": "short",
+   "rate": "3/5",
+   "check_degree": [
+    10,
+    11
+   ],
+   "layer_degree": [
+    11,
+    11
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 2/3",
+   "n": 16200,
+   "k": 10800,
+   "q": 15,
+   "edges": 53999,
+   "block_edges": 150,
+   "weight2": 14,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 362,
+    "overlap": 254,
+    "reordered": 187
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 118,
+    "reordered": 51
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 129599,
+    "R_uncompressed": 323994,
+    "input_buffer": 97200,
+    "output_buffer": 10800,
+    "rom": 2250,
+    "total": 369449
+   },
+   "throughput_mbps": {
+    "serial": 589.3587994542975,
+    "overlap": 835.5899419729207,
+    "reordered": 1127.9373368146214
+   },
+   "latency_us": {
+    "serial": 18.325,
+    "overlap": 12.925,
+    "reordered": 9.575
+   },
+   "frame": "short",
+   "rate": "2/3",
+   "check_degree": [
+    9,
+    10
+   ],
+   "layer_degree": [
+    10,
+    10
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 2/3",
+   "n": 16200,
+   "k": 10800,
+   "q": 15,
+   "edges": 53999,
+   "block_edges": 150,
+   "weight2": 14,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 362,
+    "overlap": 254,
+    "reordered": 187
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 118,
+    "reordered": 51
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 129599,
+    "R_uncompressed": 323994,
+    "input_buffer": 97200,
+    "output_buffer": 10800,
+    "rom": 2250,
+    "total": 369449
+   },
+   "throughput_mbps": {
+    "serial": 198.07427785419532,
+    "overlap": 281.8003913894325,
+    "reordered": 381.9628647214854
+   },
+   "latency_us": {
+    "serial": 54.525,
+    "overlap": 38.325,
+    "reordered": 28.275
+   },
+   "frame": "short",
+   "rate": "2/3",
+   "check_degree": [
+    9,
+    10
+   ],
+   "layer_degree": [
+    10,
+    10
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 2/3",
+   "n": 16200,
+   "k": 10800,
+   "q": 15,
+   "edges": 53999,
+   "block_edges": 150,
+   "weight2": 14,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 362,
+    "overlap": 254,
+    "reordered": 187
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 118,
+    "reordered": 51
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 129599,
+    "R_uncompressed": 323994,
+    "input_buffer": 97200,
+    "output_buffer": 10800,
+    "rom": 2250,
+    "total": 369449
+   },
+   "throughput_mbps": {
+    "serial": 119.04105814273906,
+    "overlap": 169.4782267555904,
+    "reordered": 229.90952634379988
+   },
+   "latency_us": {
+    "serial": 90.725,
+    "overlap": 63.725,
+    "reordered": 46.975
+   },
+   "frame": "short",
+   "rate": "2/3",
+   "check_degree": [
+    9,
+    10
+   ],
+   "layer_degree": [
+    10,
+    10
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 3/4",
+   "n": 16200,
+   "k": 11880,
+   "q": 12,
+   "edges": 47519,
+   "block_edges": 132,
+   "weight2": 9,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 318,
+    "overlap": 223,
+    "reordered": 172
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 100,
+    "reordered": 49
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 107999,
+    "R_uncompressed": 285114,
+    "input_buffer": 97200,
+    "output_buffer": 11880,
+    "rom": 1980,
+    "total": 348659
+   },
+   "throughput_mbps": {
+    "serial": 736.7441860465116,
+    "overlap": 1044.3956043956043,
+    "reordered": 1346.1756373937678
+   },
+   "latency_us": {
+    "serial": 16.125,
+    "overlap": 11.375,
+    "reordered": 8.825
+   },
+   "frame": "short",
+   "rate": "3/4",
+   "check_degree": [
+    9,
+    13
+   ],
+   "layer_degree": [
+    9,
+    13
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 3/4",
+   "n": 16200,
+   "k": 11880,
+   "q": 12,
+   "edges": 47519,
+   "block_edges": 132,
+   "weight2": 9,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 318,
+    "overlap": 223,
+    "reordered": 172
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 100,
+    "reordered": 49
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 107999,
+    "R_uncompressed": 285114,
+    "input_buffer": 97200,
+    "output_buffer": 11880,
+    "rom": 1980,
+    "total": 348659
+   },
+   "throughput_mbps": {
+    "serial": 247.88732394366198,
+    "overlap": 352.78396436525617,
+    "reordered": 456.4841498559078
+   },
+   "latency_us": {
+    "serial": 47.925,
+    "overlap": 33.675,
+    "reordered": 26.025
+   },
+   "frame": "short",
+   "rate": "3/4",
+   "check_degree": [
+    9,
+    13
+   ],
+   "layer_degree": [
+    9,
+    13
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 3/4",
+   "n": 16200,
+   "k": 11880,
+   "q": 12,
+   "edges": 47519,
+   "block_edges": 132,
+   "weight2": 9,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 318,
+    "overlap": 223,
+    "reordered": 172
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 100,
+    "reordered": 49
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 107999,
+    "R_uncompressed": 285114,
+    "input_buffer": 97200,
+    "output_buffer": 11880,
+    "rom": 1980,
+    "total": 348659
+   },
+   "throughput_mbps": {
+    "serial": 149.01222953904048,
+    "overlap": 212.23760607414025,
+    "reordered": 274.84094852515904
+   },
+   "latency_us": {
+    "serial": 79.725,
+    "overlap": 55.975,
+    "reordered": 43.225
+   },
+   "frame": "short",
+   "rate": "3/4",
+   "check_degree": [
+    9,
+    13
+   ],
+   "layer_degree": [
+    9,
+    13
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 4/5",
+   "n": 16200,
+   "k": 12600,
+   "q": 10,
+   "edges": 44999,
+   "block_edges": 125,
+   "weight2": 9,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 292,
+    "overlap": 198,
+    "reordered": 116
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 82,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 95399,
+    "R_uncompressed": 269994,
+    "input_buffer": 97200,
+    "output_buffer": 12600,
+    "rom": 1875,
+    "total": 336674
+   },
+   "throughput_mbps": {
+    "serial": 849.9156829679596,
+    "overlap": 1244.4444444444443,
+    "reordered": 2091.286307053942
+   },
+   "latency_us": {
+    "serial": 14.825,
+    "overlap": 10.125,
+    "reordered": 6.025
+   },
+   "frame": "short",
+   "rate": "4/5",
+   "check_degree": [
+    11,
+    13
+   ],
+   "layer_degree": [
+    11,
+    13
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 4/5",
+   "n": 16200,
+   "k": 12600,
+   "q": 10,
+   "edges": 44999,
+   "block_edges": 125,
+   "weight2": 9,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 292,
+    "overlap": 198,
+    "reordered": 116
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 82,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 95399,
+    "R_uncompressed": 269994,
+    "input_buffer": 97200,
+    "output_buffer": 12600,
+    "rom": 1875,
+    "total": 336674
+   },
+   "throughput_mbps": {
+    "serial": 286.2010221465077,
+    "overlap": 421.05263157894734,
+    "reordered": 714.8936170212766
+   },
+   "latency_us": {
+    "serial": 44.025,
+    "overlap": 29.925,
+    "reordered": 17.625
+   },
+   "frame": "short",
+   "rate": "4/5",
+   "check_degree": [
+    11,
+    13
+   ],
+   "layer_degree": [
+    11,
+    13
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 4/5",
+   "n": 16200,
+   "k": 12600,
+   "q": 10,
+   "edges": 44999,
+   "block_edges": 125,
+   "weight2": 9,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 292,
+    "overlap": 198,
+    "reordered": 116
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 82,
+    "reordered": 0
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 95399,
+    "R_uncompressed": 269994,
+    "input_buffer": 97200,
+    "output_buffer": 12600,
+    "rom": 1875,
+    "total": 336674
+   },
+   "throughput_mbps": {
+    "serial": 172.0723796517583,
+    "overlap": 253.39366515837102,
+    "reordered": 431.13772455089816
+   },
+   "latency_us": {
+    "serial": 73.225,
+    "overlap": 49.725,
+    "reordered": 29.225
+   },
+   "frame": "short",
+   "rate": "4/5",
+   "check_degree": [
+    11,
+    13
+   ],
+   "layer_degree": [
+    11,
+    13
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 5/6",
+   "n": 16200,
+   "k": 13320,
+   "q": 8,
+   "edges": 49319,
+   "block_edges": 137,
+   "weight2": 21,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 280,
+    "overlap": 182,
+    "reordered": 150
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 66,
+    "reordered": 34
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 91079,
+    "R_uncompressed": 295914,
+    "input_buffer": 97200,
+    "output_buffer": 13320,
+    "rom": 2055,
+    "total": 333254
+   },
+   "throughput_mbps": {
+    "serial": 936.3796133567663,
+    "overlap": 1428.4182305630027,
+    "reordered": 1724.2718446601943
+   },
+   "latency_us": {
+    "serial": 14.225,
+    "overlap": 9.325,
+    "reordered": 7.725
+   },
+   "frame": "short",
+   "rate": "5/6",
+   "check_degree": [
+    15,
+    19
+   ],
+   "layer_degree": [
+    16,
+    19
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 5/6",
+   "n": 16200,
+   "k": 13320,
+   "q": 8,
+   "edges": 49319,
+   "block_edges": 137,
+   "weight2": 21,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 280,
+    "overlap": 182,
+    "reordered": 150
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 66,
+    "reordered": 34
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 91079,
+    "R_uncompressed": 295914,
+    "input_buffer": 97200,
+    "output_buffer": 13320,
+    "rom": 2055,
+    "total": 333254
+   },
+   "throughput_mbps": {
+    "serial": 315.45293072824154,
+    "overlap": 483.92370572207085,
+    "reordered": 586.1386138613861
+   },
+   "latency_us": {
+    "serial": 42.225,
+    "overlap": 27.525,
+    "reordered": 22.725
+   },
+   "frame": "short",
+   "rate": "5/6",
+   "check_degree": [
+    15,
+    19
+   ],
+   "layer_degree": [
+    16,
+    19
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 5/6",
+   "n": 16200,
+   "k": 13320,
+   "q": 8,
+   "edges": 49319,
+   "block_edges": 137,
+   "weight2": 21,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 280,
+    "overlap": 182,
+    "reordered": 150
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 66,
+    "reordered": 34
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 91079,
+    "R_uncompressed": 295914,
+    "input_buffer": 97200,
+    "output_buffer": 13320,
+    "rom": 2055,
+    "total": 333254
+   },
+   "throughput_mbps": {
+    "serial": 189.67604129583484,
+    "overlap": 291.30672498633135,
+    "reordered": 353.08151093439363
+   },
+   "latency_us": {
+    "serial": 70.225,
+    "overlap": 45.725,
+    "reordered": 37.725
+   },
+   "frame": "short",
+   "rate": "5/6",
+   "check_degree": [
+    15,
+    19
+   ],
+   "layer_degree": [
+    16,
+    19
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 8/9",
+   "n": 16200,
+   "k": 14400,
+   "q": 5,
+   "edges": 48599,
+   "block_edges": 135,
+   "weight2": 20,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 10,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 260,
+    "overlap": 157,
+    "reordered": 144
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 42,
+    "reordered": 29
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 75599,
+    "R_uncompressed": 291594,
+    "input_buffer": 97200,
+    "output_buffer": 14400,
+    "rom": 2025,
+    "total": 318824
+   },
+   "throughput_mbps": {
+    "serial": 1088.8468809073725,
+    "overlap": 1783.2817337461302,
+    "reordered": 1939.3939393939395
+   },
+   "latency_us": {
+    "serial": 13.225,
+    "overlap": 8.075,
+    "reordered": 7.425
+   },
+   "frame": "short",
+   "rate": "8/9",
+   "check_degree": [
+    26,
+    27
+   ],
+   "layer_degree": [
+    27,
+    27
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 8/9",
+   "n": 16200,
+   "k": 14400,
+   "q": 5,
+   "edges": 48599,
+   "block_edges": 135,
+   "weight2": 20,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 30,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 260,
+    "overlap": 157,
+    "reordered": 144
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 42,
+    "reordered": 29
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 75599,
+    "R_uncompressed": 291594,
+    "input_buffer": 97200,
+    "output_buffer": 14400,
+    "rom": 2025,
+    "total": 318824
+   },
+   "throughput_mbps": {
+    "serial": 367.11281070745696,
+    "overlap": 605.6782334384858,
+    "reordered": 659.7938144329897
+   },
+   "latency_us": {
+    "serial": 39.225,
+    "overlap": 23.775,
+    "reordered": 21.825
+   },
+   "frame": "short",
+   "rate": "8/9",
+   "check_degree": [
+    26,
+    27
+   ],
+   "layer_degree": [
+    27,
+    27
+   ]
+  },
+  {
+   "name": "DVB-S2 LDPC short 8/9",
+   "n": 16200,
+   "k": 14400,
+   "q": 5,
+   "edges": 48599,
+   "block_edges": 135,
+   "weight2": 20,
+   "parallelism": 360,
+   "f_clk_mhz": 200.0,
+   "iterations": 50,
+   "pipeline_depth": 6,
+   "cycles_per_iter": {
+    "serial": 260,
+    "overlap": 157,
+    "reordered": 144
+   },
+   "stalls": {
+    "serial": 0,
+    "overlap": 42,
+    "reordered": 29
+   },
+   "memory_bits": {
+    "L": 129600,
+    "R_compressed": 75599,
+    "R_uncompressed": 291594,
+    "input_buffer": 97200,
+    "output_buffer": 14400,
+    "rom": 2025,
+    "total": 318824
+   },
+   "throughput_mbps": {
+    "serial": 220.77424300498276,
+    "overlap": 364.7878404053198,
+    "reordered": 397.51552795031057
+   },
+   "latency_us": {
+    "serial": 65.225,
+    "overlap": 39.475,
+    "reordered": 36.225
+   },
+   "frame": "short",
+   "rate": "8/9",
+   "check_degree": [
+    26,
+    27
+   ],
+   "layer_degree": [
+    27,
+    27
+   ]
+  }
+ ],
+ "parallelism": [
+  {
+   "rate": "1/2",
+   "parallelism": 360,
+   "cycles_per_iter": {
+    "serial": 1784,
+    "overlap": 1341,
+    "reordered": 622
+   },
+   "throughput_mbps": {
+    "serial": 120.67039106145252,
+    "overlap": 160.35634743875278,
+    "reordered": 343.9490445859872
+   }
+  },
+  {
+   "rate": "1/2",
+   "parallelism": 180,
+   "cycles_per_iter": {
+    "serial": 3028,
+    "overlap": 2142,
+    "reordered": 1244
+   },
+   "throughput_mbps": {
+    "serial": 71.05263157894737,
+    "overlap": 100.27855153203342,
+    "reordered": 171.9745222929936
+   }
+  },
+  {
+   "rate": "1/2",
+   "parallelism": 120,
+   "cycles_per_iter": {
+    "serial": 4272,
+    "overlap": 2943,
+    "reordered": 1866
+   },
+   "throughput_mbps": {
+    "serial": 50.34965034965035,
+    "overlap": 72.94832826747721,
+    "reordered": 114.64968152866241
+   }
+  },
+  {
+   "rate": "1/2",
+   "parallelism": 90,
+   "cycles_per_iter": {
+    "serial": 5516,
+    "overlap": 3744,
+    "reordered": 2488
+   },
+   "throughput_mbps": {
+    "serial": 38.98916967509025,
+    "overlap": 57.324840764331206,
+    "reordered": 85.9872611464968
+   }
+  },
+  {
+   "rate": "1/2",
+   "parallelism": 72,
+   "cycles_per_iter": {
+    "serial": 6760,
+    "overlap": 4545,
+    "reordered": 3110
+   },
+   "throughput_mbps": {
+    "serial": 31.811487481590575,
+    "overlap": 47.21311475409836,
+    "reordered": 68.78980891719745
+   }
+  },
+  {
+   "rate": "1/2",
+   "parallelism": 60,
+   "cycles_per_iter": {
+    "serial": 8004,
+    "overlap": 5346,
+    "reordered": 3732
+   },
+   "throughput_mbps": {
+    "serial": 26.865671641791046,
+    "overlap": 40.13377926421405,
+    "reordered": 57.324840764331206
+   }
+  },
+  {
+   "rate": "1/2",
+   "parallelism": 45,
+   "cycles_per_iter": {
+    "serial": 10492,
+    "overlap": 6948,
+    "reordered": 4976
+   },
+   "throughput_mbps": {
+    "serial": 20.49335863377609,
+    "overlap": 30.87478559176672,
+    "reordered": 42.9936305732484
+   }
+  },
+  {
+   "rate": "1/2",
+   "parallelism": 40,
+   "cycles_per_iter": {
+    "serial": 11736,
+    "overlap": 7749,
+    "reordered": 5598
+   },
+   "throughput_mbps": {
+    "serial": 18.3206106870229,
+    "overlap": 27.681660899653977,
+    "reordered": 38.21656050955414
+   }
+  },
+  {
+   "rate": "1/2",
+   "parallelism": 36,
+   "cycles_per_iter": {
+    "serial": 12980,
+    "overlap": 8550,
+    "reordered": 6220
+   },
+   "throughput_mbps": {
+    "serial": 16.56441717791411,
+    "overlap": 25.087108013937282,
+    "reordered": 34.394904458598724
+   }
+  },
+  {
+   "rate": "1/2",
+   "parallelism": 30,
+   "cycles_per_iter": {
+    "serial": 15468,
+    "overlap": 10152,
+    "reordered": 7464
+   },
+   "throughput_mbps": {
+    "serial": 13.8996138996139,
+    "overlap": 21.126760563380284,
+    "reordered": 28.662420382165603
+   }
+  },
+  {
+   "rate": "9/10",
+   "parallelism": 360,
+   "cycles_per_iter": {
+    "serial": 1116,
+    "overlap": 656,
+    "reordered": 507
+   },
+   "throughput_mbps": {
+    "serial": 346.524064171123,
+    "overlap": 587.3111782477341,
+    "reordered": 757.8947368421052
+   }
+  },
+  {
+   "rate": "9/10",
+   "parallelism": 180,
+   "cycles_per_iter": {
+    "serial": 2124,
+    "overlap": 1204,
+    "reordered": 1008
+   },
+   "throughput_mbps": {
+    "serial": 182.02247191011236,
+    "overlap": 319.7368421052631,
+    "reordered": 381.1764705882353
+   }
+  },
+  {
+   "rate": "9/10",
+   "parallelism": 120,
+   "cycles_per_iter": {
+    "serial": 3132,
+    "overlap": 1752,
+    "reordered": 1512
+   },
+   "throughput_mbps": {
+    "serial": 123.42857142857143,
+    "overlap": 219.66101694915255,
+    "reordered": 254.11764705882354
+   }
+  },
+  {
+   "rate": "9/10",
+   "parallelism": 90,
+   "cycles_per_iter": {
+    "serial": 4140,
+    "overlap": 2300,
+    "reordered": 2016
+   },
+   "throughput_mbps": {
+    "serial": 93.37175792507205,
+    "overlap": 167.29776247848537,
+    "reordered": 190.58823529411765
+   }
+  },
+  {
+   "rate": "9/10",
+   "parallelism": 72,
+   "cycles_per_iter": {
+    "serial": 5148,
+    "overlap": 2848,
+    "reordered": 2520
+   },
+   "throughput_mbps": {
+    "serial": 75.08690614136732,
+    "overlap": 135.09381514940932,
+    "reordered": 152.47058823529412
+   }
+  },
+  {
+   "rate": "9/10",
+   "parallelism": 60,
+   "cycles_per_iter": {
+    "serial": 6156,
+    "overlap": 3396,
+    "reordered": 3024
+   },
+   "throughput_mbps": {
+    "serial": 62.79069767441861,
+    "overlap": 113.2867132867133,
+    "reordered": 127.05882352941177
+   }
+  },
+  {
+   "rate": "9/10",
+   "parallelism": 45,
+   "cycles_per_iter": {
+    "serial": 8172,
+    "overlap": 4494,
+    "reordered": 4032
+   },
+   "throughput_mbps": {
+    "serial": 47.2992700729927,
+    "overlap": 85.60105680317041,
+    "reordered": 95.29411764705883
+   }
+  },
+  {
+   "rate": "9/10",
+   "parallelism": 40,
+   "cycles_per_iter": {
+    "serial": 9180,
+    "overlap": 5043,
+    "reordered": 4536
+   },
+   "throughput_mbps": {
+    "serial": 42.10526315789474,
+    "overlap": 76.2801648028252,
+    "reordered": 84.70588235294117
+   }
+  },
+  {
+   "rate": "9/10",
+   "parallelism": 36,
+   "cycles_per_iter": {
+    "serial": 10188,
+    "overlap": 5592,
+    "reordered": 5040
+   },
+   "throughput_mbps": {
+    "serial": 37.93911007025761,
+    "overlap": 68.78980891719746,
+    "reordered": 76.23529411764706
+   }
+  },
+  {
+   "rate": "9/10",
+   "parallelism": 30,
+   "cycles_per_iter": {
+    "serial": 12204,
+    "overlap": 6690,
+    "reordered": 6048
+   },
+   "throughput_mbps": {
+    "serial": 31.67155425219941,
+    "overlap": 57.49778172138421,
+    "reordered": 63.529411764705884
+   }
+  }
+ ]
+}

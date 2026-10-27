@@ -1,4 +1,4 @@
-# <a id="chapter-8"></a>8 Conclusions
+# <a id="chapter-9"></a>9 Conclusions
 
 In this thesis we have dealt with a digital communications TX section which can provide a reliable information transmission via satellite while complying with the challenging requirements on performance imposed by the DVB-S2 standard.
 
@@ -42,4 +42,4 @@ Concerning the DVB-S2 architecture and overall TX section and thanks to the cont
 
 ---
 
-[← Preliminary Laboratory Test of DVB-S2 TX Section](08-preliminary-laboratory-test-of-dvb-s2-tx-section.md) · [Contents](README.md) · [Galois (or Finite) Fields →](10-galois-or-finite-fields.md)
+[← LDPC Decoder Design](09-ldpc-decoder-design.md) · [Contents](README.md) · [Galois (or Finite) Fields →](11-galois-or-finite-fields.md)

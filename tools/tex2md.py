@@ -23,7 +23,7 @@ TOOLS = ROOT / "tools"
 
 # Chapters in the order master.tex includes them.
 PARTS = ["preliminari", "riassunto", "cap1", "cap2", "cap3", "cap4", "cap5",
-         "cap6", "conclusioni", "Basic"]
+         "cap6", "ldpcdec", "conclusioni", "Basic"]
 
 # Figures drawn with TikZ/gnuplot, keyed by their \label.  The PNGs are
 # cropped from TESI_FINALE.pdf (pages 52, 53, 56, 88, 97, 98, 101).

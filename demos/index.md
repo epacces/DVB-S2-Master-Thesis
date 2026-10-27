@@ -16,6 +16,7 @@ installed. Every slider and switch recomputes the results live.
 | 6 | [LDPC codes](demos/06_ldpc_basics/) | Tanner graphs; peeling, bit flipping and belief propagation, iteration by iteration |
 | 7 | [The DVB-S2 chain](demos/07_dvbs2_chain/) | MODCODs, the IRA parity-check matrix, APSK constellations and LLRs, PLFRAME anatomy, live end-to-end frames |
 | 8 | [BER explorer](demos/08_ber_explorer/) | simulated FER/BER waterfalls for every MODCOD against the standard's thresholds and the capacity limits |
+| 9 | [Designing the LDPC decoder](demos/09_ldpc_decoder/) | the 360 × 360 circulants hidden in the DVB-S2 matrix; min-sum and its corrections; layered decoding in float and bit-true fixed point; an architecture calculator for throughput, latency and memory |
 
 The notebooks are [marimo](https://marimo.io) files in
 [`demos/`](https://github.com/epacces/DVB-S2-Master-Thesis/tree/master/demos) and use

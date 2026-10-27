@@ -1,4 +1,4 @@
-# <a id="chapter-6"></a>6 Software Package for VHDL Validation
+# <a id="chapter-6"></a><a id="ch:SWForVDL"></a>6 Software Package for VHDL Validation
 
 ## <a id="section-6.1"></a>6.1 Software Implementation of Serial Encoder
 

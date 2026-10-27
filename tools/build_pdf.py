@@ -66,6 +66,7 @@ def main():
             else:
                 shutil.copy2(src, BUILD / src.name)
     shutil.copytree(ROOT / "schemi", BUILD / "schemi")
+    shutil.copytree(ROOT / "figures", BUILD / "figures")
     # tikz looks for tikzlibrary<name>.code.tex.
     for lib in ROOT.glob("pgflibrarytikz*.code.tex"):
         (BUILD / lib.name.replace("pgflibrarytikz", "tikzlibrary")).write_text(utf8(lib), encoding="utf-8")

@@ -14,7 +14,7 @@ The body of the thesis is in English; the abstract, acknowledgements and the ext
 
 - **Website:** <https://epacces.github.io/DVB-S2-Master-Thesis/>, one page per chapter with rendered equations.
 - **Markdown:** [`markdown/`](markdown/README.md), the same chapters, readable directly on GitHub.
-- **Interactive demos:** <https://epacces.github.io/DVB-S2-Master-Thesis/demos.html>, eight notebooks from Hamming codes to the full DVB-S2 chain that run in the browser ([`demos/`](demos)).
+- **Interactive demos:** <https://epacces.github.io/DVB-S2-Master-Thesis/demos.html>, nine notebooks from Hamming codes to the full DVB-S2 chain and the LDPC decoder design that run in the browser ([`demos/`](demos)).
 - **Simulator:** [`sim/`](sim/README.md), the `dvbs2` Python package and `dvbs2sim` command-line tool.
 - **PDF:** [`TESI_FINALE.pdf`](TESI_FINALE.pdf) is the final version and the reference text. [`Ultima_versione.pdf`](Ultima_versione.pdf) and [`Tesi_05-07-08.pdf`](Tesi_05-07-08.pdf) are earlier drafts.
 
@@ -31,6 +31,7 @@ The Markdown is generated from the LaTeX sources, and its figure, table and equa
 | 4. Hardware Implementation of BCH Encoder | `cap4.tex` |
 | 5. Software Package for VHDL Validation | `cap5.tex` |
 | 6. Preliminary Laboratory Test of DVB-S2 TX Section | `cap6.tex` |
+| 7. LDPC Decoder Design (2026 addendum) | `ldpcdec.tex` |
 | Conclusions | `conclusioni.tex` |
 | Appendices: Galois (or Finite) Fields, Cyclic Codes | `Basic.tex` |
 | Front matter (abstract, acknowledgements) | `preliminari.tex` |
@@ -54,6 +55,7 @@ The 2008 C code covered only the BCH encoder and decoder. In 2026 it was rewritt
 - **Coding theory library.** GF(2^m) arithmetic, Hamming, cyclic and BCH codes (Berlekamp–Massey, Chien search) and the thesis' state-space **p-parallel BCH encoder**, which gives A^p and B_p for any p. The library reproduces the original C functions bit for bit, and the tests check it against line-by-line ports of `main.c`, `gfield.c` and `berlmass.c`.
 - **Full DVB-S2 physical layer.** All 28 MODCODs with normal and short frames, with or without pilots: BBFRAME and scrambling, BCH + LDPC (all 21 codes of the standard), bit interleaver, QPSK/8PSK/16APSK/32APSK, PLFRAME, AWGN, soft demapping and a numba-compiled layered LDPC decoder. Synchronization is ideal.
 - **Monte Carlo BER/FER** across multiple processes, with the results for every MODCOD in [`sim/results/`](sim/results).
+- **LDPC decoder design.** The quasi-cyclic (360 × 360 circulant) view of the DVB-S2 codes, a bit-true fixed-point model of a 360-parallel layered decoder and a cycle/memory/throughput model of its architecture. The study in [`sim/results/ldpc_study/`](sim/results/ldpc_study) is the basis of the added chapter *LDPC Decoder Design* (`ldpcdec.tex`).
 
 ```bash
 cd sim && python -m venv .venv && .venv/bin/pip install -e '.[fast,dev]'
@@ -72,6 +74,7 @@ Everything lives in the repository root, as it was in the original LaTeX working
 ├── preliminari.tex          # Abstract and acknowledgements (Italian)
 ├── riassunto.tex            # Extended summary (Italian)
 ├── cap1.tex … cap6.tex      # Chapters 1–6
+├── ldpcdec.tex              # Chapter 7, LDPC Decoder Design (added in 2026)
 ├── conclusioni.tex          # Conclusions
 ├── Basic.tex                # Appendices: Galois fields, cyclic codes
 ├── bibliografy.tex, thesis.bib
@@ -80,7 +83,7 @@ Everything lives in the repository root, as it was in the original LaTeX working
 ├── schemi/                  # Extra diagrams (SVG/EPS sources, Interface.ppt)
 ├── TESI_FINALE.pdf          # Final thesis PDF (plus earlier drafts)
 ├── markdown/                # Thesis as Markdown, one file per chapter (generated, do not edit)
-├── figures/                 # TikZ diagrams as PNGs cropped from TESI_FINALE.pdf
+├── figures/                 # TikZ diagrams cropped from TESI_FINALE.pdf; ldpc-*.png from sim/tools/ldpc_figures.py
 ├── tools/                   # LaTeX → Markdown converter, website and demo builders
 ├── sim/                     # dvbs2 Python package: codes, DVB-S2 PHY simulator, tests, results
 ├── demos/                   # marimo notebooks (interactive demos, exported to the website)

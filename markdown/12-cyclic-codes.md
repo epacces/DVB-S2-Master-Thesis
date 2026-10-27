@@ -72,7 +72,7 @@ Generally, polynomial multiplication does not have an inverse. For example in th
 f(x)(x^2+5x+1) = x^3+3x+1
 ```
 
-Let us now consider the residue class of polynomial rings $`GF(p)[x]`$ modulo $`x^n-1`$, denoted as $`GF(p)[x]/(x^n-1)`$. We have already shown ([A.2](10-galois-or-finite-fields.md#sec:GF)) that a quotient ring is a field if and only if $`x^n-1`$ cannot be factored over the base field $`GF(p)`$ ($`p`$ is a prime number). But let us return to our main question. In fact, we would like to find a set where every shifted element is still within such a set. Such an algebraic structure is the following.
+Let us now consider the residue class of polynomial rings $`GF(p)[x]`$ modulo $`x^n-1`$, denoted as $`GF(p)[x]/(x^n-1)`$. We have already shown ([A.2](11-galois-or-finite-fields.md#sec:GF)) that a quotient ring is a field if and only if $`x^n-1`$ cannot be factored over the base field $`GF(p)`$ ($`p`$ is a prime number). But let us return to our main question. In fact, we would like to find a set where every shifted element is still within such a set. Such an algebraic structure is the following.
 
 <div class="Def">
 
@@ -169,4 +169,4 @@ As said in Section [B.1](#sec:shift), cyclic shifting of a polynomial $`c(x)`$ 
 
 ---
 
-[← Galois (or Finite) Fields](10-galois-or-finite-fields.md) · [Contents](README.md) · [Bibliography →](12-bibliography.md)
+[← Galois (or Finite) Fields](11-galois-or-finite-fields.md) · [Contents](README.md) · [Bibliography →](13-bibliography.md)

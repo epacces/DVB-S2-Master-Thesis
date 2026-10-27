@@ -12,7 +12,7 @@ The coding/modulation (C/M) problem consists of finding practical ways of commun
 
 - Implementation complexity, which is a measure of the cost of the equipment.
 
-### <a id="section-3.1.1"></a>3.1.1 BICM: How to Obtain Top Performance Using a Single Code and Various Modulations
+### <a id="section-3.1.1"></a><a id="sec:BICMintro"></a>3.1.1 BICM: How to Obtain Top Performance Using a Single Code and Various Modulations
 
 Forward Error Correction codes for satellite applications must combine power efficiency and low BER floor with flexibility and simplicity to allow for high-speed implementation. The existence of practical, simple, and powerful such coding designs for binary modulations has been settled with the advent of turbo codes (Claude Berrou, Alain Glavieux, Punya Thitimajshima 1993) and the recent re-discovery of Low-Density Parity-Check (LDPC) codes (Robert Gallagher 1963). In parallel, the field of channel coding for non-binary modulations has evolved significantly in recent years. Starting with Ungerboeck’s work on Trellis-Coded Modulation (TCM) (Gottfried Ungerboek 1981), the approach had been to consider channel code and modulation as a single entity, to be jointly designed and demodulated/decoded.
 
@@ -153,7 +153,7 @@ The ACM technique therefore allows one to significantly increase the average sys
 
 - more optimization dimensions in the system design to cope with more aggressive frequency reuse and more complex satellite antennas.
 
-## <a id="section-3.2"></a>3.2 ACM Modem System Description
+## <a id="section-3.2"></a><a id="sec:ACMdesc"></a>3.2 ACM Modem System Description
 
 The DVB-S2 ACM Modem system is defined as the functional block of equipment performing the adaptation of the baseband digital signals, from the output of a single (or multiple) MPEG transport stream multiplexer(s), or from the output of a single (or multiple) generic data source(s), to the satellite channel characteristics. Data services may be transported in Transport Stream format (e.g., using Multi-protocol Encapsulation[^5]) or Generic Stream format.
 
@@ -346,11 +346,11 @@ BCH code is named for Bose, Ray-Chaudhury, and Hocquenghem, who published work i
 
 A BCH code of length $`n`$ with a specified minimum distance, i.e., capable of correcting (at least) $`t`$ errors, can be designed as follows (Moon 2005; F. J. MacWilliams, N. J. Sloane 1977):
 
-1.  Determine the smallest $`m`$ such that $`GF(q^m)`$ has a primitive $`n`$th root (Section [A.5](10-galois-or-finite-fields.md#sec:factoring)) of unity $`\beta`$.
+1.  Determine the smallest $`m`$ such that $`GF(q^m)`$ has a primitive $`n`$th root (Section [A.5](11-galois-or-finite-fields.md#sec:factoring)) of unity $`\beta`$.
 
 2.  Select a nonnegative integer $`b`$. In most cases, it is selected $`b=1`$.
 
-3.  Write down a list of $`2t`$ consecutive powers of $`\beta`$ (see Section [A.3](10-galois-or-finite-fields.md#sec:MathSurvey)):
+3.  Write down a list of $`2t`$ consecutive powers of $`\beta`$ (see Section [A.3](11-galois-or-finite-fields.md#sec:MathSurvey)):
     ``` math
     \beta^b ,\beta^{b+1} ,\ldots ,\beta^{b+2t-1}
     ```
@@ -417,7 +417,7 @@ In the DVB-S2 context, the BCH outer code has been designed to avoid “unpredic
 
 Although the mathematical background shown in this thesis for design, encoding and decoding is completely general, in most practical cases the base field of BCH codes is $`GF(2)`$, as in DVB-S2 FEC section. The polynomials which must be multiplied in order to obtain the wanted BCH code associated to a specific operating mode (i.e., error correction capability) are shown in Table [3.4](#tb:BCHpoly). More specifically, multiplication of the first $`t`$ of them provides a polynomial generator of the BCH code capable of correcting at least $`t`$ errors. Notice that this procedure is in accordance with the third step to construct the generator polynomial of the BCH code.
 
-The encoding suggestions, provided in (*<span class="nocase">EN 302 307 v1.1.1 — Digital Video Broadcasting (DVB); Second generation framing structure, channel coding and modulation systems for Broadcasting, Interactive Services, News Gathering and other broadband satellite applications</span>* 2005), are typical of cyclic codes in systematic form, whose specific properties and encoding steps are discussed in dedicated Appendix B. It is worth understanding that both systematic and non-systematic codewords are always multiples of the generator polynomial of the code (i.e., of the ideal, as also shown in Section [B.2](11-cyclic-codes.md#sec:ideals)) so that the parity check condition ([3.12](#eq:pchk)) is still valid as well as the BCH bound. Furthermore, from a direct analysis of the polynomials supplied by (*<span class="nocase">EN 302 307 v1.1.1 — Digital Video Broadcasting (DVB); Second generation framing structure, channel coding and modulation systems for Broadcasting, Interactive Services, News Gathering and other broadband satellite applications</span>* 2005) (Normal FEC-Frame), one could observe that these specific codes (one for each selected error protection level) are *primitive* and, indeed, *narrow-sense*. The reasons are described in the following:
+The encoding suggestions, provided in (*<span class="nocase">EN 302 307 v1.1.1 — Digital Video Broadcasting (DVB); Second generation framing structure, channel coding and modulation systems for Broadcasting, Interactive Services, News Gathering and other broadband satellite applications</span>* 2005), are typical of cyclic codes in systematic form, whose specific properties and encoding steps are discussed in dedicated Appendix B. It is worth understanding that both systematic and non-systematic codewords are always multiples of the generator polynomial of the code (i.e., of the ideal, as also shown in Section [B.2](12-cyclic-codes.md#sec:ideals)) so that the parity check condition ([3.12](#eq:pchk)) is still valid as well as the BCH bound. Furthermore, from a direct analysis of the polynomials supplied by (*<span class="nocase">EN 302 307 v1.1.1 — Digital Video Broadcasting (DVB); Second generation framing structure, channel coding and modulation systems for Broadcasting, Interactive Services, News Gathering and other broadband satellite applications</span>* 2005) (Normal FEC-Frame), one could observe that these specific codes (one for each selected error protection level) are *primitive* and, indeed, *narrow-sense*. The reasons are described in the following:
 
 - $`g_1(x)`$ is one of the possible primitive polynomials which have their roots in $`GF(2^{16})`$. This can be quickly proved by verifying that $`\alpha^{2^{16}-1}=1`$ by computer aid or, more lazily, by direct consultation of any table of primitive polynomials. For the tables of primitive polynomials, the interested reader could refer to (Stephen B. Wicker 1995).
 
@@ -474,7 +474,7 @@ Eventually, we have to conclude that the DVB-S2 BCH code is *shortened*. A syste
 
 </div>
 
-### <a id="section-3.3.2"></a>3.3.2 LDPC
+### <a id="section-3.3.2"></a><a id="sec:LDPCstruct"></a>3.3.2 LDPC
 
 LDPC codes (Robert Gallagher 1963) were invented in 1960 by R. Gallager. They were largely ignored until the discovery of turbo codes (Claude Berrou, Alain Glavieux, Punya Thitimajshima 1993) in 1993. Since then, LDPC codes have experienced a renaissance and are now one of the most intensely studied areas in coding.
 
@@ -515,6 +515,8 @@ In actual decoding all nodes decode concurrently. Each node gathers opinions fro
 The processing required for message-passing decoding of LDPC codes is highly parallelizable and flexible. Each message-passing operation performed at a node depends on other nodes only through the messages that arrive at that node. Moreover, message updating need not be synchronized. Consequently, there is great freedom to distribute in time and space the computation required to decode LDPC codes. Turbo codes are also decoded using belief propagation, but their structure does not admit the same level of atomization.
 
 There is a second distinct class of decoding algorithms that is often of interest for very high speed applications, such as optical networking. This class of algorithms is known as flipping algorithms. Bit flipping usually operates on hard decisions: the information exchanged between neighboring nodes in each iteration is a single bit. The basic idea of flipping is that each bit, corresponding to a variable node assumes a value, either 0 or 1, and, at certain times, decides whether to flip itself (i.e., change its value from a 1 to a 0 or vice versa). That decision depends on the state of the neighboring check nodes under the current values. If enough of the neighboring checks are unsatisfied, the bit is flipped. The notion of ‘enough’ may be time-varying, and it may also depend on soft information available about the bit. Thus, under flipping, variable nodes inform their neighboring check nodes of their current value, and the check nodes then return to their neighbors the parity of their values. The underlying assumption is that bits that are wrong will tend to have more unsatisfied neighbors than bits that are correct.
+
+The message-passing rules sketched above are derived exactly, simplified for hardware and turned into a decoder architecture for the DVB-S2 code in Chapter [8](09-ldpc-decoder-design.md#ch:LDPCdec).
 
 #### Encoding Procedure for The DVB-S2 Code
 

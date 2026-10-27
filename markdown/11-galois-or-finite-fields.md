@@ -377,4 +377,4 @@ x^5-1=(x+1)(x^4+x^3+x^2+x+1)
 
 ---
 
-[← Conclusions](09-conclusions.md) · [Contents](README.md) · [Cyclic Codes →](11-cyclic-codes.md)
+[← Conclusions](10-conclusions.md) · [Contents](README.md) · [Cyclic Codes →](12-cyclic-codes.md)

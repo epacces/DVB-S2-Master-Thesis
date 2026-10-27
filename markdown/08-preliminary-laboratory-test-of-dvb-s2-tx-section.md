@@ -1,4 +1,4 @@
-# <a id="chapter-7"></a>7 Preliminary Laboratory Test of DVB-S2 TX Section
+# <a id="chapter-7"></a><a id="ch:TestTXSec"></a>7 Preliminary Laboratory Test of DVB-S2 TX Section
 
 ## <a id="section-7.1"></a>7.1 Introduction
 
@@ -218,4 +218,4 @@ The modulator tested by TAS can also provide modulations of higher order with re
 
 ---
 
-[← Software Package for VHDL Validation](07-software-package-for-vhdl-validation.md) · [Contents](README.md) · [Conclusions →](09-conclusions.md)
+[← Software Package for VHDL Validation](07-software-package-for-vhdl-validation.md) · [Contents](README.md) · [LDPC Decoder Design →](09-ldpc-decoder-design.md)
